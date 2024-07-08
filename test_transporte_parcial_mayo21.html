@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEST TRANSPORTE - Parcial (Examen 14/05/2021)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 90%;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .question {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .question h3 {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        .answers label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .submit-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .submit-button:hover {
+            background-color: #45a049;
+        }
+        .correct {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .result {
+            margin-top: 10px;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px 0;
+            font-size: 1em;
+            color: white;
+            background-color: #007BFF;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Examen 14/05/2021 - Transporte Parcial 2</h1>
+        <form id="quizForm">
+            <div class="question" id="q1">
+                <h3>1. La siguiente figura representa un clasificador tipo:</h3>
+                <img src="refxtest/imagen8.png" alt="Imagen 8">
+                <div class="answers">
+                    <label><input type="radio" name="q1" value="Pop-up"> Pop-up</label>
+                    <label><input type="radio" name="q1" value="Desviador por empuje"> Desviador por empuje</label>
+                    <label><input type="radio" name="q1" value="Tilt sorter"> Tilt sorter</label>
+                </div>
+                <div class="result" id="result-q1"></div>
+            </div>
+            <div class="question" id="q2">
+                <h3>2. La siguiente imagen se corresponde con un transportador:</h3>
+                <img src="refxtest/imagen9.png" alt="Imagen 9">
+                <div class="answers">
+                    <label><input type="radio" name="q2" value="Un transportador de cadena de tipo compacto"> Un transportador de cadena de tipo compacto</label>
+                    <label><input type="radio" name="q2" value="Un transportador rascador"> Un transportador rascador</label>
+                    <label><input type="radio" name="q2" value="Un transportador de cadena flotante o en masa"> Un transportador de cadena flotante o en masa</label>
+                </div>
+                <div class="result" id="result-q2"></div>
+            </div>
+            <div class="question" id="q3">
+                <h3>3. Los reductores harmónicos de una sola etapa:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q3" value="Poseen una relación de reducción igual al cociente entre el número de dientes del circular spline y el flexspline"> Poseen una relación de reducción igual al cociente entre el número de dientes del circular spline y el flexspline</label>
+                    <label><input type="radio" name="q3" value="Permiten una gran reducción sin invertir el sentido de giro"> Permiten una gran reducción sin invertir el sentido de giro</label>
+                    <label><input type="radio" name="q3" value="Invierten el sentido de giro"> Invierten el sentido de giro</label>
+                </div>
+                <div class="result" id="result-q3"></div>
+            </div>
+            <div class="question" id="q4">
+                <h3>4. El ángulo de sobrecarga:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q4" value="No depende del material"> No depende del material</label>
+                    <label><input type="radio" name="q4" value="Influye en la capacidad de carga de una cinta transportadora"> Influye en la capacidad de carga de una cinta transportadora</label>
+                    <label><input type="radio" name="q4" value="Suele ser de 5 a 15º superior al ángulo de talud natural"> Suele ser de 5 a 15º superior al ángulo de talud natural</label>
+                </div>
+                <div class="result" id="result-q4"></div>
+            </div>
+            <div class="question" id="q5">
+                <h3>5. Un elevador de cangilones por cadena:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q5" value="Está permitido para el transporte de material a gran velocidad"> Está permitido para el transporte de material a gran velocidad</label>
+                    <label><input type="radio" name="q5" value="Permite mayores cargas comparado con uno de banda"> Permite mayores cargas comparado con uno de banda</label>
+                    <label><input type="radio" name="q5" value="No requiere de estación tensora"> No requiere de estación tensora</label>
+                </div>
+                <div class="result" id="result-q5"></div>
+            </div>
+            <div class="question" id="q6">
+                <h3>6. ¿Cuál de los siguientes métodos de guiado no se considera como pasivo?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q6" value="Cinta fluorescente"> Cinta fluorescente</label>
+                    <label><input type="radio" name="q6" value="Guiado inductivo"> Guiado inductivo</label>
+                    <label><input type="radio" name="q6" value="Cinta metálica"> Cinta metálica</label>
+                </div>
+                <div class="result" id="result-q6"></div>
+            </div>
+            <div class="question" id="q7">
+                <h3>7. El término manutención:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q7" value="Incluye el transporte de utillaje y producto en curso dentro de la planta de producción"> Incluye el transporte de utillaje y producto en curso dentro de la planta de producción</label>
+                    <label><input type="radio" name="q7" value="No incluye el transporte de la materia prima en el interior de la planta de producción"> No incluye el transporte de la materia prima en el interior de la planta de producción</label>
+                    <label><input type="radio" name="q7" value="Incluye el transporte del producto acabado desde la planta de producción al consumidor final"> Incluye el transporte del producto acabado desde la planta de producción al consumidor final</label>
+                </div>
+                <div class="result" id="result-q7"></div>
+            </div>
+            <div class="question" id="q8">
+                <h3>8. El diseño de medio cónico en una cinta transportadora:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q8" value="Ninguna es correcta"> Ninguna es correcta</label>
+                    <label><input type="radio" name="q8" value="Conlleva una mayor longitud de transición"> Conlleva una mayor longitud de transición</label>
+                    <label><input type="radio" name="q8" value="Garantiza una mejor estabilidad de la banda"> Garantiza una mejor estabilidad de la banda</label>
+                </div>
+                <div class="result" id="result-q8"></div>
+            </div>
+            <div class="question" id="q9">
+                <h3>9. Un menor tamaño de material:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q9" value="Permite menor ancho de banda"> Permite menor ancho de banda</label>
+                    <label><input type="radio" name="q9" value="Permite mayor capacidad de carga ya que aumenta la sobrecarga"> Permite mayor capacidad de carga ya que aumenta la sobrecarga</label>
+                    <label><input type="radio" name="q9" value="Requiere menor velocidad de transporte"> Requiere menor velocidad de transporte</label>
+                </div>
+                <div class="result" id="result-q9"></div>
+            </div>
+            <div class="question" id="q10">
+                <h3>10. Una ventaja fundamental de los descensores helicoidales con respecto a los rectos es que:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q10" value="El cálculo de la velocidad final es mucho más simple"> El cálculo de la velocidad final es mucho más simple</label>
+                    <label><input type="radio" name="q10" value="Permite un mejor aprovechamiento de la superficie del transportador"> Permite un mejor aprovechamiento de la superficie del transportador</label>
+                    <label><input type="radio" name="q10" value="La velocidad se estabiliza al cabo de un tiempo"> La velocidad se estabiliza al cabo de un tiempo</label>
+                </div>
+                <div class="result" id="result-q10"></div>
+            </div>
+            <div class="question" id="q11">
+                <h3>11. El dispositivo que evita que una banda se salga de su posición se denomina:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q11" value="Tope antiexpulsión"> Tope antiexpulsión</label>
+                    <label><input type="radio" name="q11" value="Rodillo de transición"> Rodillo de transición</label>
+                    <label><input type="radio" name="q11" value="Estación autoconcentradora"> Estación autoconcentradora</label>
+                </div>
+                <div class="result" id="result-q11"></div>
+            </div>
+            <div class="question" id="q12">
+                <h3>12. Los métodos más habituales de control del tráfico de un AGV se denominan:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q12" value="Control zonal, control vehicular y control centralizado"> Control zonal, control vehicular y control centralizado</label>
+                    <label><input type="radio" name="q12" value="Control zonal, control vehicular y control combinado"> Control zonal, control vehicular y control combinado</label>
+                    <label><input type="radio" name="q12" value="Control zonal, control centralizado y control descentralizado"> Control zonal, control centralizado y control descentralizado</label>
+                </div>
+                <div class="result" id="result-q12"></div>
+            </div>
+            <div class="question" id="q13">
+                <h3>13. Una banda más flexible:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q13" value="Permite mayores ángulos de sobrecarga, por lo que aumenta la capacidad de carga de la banda"> Permite mayores ángulos de sobrecarga, por lo que aumenta la capacidad de carga de la banda</label>
+                    <label><input type="radio" name="q13" value="Permite mayores ángulos de artesa, por lo que aumenta la capacidad de carga de la banda"> Permite mayores ángulos de artesa, por lo que aumenta la capacidad de carga de la banda</label>
+                    <label><input type="radio" name="q13" value="Permite menores ángulos de artesa, por lo que aumenta la velocidad de la banda"> Permite menores ángulos de artesa, por lo que aumenta la velocidad de la banda</label>
+                </div>
+                <div class="result" id="result-q13"></div>
+            </div>
+            <div class="question" id="q14">
+                <h3>14. ¿Cuáles de las siguientes abreviaturas indican tipos de bandas en función de los tejidos utilizados para su construcción?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q14" value="EP y ST, de poliéster-poliamida y cables de acero"> EP y ST, de poliéster-poliamida y cables de acero</label>
+                    <label><input type="radio" name="q14" value="EP y CO, de poliéster-poliamida y algodón"> EP y CO, de poliéster-poliamida y algodón</label>
+                    <label><input type="radio" name="q14" value="ST y CO, de acero y algodón"> ST y CO, de acero y algodón</label>
+                </div>
+                <div class="result" id="result-q14"></div>
+            </div>
+            <div class="question" id="q15">
+                <h3>15. En un descensor recto, la velocidad final no depende de:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q15" value="El peso del material"> El peso del material</label>
+                    <label><input type="radio" name="q15" value="Coeficiente de fricción entre el descensor y el material a transportar"> Coeficiente de fricción entre el descensor y el material a transportar</label>
+                    <label><input type="radio" name="q15" value="La altura de caída"> La altura de caída</label>
+                </div>
+                <div class="result" id="result-q15"></div>
+            </div>
+            <div class="question" id="q16">
+                <h3>16. En la circulación en tránsito de un AGV:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q16" value="Está específicamente indicado para el transporte en rampas en dirección ascendente"> Está específicamente indicado para el transporte en rampas en dirección ascendente</label>
+                    <label><input type="radio" name="q16" value="Posee una baja velocidad cuando se circula marcha atrás"> Posee una baja velocidad cuando se circula marcha atrás</label>
+                    <label><input type="radio" name="q16" value="No puede transitar en rampas debido a su gran maniobrabilidad"> No puede transitar en rampas debido a su gran maniobrabilidad</label>
+                </div>
+                <div class="result" id="result-q16"></div>
+            </div>
+            <div class="question" id="q17">
+                <h3>17. El método de programación de robots en el que la programación de la trayectoria se realiza moviendo manualmente al manipulador o a un doble de este se denomina:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q17" value="Guiado pasivo"> Guiado pasivo</label>
+                    <label><input type="radio" name="q17" value="Guiado gestual"> Guiado gestual</label>
+                    <label><input type="radio" name="q17" value="Guiado activo"> Guiado activo</label>
+                </div>
+                <div class="result" id="result-q17"></div>
+            </div>
+            <div class="question" id="q18">
+                <h3>18. Una ventaja de los transportadores de ruedas respecto a los de rodillos:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q18" value="Permiten una mayor capacidad de carga"> Permiten una mayor capacidad de carga</label>
+                    <label><input type="radio" name="q18" value="No presentan grandes problemas en caminos curvados"> No presentan grandes problemas en caminos curvados</label>
+                    <label><input type="radio" name="q18" value="Están indicados para objetos en los que la superficie de apoyo sea muy fiable"> Están indicados para objetos en los que la superficie de apoyo sea muy fiable</label>
+                </div>
+                <div class="result" id="result-q18"></div>
+            </div>
+            <div class="question" id="q19">
+                <h3>19. Generalmente, si un robot tiene pobre repetibilidad:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q19" value="Indica que el robot está llegando al final de su vida útil"> Indica que el robot está llegando al final de su vida útil</label>
+                    <label><input type="radio" name="q19" value="La exactitud no se verá afectada al ser ésta mucho menor que la repetibilidad"> La exactitud no se verá afectada al ser ésta mucho menor que la repetibilidad</label>
+                    <label><input type="radio" name="q19" value="Se puede solucionar modificando la programación"> Se puede solucionar modificando la programación</label>
+                </div>
+                <div class="result" id="result-q19"></div>
+            </div>
+            <div class="question" id="q20">
+                <h3>20. ¿Qué tipo de configuración geométrica presenta este robot?</h3>
+                <img src="refxtest/imagen10.png" alt="Imagen 10">
+                <div class="answers">
+                    <label><input type="radio" name="q20" value="SCARA"> SCARA</label>
+                    <label><input type="radio" name="q20" value="Cartesiano"> Cartesiano</label>
+                    <label><input type="radio" name="q20" value="Paralelo"> Paralelo</label>
+                </div>
+                <div class="result" id="result-q20"></div>
+            </div>
+            <div class="question" id="q21">
+                <h3>21. ¿Cuál de los siguientes transportadores no está diseñado para el transporte de material en bultos?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q21" value="Un transportador rascador"> Un transportador rascador</label>
+                    <label><input type="radio" name="q21" value="Un transportador de rodillos motorizados"> Un transportador de rodillos motorizados</label>
+                    <label><input type="radio" name="q21" value="Un transportador de cadena articulada"> Un transportador de cadena articulada</label>
+                </div>
+                <div class="result" id="result-q21"></div>
+            </div>
+            <div class="question" id="q22">
+                <h3>22. En transportadores de rodillos Motorizados, ¿Qué método de transmisión de movimiento a los rodillos utilizaría para transportar bultos muy pesados?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q22" value="Cordón de perfil redondo"> Cordón de perfil redondo</label>
+                    <label><input type="radio" name="q22" value="Eje lineal de acero"> Eje lineal de acero</label>
+                    <label><input type="radio" name="q22" value="Cadena de rodillo a rodillo"> Cadena de rodillo a rodillo</label>
+                </div>
+                <div class="result" id="result-q22"></div>
+            </div>
+            <div class="question" id="q23">
+                <h3>23. ¿Qué tipo de descarga utilizaría en un elevador de cangilones para el transporte de trigo?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q23" value="Gravedad, ya que no se puede transportar a alta velocidad"> Gravedad, ya que no se puede transportar a alta velocidad</label>
+                    <label><input type="radio" name="q23" value="Gravedad central, ya que se puede acumular gran cantidad de carga por tolva"> Gravedad central, ya que se puede acumular gran cantidad de carga por tolva</label>
+                    <label><input type="radio" name="q23" value="Centrífuga, ya que es un material suelto y poco abrasivo"> Centrífuga, ya que es un material suelto y poco abrasivo</label>
+                </div>
+                <div class="result" id="result-q23"></div>
+            </div>
+            <div class="question" id="q24">
+                <h3>24. El guiado inercial requiere de:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q24" value="Sensor de giro de la rueda y encoder de posición"> Sensor de giro de la rueda y encoder de posición</label>
+                    <label><input type="radio" name="q24" value="Sensor de ángulo de dirección y acelerómetro"> Sensor de ángulo de dirección y acelerómetro</label>
+                    <label><input type="radio" name="q24" value="Sensor de giro de la rueda y sensor de ángulo de dirección"> Sensor de giro de la rueda y sensor de ángulo de dirección</label>
+                </div>
+                <div class="result" id="result-q24"></div>
+            </div>
+
+
+            <button type="button" class="submit-button" onclick="checkAnswers()">Enviar</button>
+        </form>
+        <a href="index.html" class="button">Inicio</a>
+        <div id="finalResult" class="result"></div>
+    </div>
+    <script>
+        function checkAnswers() {
+            const correctAnswers = {
+                q1: 'Pop-up',
+                q2: 'Un transportador rascador',
+                q3: 'Poseen una relación de reducción igual al cociente entre el número de dientes del circular spline y el flexspline',
+                q4: 'Influye en la capacidad de carga de una cinta transportadora',
+                q5: 'Permite mayores cargas comparado con uno de banda',
+                q6: 'Guiado inductivo',
+                q7: 'Incluye el transporte de utillaje y producto en curso dentro de la planta de producción',
+                q8: 'Ninguna es correcta',
+                q9: 'Permite menor ancho de banda',
+                q10: 'Permite un mejor aprovechamiento de la superficie del transportador',
+                q11: 'Estación autoconcentradora',
+                q12: 'Control zonal, control vehicular y control combinado',
+                q13: 'Permite mayores ángulos de artesa, por lo que aumenta la capacidad de carga de la banda',
+                q14: 'EP y ST, de poliéster-poliamida y cables de acero',
+                q15: 'El peso del material',
+                q16: 'Posee una baja velocidad cuando se circula marcha atrás',
+                q17: 'Guiado pasivo',
+                q18: 'No presentan grandes problemas en caminos curvados',
+                q19: 'Indica que el robot está llegando al final de su vida útil',
+                q20: 'SCARA',
+                q21: 'Un transportador rascador',
+                q22: 'Cadena de rodillo a rodillo',
+                q23: 'Centrífuga, ya que es un material suelto y poco abrasivo',
+                q24: 'Sensor de giro de la rueda y sensor de ángulo de dirección',
+            };
+
+            let score = 0;
+            const form = document.getElementById('quizForm');
+            const formData = new FormData(form);
+
+            for (let question in correctAnswers) {
+                const questionDiv = document.getElementById(question);
+                const resultDiv = document.getElementById(`result-${question}`);
+                const answer = formData.get(question);
+
+                if (answer === correctAnswers[question]) {
+                    score++;
+                    questionDiv.classList.add('correct');
+                    questionDiv.classList.remove('incorrect');
+                    resultDiv.innerHTML = `<p class="correct">Correcto</p>`;
+                } else {
+                    questionDiv.classList.add('incorrect');
+                    questionDiv.classList.remove('correct');
+                    resultDiv.innerHTML = `<p class="incorrect">Incorrecto. Respuesta correcta: ${correctAnswers[question]}</p>`;
+                }
+            }
+
+            const finalResultDiv = document.getElementById('finalResult');
+            finalResultDiv.innerHTML = `<p>Puntuación: ${score} / ${Object.keys(correctAnswers).length}</p>`;
+        }
+    </script>
+</body>
+</html>
