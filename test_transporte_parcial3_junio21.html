@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEST TRANSPORTE - Parcial 3 (Examen 01/06/2021)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 90%;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .question {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .question h3 {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        .answers label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .submit-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .submit-button:hover {
+            background-color: #45a049;
+        }
+        .correct {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .result {
+            margin-top: 10px;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px 0;
+            font-size: 1em;
+            color: white;
+            background-color: #007BFF;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>TEST TRANSPORTE - Parcial 3 (Examen 01/06/2021)</h1>
+        <form id="quizForm">
+            <div class="question" id="q1">
+                <h3>1. La suma de la tara de un vehículo y su carga útil:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q1" value="Es igual a la masa máxima autorizada del vehículo"> Es igual a la masa máxima autorizada del vehículo</label>
+                    <label><input type="radio" name="q1" value="Es igual a la suma de las masas máximas autorizadas por eje"> Es igual a la suma de las masas máximas autorizadas por eje</label>
+                    <label><input type="radio" name="q1" value="Puede ser superior a la masa máxima autorizada siempre y cuando no supere la masa máxima técnicamente autorizada"> Puede ser superior a la masa máxima autorizada siempre y cuando no supere la masa máxima técnicamente autorizada</label>
+                </div>
+                <div class="result" id="result-q1"></div>
+            </div>
+            <div class="question" id="q2">
+                <h3>2. La póliza de fletamento:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q2" value="Establece el flete entre el armador o fletador y el cargador"> Establece el flete entre el armador o fletador y el cargador</label>
+                    <label><input type="radio" name="q2" value="Define obligatoriamente los incoterms aplicables al servicio de transporte contratado"> Define obligatoriamente los incoterms aplicables al servicio de transporte contratado</label>
+                    <label><input type="radio" name="q2" value="Establece el aseguramiento de la carga por la empresa aseguradora del buque"> Establece el aseguramiento de la carga por la empresa aseguradora del buque</label>
+                </div>
+                <div class="result" id="result-q2"></div>
+            </div>
+            <div class="question" id="q3">
+                <h3>3. En general en la fase de homologación y periódicamente en la ITB durante el uso del vehículo se controla:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q3" value="El nivel de emisiones de CO y partículas de los vehículos de encendido provocado"> El nivel de emisiones de CO y partículas de los vehículos de encendido provocado</label>
+                    <label><input type="radio" name="q3" value="El nivel de emisiones de CO, NOx y partículas de todos los vehículos de encendido por compresión"> El nivel de emisiones de CO, NOx y partículas de todos los vehículos de encendido por compresión</label>
+                    <label><input type="radio" name="q3" value="El nivel de partículas de los vehículos de encendido por compresión y el nivel de CO de los de encendido provocado"> El nivel de partículas de los vehículos de encendido por compresión y el nivel de CO de los de encendido provocado</label>
+                </div>
+                <div class="result" id="result-q3"></div>
+            </div>
+            <div class="question" id="q4">
+                <h3>4. Para reducir la emisión de NOx por parte de los vehículos se emplean:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q4" value="Utilización de Urea, catalizadores de tres vías y válvula de recirculación de gases de escape"> Utilización de Urea, catalizadores de tres vías y válvula de recirculación de gases de escape</label>
+                    <label><input type="radio" name="q4" value="Catalizadores de tres vías, válvula de recirculación de gases de escape y mezclas pobres"> Catalizadores de tres vías, válvula de recirculación de gases de escape y mezclas pobres</label>
+                    <label><input type="radio" name="q4" value="Catalizadores de tres vías, filtros antipartículas y mezclas pobres"> Catalizadores de tres vías, filtros antipartículas y mezclas pobres</label>
+                </div>
+                <div class="result" id="result-q4"></div>
+            </div>
+            <div class="question" id="q5">
+                <h3>5. El documento en el que se recoge que el vehículo reformado cumple los requisitos de los actos reglamentarios que son de aplicación según las reformas que se le van a ser sometido es:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q5" value="Informe de conformidad"> Informe de conformidad</label>
+                    <label><input type="radio" name="q5" value="El proyecto técnico emitido por técnico competente y visado por el colegio de ingenieros"> El proyecto técnico emitido por técnico competente y visado por el colegio de ingenieros</label>
+                    <label><input type="radio" name="q5" value="Certificado de conformidad"> Certificado de conformidad</label>
+                </div>
+                <div class="result" id="result-q5"></div>
+            </div>
+            <div class="question" id="q6">
+                <h3>6. Según el ROTT, un vehículo M3:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q6" value="Es un vehículo de transporte de pasajeros"> Es un vehículo de transporte de pasajeros</label>
+                    <label><input type="radio" name="q6" value="No está definido en el ROTT como vehículo de carga"> No está definido en el ROTT como vehículo de carga</label>
+                    <label><input type="radio" name="q6" value="Es un vehículo ligero"> Es un vehículo ligero</label>
+                </div>
+                <div class="result" id="result-q6"></div>
+            </div>
+            <div class="question" id="q7">
+                <h3>7. En un vehículo de tracción delantera:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q7" value="La transferencia de carga al acelerar provoca que se cargue el eje delantero y se descargue el trasero, lo que favorece la capacidad de tracción"> La transferencia de carga al acelerar provoca que se cargue el eje delantero y se descargue el trasero, lo que favorece la capacidad de tracción</label>
+                    <label><input type="radio" name="q7" value="El paso por curvas es más seguro debido al mejor agarre que ofrece el eje delantero"> El paso por curvas es más seguro debido al mejor agarre que ofrece el eje delantero</label>
+                    <label><input type="radio" name="q7" value="La transferencia de carga es al revés, al acelerar se descarga el eje delantero y se cargue el trasero, lo que empeora la capacidad de tracción"> La transferencia de carga es al revés, al acelerar se descarga el eje delantero y se cargue el trasero, lo que empeora la capacidad de tracción</label>
+                </div>
+                <div class="result" id="result-q7"></div>
+            </div>
+            <div class="question" id="q8">
+                <h3>8. El documento que recoge las características técnicas de un vehículo y que emite el fabricante una vez comprobado que cumple con las normas y directivas de aplicación es:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q8" value="El certificado de Conformidad"> El certificado de Conformidad</label>
+                    <label><input type="radio" name="q8" value="La ficha técnica"> La ficha técnica</label>
+                    <label><input type="radio" name="q8" value="El permiso de circulación"> El permiso de circulación</label>
+                </div>
+                <div class="result" id="result-q8"></div>
+            </div>
+            <div class="question" id="q9">
+                <h3>9. Los transportes privados complementarios de mercancías:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q9" value="Requieren de tarjeta de transporte y de título de transportista si la Masa Máxima Autorizada es mayor de 3.5 toneladas"> Requieren de tarjeta de transporte y de título de transportista si la Masa Máxima Autorizada es mayor de 3.5 toneladas</label>
+                    <label><input type="radio" name="q9" value="Pueden requerir de tarjeta de transporte de mercancías, pero no de título de transportista"> Pueden requerir de tarjeta de transporte de mercancías, pero no de título de transportista</label>
+                    <label><input type="radio" name="q9" value="Nunca requieren de tarjeta de transporte de mercancías ni de título de transportista"> Nunca requieren de tarjeta de transporte de mercancías ni de título de transportista</label>
+                </div>
+                <div class="result" id="result-q9"></div>
+            </div>
+            <div class="question" id="q10">
+                <h3>10. Los buques o embarcaciones que transportan cargamento rodado y que mediante rampas hacen posible la carga y descarga de los vehículos a través de proa y/o de popa se denominan:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q10" value="Buques rodados"> Buques rodados</label>
+                    <label><input type="radio" name="q10" value="Portavehículos"> Portavehículos</label>
+                    <label><input type="radio" name="q10" value="Buques Ro-Ro"> Buques Ro-Ro</label>
+                </div>
+                <div class="result" id="result-q10"></div>
+            </div>
+            <div class="question" id="q11">
+                <h3>11. Este motor:</h3>
+                <img src="C:\Users\maril\Box Sync\MII\2324_1 máster\2_cuatri\04 transporte\refxtest\imagen3.png" alt="Gráfica 3">
+                <div class="answers">
+                    <label><input type="radio" name="q11" value="Parece ser un motor de encendido provocado con potencia de 310 kW y par máximo de 430 Nm aproximadamente"> Parece ser un motor de encendido provocado con potencia de 310 kW y par máximo de 430 Nm aproximadamente</label>
+                    <label><input type="radio" name="q11" value="Parece ser un motor de encendido por compresión con potencia de 260 kW y par máximo de 530 Nm aproximadamente"> Parece ser un motor de encendido por compresión con potencia de 260 kW y par máximo de 530 Nm aproximadamente</label>
+                    <label><input type="radio" name="q11" value="Parece ser un motor de encendido provocado con potencia de 260 kW y par máximo de 530 Nm aproximadamente"> Parece ser un motor de encendido provocado con potencia de 260 kW y par máximo de 530 Nm aproximadamente</label>
+                </div>
+                <div class="result" id="result-q11"></div>
+            </div>
+            <div class="question" id="q12">
+                <h3>12. Los anchos de vías ibérico y standard son, respectivamente:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q12" value="1668 mm y 1345 mm"> 1668 mm y 1345 mm</label>
+                    <label><input type="radio" name="q12" value="1600 mm y 1000 mm"> 1600 mm y 1000 mm</label>
+                    <label><input type="radio" name="q12" value="1668 mm y 1435 mm"> 1668 mm y 1435 mm</label>
+                </div>
+                <div class="result" id="result-q12"></div>
+            </div>
+            <div class="question" id="q13">
+                <h3>13. La siguiente figura muestra un vehículo:</h3>
+                <img src="C:\Users\maril\Box Sync\MII\2324_1 máster\2_cuatri\04 transporte\refxtest\imagen4.png" alt="Vehículo 1">
+                <div class="answers">
+                    <label><input type="radio" name="q13" value="De tracción delantera y motor longitudinal trasero"> De tracción delantera y motor longitudinal trasero</label>
+                    <label><input type="radio" name="q13" value="De tracción total y motor transversal trasero"> De tracción total y motor transversal trasero</label>
+                    <label><input type="radio" name="q13" value="De tracción total y motor longitudinal trasero"> De tracción total y motor longitudinal trasero</label>
+                </div>
+                <div class="result" id="result-q13"></div>
+            </div>
+            <div class="question" id="q14">
+                <h3>14. Si una empresa dispone de tarjeta de transporte de pesados:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q14" value="Puede disponer tanto de vehículos ligeros como de vehículos pesados"> Puede disponer tanto de vehículos ligeros como de vehículos pesados</label>
+                    <label><input type="radio" name="q14" value="Debe solicitar la licencia de ligeros si quieres realizar también transporte de vehículos ligeros"> Debe solicitar la licencia de ligeros si quieres realizar también transporte de vehículos ligeros</label>
+                    <label><input type="radio" name="q14" value="Todos los vehículos deben ser vehículos pesados"> Todos los vehículos deben ser vehículos pesados</label>
+                </div>
+                <div class="result" id="result-q14"></div>
+            </div>
+            <div class="question" id="q15">
+                <h3>15. En los vehículos híbridos eléctricos:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q15" value="El motor eléctrico siempre asiste al motor de combustión"> El motor eléctrico siempre asiste al motor de combustión</label>
+                    <label><input type="radio" name="q15" value="El motor de combustión no siempre tiene capacidad de propulsar al vehículo"> El motor de combustión no siempre tiene capacidad de propulsar al vehículo</label>
+                    <label><input type="radio" name="q15" value="El motor eléctrico siempre puede propulsar al vehículo de forma única"> El motor eléctrico siempre puede propulsar al vehículo de forma única</label>
+                </div>
+                <div class="result" id="result-q15"></div>
+            </div>
+            <div class="question" id="q16">
+                <h3>16. En cuál de las siguientes actividades no debería estar implicado un transitario:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q16" value="Transporte internacional de mercancías entre países que comparten frontera"> Transporte internacional de mercancías entre países que comparten frontera</label>
+                    <label><input type="radio" name="q16" value="Transporte internacional de mercancías por barco"> Transporte internacional de mercancías por barco</label>
+                    <label><input type="radio" name="q16" value="Transporte internacional de mercancías por avión"> Transporte internacional de mercancías por avión</label>
+                </div>
+                <div class="result" id="result-q16"></div>
+            </div>
+            <div class="question" id="q17">
+                <h3>17. Un vehículo híbrido:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q17" value="Puede carecer de motor eléctrico si dispone de un motor de GLP o GNC"> Puede carecer de motor eléctrico si dispone de un motor de GLP o GNC</label>
+                    <label><input type="radio" name="q17" value="Siempre dispone de un motor eléctrico que es capaz de mover al vehículo por sí sólo o de ayudar al motor térmico"> Siempre dispone de un motor eléctrico que es capaz de mover al vehículo por sí sólo o de ayudar al motor térmico</label>
+                    <label><input type="radio" name="q17" value="El motor eléctrico es opcional"> El motor eléctrico es opcional</label>
+                </div>
+                <div class="result" id="result-q17"></div>
+            </div>
+            <div class="question" id="q18">
+                <h3>18. En general, un conjunto de vehículos compuesto por un vehículo N3 más un vehículo O4:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q18" value="Tiene una tara +MMA del conjunto en torno a las 40 toneladas"> Tiene una tara +MMA del conjunto en torno a las 40 toneladas</label>
+                    <label><input type="radio" name="q18" value="Tiene una MMA del conjunto entorno a las 40 toneladas"> Tiene una MMA del conjunto entorno a las 40 toneladas</label>
+                    <label><input type="radio" name="q18" value="La carga útil está en torno a las 40 toneladas"> La carga útil está en torno a las 40 toneladas</label>
+                </div>
+                <div class="result" id="result-q18"></div>
+            </div>
+            <div class="question" id="q19">
+                <h3>19. El siguiente vehículo es:</h3>
+                <img src="C:\Users\maril\Box Sync\MII\2324_1 máster\2_cuatri\04 transporte\refxtest\imagen5.png" alt="Vehículo isotermo">
+                <div class="answers">
+                    <label><input type="radio" name="q19" value="Un vehículo isotermo"> Un vehículo isotermo</label>
+                    <label><input type="radio" name="q19" value="Un vehículo isotermo frigorífico"> Un vehículo isotermo frigorífico</label>
+                    <label><input type="radio" name="q19" value="Un vehículo isotermo refrigerado"> Un vehículo isotermo refrigerado</label>
+                </div>
+                <div class="result" id="result-q19"></div>
+            </div>
+            
+            <div class="question" id="q20">
+                <h3>20. Los incoterms:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q20" value="Delimitan el riesgo asumido por el transitario en la operación de transporte"> Delimitan el riesgo asumido por el transitario en la operación de transporte</label>
+                    <label><input type="radio" name="q20" value="Son de obligado cumplimiento siempre y cuando se hayan incorporado al contrato de transporte"> Son de obligado cumplimiento siempre y cuando se hayan incorporado al contrato de transporte</label>
+                    <label><input type="radio" name="q20" value="Es obligatorio incluirlo en el contrato de transporte internacional de mercancía por vía marítima"> Es obligatorio incluirlo en el contrato de transporte internacional de mercancía por vía marítima</label>
+                </div>
+                <div class="result" id="result-q20"></div>
+            </div>
+            
+            <div class="question" id="q21">
+                <h3>21. Una operación de transporte en la que se combinan varios modos bajo un solo contrato de transporte se denomina:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q21" value="Transporte multimodal"> Transporte multimodal</label>
+                    <label><input type="radio" name="q21" value="Transporte intermodal"> Transporte intermodal</label>
+                    <label><input type="radio" name="q21" value="Transporte combinado"> Transporte combinado</label>
+                </div>
+                <div class="result" id="result-q21"></div>
+            </div>
+            
+            <div class="question" id="q22">
+                <h3>22. Si una empresa dispone de un vehículo ligero y uno pesado para el transporte de mercancías a terceros:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q22" value="Requiere de una tarjeta de ligeros MDL y una de pesados MDP"> Requiere de una tarjeta de ligeros MDL y una de pesados MDP</label>
+                    <label><input type="radio" name="q22" value="No puede obtener la tarjeta de pesados MDP"> No puede obtener la tarjeta de pesados MDP</label>
+                    <label><input type="radio" name="q22" value="Puede realizar tanto transporte ligero como pesado con la tarjeta MDP"> Puede realizar tanto transporte ligero como pesado con la tarjeta MDP</label>
+                </div>
+                <div class="result" id="result-q22"></div>
+            </div>
+            
+            <div class="question" id="q23">
+                <h3>23. La ejecución de una reforma en un vehículo requiere, en general, de al menos la siguiente documentación:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q23" value="Informe de conformidad (realizado por técnico competente), certificado de taller y certificado de final de obra (emitido por el taller que realizó la reforma)"> Informe de conformidad (realizado por técnico competente), certificado de taller y certificado de final de obra (emitido por el taller que realizó la reforma)</label>
+                    <label><input type="radio" name="q23" value="Proyecto técnico (realizado por técnico competente), informe de conformidad (emitido por el fabricante del vehículo o un servicio técnico de reformas) y certificado de final de obra (emitido por el técnico que realizó el proyecto)"> Proyecto técnico (realizado por técnico competente), informe de conformidad (emitido por el fabricante del vehículo o un servicio técnico de reformas) y certificado de final de obra (emitido por el técnico que realizó el proyecto)</label>
+                    <label><input type="radio" name="q23" value="Proyecto técnico (realizado por técnico competente), informe de conformidad (emitido por el fabricante del vehículo) y certificado de final de obra (emitido por el taller que efectuó la reforma)"> Proyecto técnico (realizado por técnico competente), informe de conformidad (emitido por el fabricante del vehículo) y certificado de final de obra (emitido por el taller que efectuó la reforma)</label>
+                </div>
+                <div class="result" id="result-q23"></div>
+            </div>
+            <div class="question" id="q24">
+                <h3>24. Generalmente, los motores de encendido por compresión:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q24" value="Proporcionan menos par que los de encendido provocado, pero alcanzan un mayor régimen de giro"> Proporcionan menos par que los de encendido provocado, pero alcanzan un mayor régimen de giro</label>
+                    <label><input type="radio" name="q24" value="Proporcionan mayor par que los de encendido provocado, pero alcanzan un menor régimen de giro"> Proporcionan mayor par que los de encendido provocado, pero alcanzan un menor régimen de giro</label>
+                    <label><input type="radio" name="q24" value="Son menos ruidosos pero tienen una mayor autonomía que los de encendido provocado"> Son menos ruidosos pero tienen una mayor autonomía que los de encendido provocado</label>
+                </div>
+                <div class="result" id="result-q24"></div>
+            </div>
+            
+            <div class="question" id="q25">
+                <h3>25. Un vehículo homologado:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q25" value="Puede ser reformado aunque altere las condiciones con las que se obtuvo la homologación"> Puede ser reformado aunque altere las condiciones con las que se obtuvo la homologación</label>
+                    <label><input type="radio" name="q25" value="Debe someterse de nuevo a homologación individual una vez reformado"> Debe someterse de nuevo a homologación individual una vez reformado</label>
+                    <label><input type="radio" name="q25" value="Puede ser reformado siempre y cuando se sigan las instrucciones recogidas en el Manual de procedimientos de inspección de ITV"> Puede ser reformado siempre y cuando se sigan las instrucciones recogidas en el Manual de procedimientos de inspección de ITV</label>
+                </div>
+                <div class="result" id="result-q25"></div>
+            </div>
+            <button type="button" class="submit-button" onclick="checkAnswers()">Enviar</button>
+        </form>
+        <a href="C:\Users\maril\Box Sync\MII\2324_1 máster\2_cuatri\04 transporte\index.html" class="button">Inicio</a>
+        <div id="finalResult" class="result"></div>
+    </div>
+    <script>
+        function checkAnswers() {
+            const correctAnswers = {
+                q1: 'Es igual a la masa máxima autorizada del vehículo',
+                q2: 'Establece el flete entre el armador o fletador y el cargador',
+                q3: 'El nivel de emisiones de CO, NOx y partículas de todos los vehículos de encendido por compresión',
+                q4: 'Utilización de Urea, catalizadores de tres vías y válvula de recirculación de gases de escape',
+                q5: 'Informe de conformidad',
+                q6: 'No está definido en el ROTT como vehículo de carga',
+                q7: 'La transferencia de carga al acelerar provoca que se cargue el eje delantero y se descargue el trasero, lo que favorece la capacidad de tracción',
+                q8: 'El certificado de Conformidad',
+                q9: 'Nunca requieren de tarjeta de transporte de mercancías ni de título de transportista',
+                q10: 'Buques Ro-Ro',
+                q11: 'Parece ser un motor de encendido por compresión con potencia de 260 kW y par máximo de 530 Nm aproximadamente',
+                q12: '1668 mm y 1435 mm',
+                q13: 'De tracción total y motor longitudinal trasero',
+                q14: 'Puede disponer tanto de vehículos ligeros como de vehículos pesados',
+                q15: 'El motor eléctrico siempre asiste al motor de combustión',
+                q16: 'Transporte internacional de mercancías entre países que comparten frontera',
+                q17: 'Siempre dispone de un motor eléctrico que es capaz de mover al vehículo por sí sólo o de ayudar al motor térmico',
+                q18: 'Tiene una MMA del conjunto entorno a las 40 toneladas',
+                q19: 'Un vehículo isotermo frigorífico',
+                q20: 'Son de obligado cumplimiento siempre y cuando se hayan incorporado al contrato de transporte',
+                q21: 'Transporte multimodal',
+                q22: 'Puede realizar tanto transporte ligero como pesado con la tarjeta MDP',
+                q23: 'Proyecto técnico (realizado por técnico competente), informe de conformidad (emitido por el fabricante del vehículo o un servicio técnico de reformas) y certificado de final de obra (emitido por el técnico que realizó el proyecto)',
+                q24: 'Proporcionan mayor par que los de encendido provocado, pero alcanzan un menor régimen de giro',
+                q25: 'Debe someterse de nuevo a homologación individual una vez reformado'
+        
+            };
+
+            let score = 0;
+            const form = document.getElementById('quizForm');
+            const formData = new FormData(form);
+
+            for (let question in correctAnswers) {
+                const questionDiv = document.getElementById(question);
+                const resultDiv = document.getElementById(`result-${question}`);
+                const answer = formData.get(question);
+
+                if (answer === correctAnswers[question]) {
+                    score++;
+                    questionDiv.classList.add('correct');
+                    questionDiv.classList.remove('incorrect');
+                    resultDiv.innerHTML = `<p class="correct">Correcto</p>`;
+                } else {
+                    questionDiv.classList.add('incorrect');
+                    questionDiv.classList.remove('correct');
+                    resultDiv.innerHTML = `<p class="incorrect">Incorrecto. Respuesta correcta: ${correctAnswers[question]}</p>`;
+                }
+            }
+
+            const finalResultDiv = document.getElementById('finalResult');
+            finalResultDiv.innerHTML = `<p>Puntuación: ${score} / ${Object.keys(correctAnswers).length}</p>`;
+        }
+    </script>
+</body>
+</html>

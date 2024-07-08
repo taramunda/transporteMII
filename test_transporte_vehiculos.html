@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEST TRANSPORTE - Vehículos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 90%;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .section-title {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        .question {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .question h3 {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        .answers label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .submit-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .submit-button:hover {
+            background-color: #45a049;
+        }
+        .correct {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .result {
+            margin-top: 10px;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px 0;
+            font-size: 1em;
+            color: white;
+            background-color: #007BFF;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>TEST TRANSPORTE - Vehículos</h1>
+        <form id="quizForm">
+            <!-- Insert questions here -->
+            <div class="question" id="q1">
+                <h3>1. Para conseguir un mayor reparto del peso y un buen comportamiento en tracción y frenado que disposición del motor es mejor:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q1" value="Delantera"> Delantera</label>
+                    <label><input type="radio" name="q1" value="Trasera"> Trasera</label>
+                    <label><input type="radio" name="q1" value="Central"> Central</label>
+                </div>
+                <div class="result" id="result-q1"></div>
+            </div>
+            <div class="question" id="q2">
+                <h3>2. Para conseguir una mejor tracción, una dirección más ligera y fácil que disposición de motor es mejor:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q2" value="Delantera"> Delantera</label>
+                    <label><input type="radio" name="q2" value="Trasera"> Trasera</label>
+                    <label><input type="radio" name="q2" value="Central"> Central</label>
+                </div>
+                <div class="result" id="result-q2"></div>
+            </div>
+            <div class="question" id="q3">
+                <h3>3. Para conseguir más espacio en el maletero y mejor refrigeración en el motor que disposición de motor es mejor:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q3" value="Delantera"> Delantera</label>
+                    <label><input type="radio" name="q3" value="Trasera"> Trasera</label>
+                    <label><input type="radio" name="q3" value="Central"> Central</label>
+                </div>
+                <div class="result" id="result-q3"></div>
+            </div>
+            <div class="question" id="q4">
+                <h3>4. Para poder instalar mayor número de cilindros y amortiguar un impacto en el motor que disposición es mejor:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q4" value="Longitudinal"> Longitudinal</label>
+                    <label><input type="radio" name="q4" value="Transversal"> Transversal</label>
+                    <label><input type="radio" name="q4" value="Central"> Central</label>
+                </div>
+                <div class="result" id="result-q4"></div>
+            </div>
+            <div class="question" id="q5">
+                <h3>5. Para conseguir un tamaño de motor más compacto que disposición es mejor:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q5" value="Longitudinal"> Longitudinal</label>
+                    <label><input type="radio" name="q5" value="Transversal"> Transversal</label>
+                    <label><input type="radio" name="q5" value="Central"> Central</label>
+                </div>
+                <div class="result" id="result-q5"></div>
+            </div>
+            <div class="question" id="q6">
+                <h3>6. ¿Qué elemento mecánico del vehículo consigue ajustar el par y velocidad suministrado por el motor?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q6" value="Embrague"> Embrague</label>
+                    <label><input type="radio" name="q6" value="Caja de cambios"> Caja de cambios</label>
+                    <label><input type="radio" name="q6" value="Diferencial"> Diferencial</label>
+                </div>
+                <div class="result" id="result-q6"></div>
+            </div>
+            <div class="question" id="q7">
+                <h3>7. ¿Qué elemento mecánico del vehículo consigue diferentes velocidades angulares en las ruedas interiores y exteriores al tomar una curva?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q7" value="Embrague"> Embrague</label>
+                    <label><input type="radio" name="q7" value="Caja de cambios"> Caja de cambios</label>
+                    <label><input type="radio" name="q7" value="Diferencial"> Diferencial</label>
+                </div>
+                <div class="result" id="result-q7"></div>
+            </div>
+            <div class="question" id="q8">
+                <h3>8. ¿Para qué sirven los palieres?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q8" value="Transmiten el par desde el diferencial a las ruedas"> Transmiten el par desde el diferencial a las ruedas</label>
+                    <label><input type="radio" name="q8" value="Consiguen ajustar el par y velocidad procedentes del motor"> Consiguen ajustar el par y velocidad procedentes del motor</label>
+                    <label><input type="radio" name="q8" value="Consiguen desacoplar el motor de la caja de cambios"> Consiguen desacoplar el motor de la caja de cambios</label>
+                </div>
+                <div class="result" id="result-q8"></div>
+            </div>
+            <div class="question" id="q9">
+                <h3>9. ¿Cuáles son las principales limitaciones para producir el movimiento de un vehículo?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q9" value="Adherencia"> Adherencia</label>
+                    <label><input type="radio" name="q9" value="El motor"> El motor</label>
+                    <label><input type="radio" name="q9" value="Los dos anteriores"> Los dos anteriores</label>
+                </div>
+                <div class="result" id="result-q9"></div>
+            </div>
+            <div class="question" id="q10">
+                <h3>10. El motor que consigue el encendido por chispa es (MEP):</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q10" value="Gasolina"> Gasolina</label>
+                    <label><input type="radio" name="q10" value="Diesel"> Diesel</label>
+                    <label><input type="radio" name="q10" value="Eléctrico"> Eléctrico</label>
+                </div>
+                <div class="result" id="result-q10"></div>
+            </div>
+            <div class="question" id="q11">
+                <h3>11. El motor que consigue el encendido por compresión (MEC):</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q11" value="Gasolina"> Gasolina</label>
+                    <label><input type="radio" name="q11" value="Diesel"> Diesel</label>
+                    <label><input type="radio" name="q11" value="Eléctrico"> Eléctrico</label>
+                </div>
+                <div class="result" id="result-q11"></div>
+            </div>
+            <div class="question" id="q12">
+                <h3>12. Son inconvenientes principales de este tipo de motores la contaminación acústica y la eficiencia baja:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q12" value="Combustión"> Combustión</label>
+                    <label><input type="radio" name="q12" value="Eléctricos"> Eléctricos</label>
+                    <label><input type="radio" name="q12" value="Híbridos"> Híbridos</label>
+                </div>
+                <div class="result" id="result-q12"></div>
+            </div>
+            <div class="question" id="q13">
+                <h3>13. Tiene menos peso del motor:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q13" value="Gasolina"> Gasolina</label>
+                    <label><input type="radio" name="q13" value="Diesel"> Diesel</label>
+                    <label><input type="radio" name="q13" value="Los dos iguales"> Los dos iguales</label>
+                </div>
+                <div class="result" id="result-q13"></div>
+            </div>
+            <div class="question" id="q14">
+                <h3>14. Para motores iguales consiguen menor fuerza:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q14" value="Gasolina"> Gasolina</label>
+                    <label><input type="radio" name="q14" value="Diesel"> Diesel</label>
+                    <label><input type="radio" name="q14" value="Los dos iguales"> Los dos iguales</label>
+                </div>
+                <div class="result" id="result-q14"></div>
+            </div>
+            <div class="question" id="q15">
+                <h3>15. Contaminan menos y el precio de su combustible es menor:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q15" value="Gasolina"> Gasolina</label>
+                    <label><input type="radio" name="q15" value="Diesel"> Diesel</label>
+                    <label><input type="radio" name="q15" value="Los dos iguales"> Los dos iguales</label>
+                </div>
+                <div class="result" id="result-q15"></div>
+            </div>
+            <div class="question" id="q16">
+                <h3>16. Para el mismo motor consiguen mayores aceleraciones a la larga:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q16" value="Gasolina"> Gasolina</label>
+                    <label><input type="radio" name="q16" value="Diesel"> Diesel</label>
+                    <label><input type="radio" name="q16" value="Los dos consiguen la misma"> Los dos consiguen la misma</label>
+                </div>
+                <div class="result" id="result-q16"></div>
+            </div>
+            <div class="question" id="q17">
+                <h3>17. Para el mismo motor son mucho más voluminosos y pesados:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q17" value="Diesel"> Diesel</label>
+                    <label><input type="radio" name="q17" value="Gasolina"> Gasolina</label>
+                    <label><input type="radio" name="q17" value="Los dos son iguales"> Los dos son iguales</label>
+                </div>
+                <div class="result" id="result-q17"></div>
+            </div>
+            <div class="question" id="q18">
+                <h3>18. Suelen producir humos negros:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q18" value="Gasolina"> Gasolina</label>
+                    <label><input type="radio" name="q18" value="Diesel"> Diesel</label>
+                    <label><input type="radio" name="q18" value="Los dos iguales"> Los dos iguales</label>
+                </div>
+                <div class="result" id="result-q18"></div>
+            </div>
+            <div class="question" id="q19">
+                <h3>19. Para el mismo motor tienen mayor consumo y menor autonomía:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q19" value="Gasolina"> Gasolina</label>
+                    <label><input type="radio" name="q19" value="Diesel"> Diesel</label>
+                    <label><input type="radio" name="q19" value="Los dos son iguales"> Los dos son iguales</label>
+                </div>
+                <div class="result" id="result-q19"></div>
+            </div>
+            <div class="question" id="q20">
+                <h3>20. Este tipo de motores tienen un amplio rango de par elevado:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q20" value="Gasolina"> Gasolina</label>
+                    <label><input type="radio" name="q20" value="Diesel"> Diesel</label>
+                    <label><input type="radio" name="q20" value="Los dos iguales"> Los dos iguales</label>
+                </div>
+                <div class="result" id="result-q20"></div>
+            </div>
+            <div class="question" id="q21">
+                <h3>21. Necesitan mayores cambios de marcha para trabajar en la zona de par máximo:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q21" value="Gasolina"> Gasolina</label>
+                    <label><input type="radio" name="q21" value="Diesel"> Diesel</label>
+                    <label><input type="radio" name="q21" value="Los dos son iguales"> Los dos son iguales</label>
+                </div>
+                <div class="result" id="result-q21"></div>
+            </div>
+            <div class="question" id="q22">
+                <h3>22. La curva característica que suele aportar una gran potencia a un rango amplio de velocidades es típica de:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q22" value="Vehículos con motor gasolina"> Vehículos con motor gasolina</label>
+                    <label><input type="radio" name="q22" value="Camiones"> Camiones</label>
+                    <label><input type="radio" name="q22" value="Tractores"> Tractores</label>
+                </div>
+                <div class="result" id="result-q22"></div>
+            </div>
+            <div class="question" id="q23">
+                <h3>23. La curva característica que suele aportar un gran par constante en un amplio rango de velocidades es típica de:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q23" value="Vehículos con motor gasolina"> Vehículos con motor gasolina</label>
+                    <label><input type="radio" name="q23" value="Camiones"> Camiones</label>
+                    <label><input type="radio" name="q23" value="Tractores"> Tractores</label>
+                </div>
+                <div class="result" id="result-q23"></div>
+            </div>
+            <div class="question" id="q24">
+                <h3>24. ¿Qué motores son los mejores para conseguir grandes aceleraciones?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q24" value="Gasolina"> Gasolina</label>
+                    <label><input type="radio" name="q24" value="Diesel"> Diesel</label>
+                    <label><input type="radio" name="q24" value="Eléctricos"> Eléctricos</label>
+                </div>
+                <div class="result" id="result-q24"></div>
+            </div>
+
+<div class="question" id="q25">
+    <h3>25. ¿En qué vehículos a veces no es necesario instalar cajas de cambios debido a su alto par a bajas velocidades?</h3>
+    <div class="answers">
+        <label><input type="radio" name="q25" value="Gasolina"> Gasolina</label>
+        <label><input type="radio" name="q25" value="Diesel"> Diesel</label>
+        <label><input type="radio" name="q25" value="Eléctricos"> Eléctricos</label>
+    </div>
+    <div class="result" id="result-q25"></div>
+</div>
+<div class="question" id="q26">
+    <h3>26. ¿Qué es lo que suele comprobar la ITB además del OBD?</h3>
+    <div class="answers">
+        <label><input type="radio" name="q26" value="En gasolina y Diesel comprueba los mismos parámetros"> En gasolina y Diesel comprueba los mismos parámetros</label>
+        <label><input type="radio" name="q26" value="En gasolina el CO y la lambda (aire/combustible) y en Diesel solo la lambda"> En gasolina el CO y la lambda (aire/combustible) y en Diesel solo la lambda</label>
+        <label><input type="radio" name="q26" value="En gasolina el CO y la lambda (aire/combustible) y en Diesel la opacidad de las partículas (nivel de humos negros)"> En gasolina el CO y la lambda (aire/combustible) y en Diesel la opacidad de las partículas (nivel de humos negros)</label>
+    </div>
+    <div class="result" id="result-q26"></div>
+</div>
+<div class="question" id="q27">
+    <h3>27. ¿Qué vehículos usan de combustible la gasolina y el gas licuado en iguales proporciones?</h3>
+    <div class="answers">
+        <label><input type="radio" name="q27" value="Vehículos ADR"> Vehículos ADR</label>
+        <label><input type="radio" name="q27" value="Vehículos GLP"> Vehículos GLP</label>
+        <label><input type="radio" name="q27" value="Vehículos RPG"> Vehículos RPG</label>
+    </div>
+    <div class="result" id="result-q27"></div>
+</div>
+<div class="question" id="q28">
+    <h3>28. ¿Con qué tipo de tracción se consigue un maletero más amplio y un fondo de carrocería plano?</h3>
+    <div class="answers">
+        <label><input type="radio" name="q28" value="Delantera"> Delantera</label>
+        <label><input type="radio" name="q28" value="Trasera"> Trasera</label>
+        <label><input type="radio" name="q28" value="Total"> Total</label>
+    </div>
+    <div class="result" id="result-q28"></div>
+</div>
+<div class="question" id="q29">
+    <h3>29. ¿Con qué tipo de tracción se consigue mejor adherencia y tracción?</h3>
+    <div class="answers">
+        <label><input type="radio" name="q29" value="Delantera"> Delantera</label>
+        <label><input type="radio" name="q29" value="Trasera"> Trasera</label>
+        <label><input type="radio" name="q29" value="Total"> Total</label>
+    </div>
+    <div class="result" id="result-q29"></div>
+</div>
+<div class="question" id="q30">
+    <h3>30. ¿Con qué tipo de tracción se consigue un mayor giro de las ruedas?</h3>
+    <div class="answers">
+        <label><input type="radio" name="q30" value="Delantera"> Delantera</label>
+        <label><input type="radio" name="q30" value="Trasera"> Trasera</label>
+        <label><input type="radio" name="q30" value="Total"> Total</label>
+    </div>
+    <div class="result" id="result-q30"></div>
+</div>
+<div class="question" id="q31">
+    <h3>31. ¿Qué tipo de tracción es recomendable para obtener subviraje?</h3>
+    <div class="answers">
+        <label><input type="radio" name="q31" value="Delantera"> Delantera</label>
+        <label><input type="radio" name="q31" value="Trasera"> Trasera</label>
+        <label><input type="radio" name="q31" value="Total"> Total</label>
+    </div>
+    <div class="result" id="result-q31"></div>
+</div>
+<div class="question" id="q32">
+    <h3>32. ¿Qué tipo de tracción es recomendable para obtener sobreviraje?</h3>
+    <div class="answers">
+        <label><input type="radio" name="q32" value="Delantera"> Delantera</label>
+        <label><input type="radio" name="q32" value="Trasera"> Trasera</label>
+        <label><input type="radio" name="q32" value="Total"> Total</label>
+    </div>
+    <div class="result" id="result-q32"></div>
+</div>
+<div class="question" id="q33">
+    <h3>33. ¿Qué tipo de tracción es recomendable para tener un mejor control del vehículo?</h3>
+    <div class="answers">
+        <label><input type="radio" name="q33" value="Delantera"> Delantera</label>
+        <label><input type="radio" name="q33" value="Trasera"> Trasera</label>
+        <label><input type="radio" name="q33" value="Ninguna de las dos"> Ninguna de las dos</label>
+    </div>
+    <div class="result" id="result-q33"></div>
+</div>
+<div class="question" id="q34">
+    <h3>34. ¿Qué tipo de tracción es recomendable para subir rampas?</h3>
+    <div class="answers">
+        <label><input type="radio" name="q34" value="Delantera"> Delantera</label>
+        <label><input type="radio" name="q34" value="Trasera"> Trasera</label>
+        <label><input type="radio" name="q34" value="Ninguna de las dos"> Ninguna de las dos</label>
+    </div>
+    <div class="result" id="result-q34"></div>
+</div>
+<div class="question" id="q35">
+    <h3>35. ¿Con qué tipo de tracción se consigue un mayor consumo?</h3>
+    <div class="answers">
+        <label><input type="radio" name="q35" value="Delantera"> Delantera</label>
+        <label><input type="radio" name="q35" value="Trasera"> Trasera</label>
+        <label><input type="radio" name="q35" value="Total"> Total</label>
+    </div>
+    <div class="result" id="result-q35"></div>
+</div>
+<div class="question" id="q36">
+    <h3>36. ¿Con qué tracción no consigo restricciones a la hora de diseñar el motor?</h3>
+    <div class="answers">
+        <label><input type="radio" name="q36" value="Delantera"> Delantera</label>
+        <label><input type="radio" name="q36" value="Trasera"> Trasera</label>
+        <label><input type="radio" name="q36" value="Da igual que otra"> Da igual que otra</label>
+    </div>
+    <div class="result" id="result-q36"></div>
+</div>
+<div class="question" id="q37">
+    <h3>37. ¿Con un sistema de inyección se consigue reducir las partículas de qué tipo de contaminantes?</h3>
+    <div class="answers">
+        <label><input type="radio" name="q37" value="Humos negros"> Humos negros</label>
+        <label><input type="radio" name="q37" value="Dióxido de carbono"> Dióxido de carbono</label>
+        <label><input type="radio" name="q37" value="Ureas"> Ureas</label>
+    </div>
+    <div class="result" id="result-q37"></div>
+</div>
+<div class="question" id="q38">
+    <h3>38. Para conseguir una mezcla pobre (menos CO y CO2, mayor NOx) la lambda debe ser:</h3>
+    <div class="answers">
+        <label><input type="radio" name="q38" value="Menor que 1"> Menor que 1</label>
+        <label><input type="radio" name="q38" value="Mayor que 1"> Mayor que 1</label>
+        <label><input type="radio" name="q38" value="Igual a 1"> Igual a 1</label>
+    </div>
+    <div class="result" id="result-q38"></div>
+</div>
+<div class="question" id="q39">
+    <h3>39. Con una lambda menor a 1 se consigue</h3>
+    <div class="answers">
+        <label><input type="radio" name="q39" value="Mezcla pobre"> Mezcla pobre</label>
+        <label><input type="radio" name="q39" value="Relación estequiométrica perfecta"> Relación estequiométrica perfecta</label>
+        <label><input type="radio" name="q39" value="Mezcla rica (mayor CO y CO2)"> Mezcla rica (mayor CO y CO2)</label>
+    </div>
+    <div class="result" id="result-q39"></div>
+</div>
+<div class="question" id="q40">
+    <h3>40. Los óxidos de nitrógeno se suelen conseguir con:</h3>
+    <div class="answers">
+        <label><input type="radio" name="q40" value="Mezcla rica"> Mezcla rica</label>
+        <label><input type="radio" name="q40" value="Mezcla pobre"> Mezcla pobre</label>
+        <label><input type="radio" name="q40" value="Relación estequiométrica perfecta"> Relación estequiométrica perfecta</label>
+    </div>
+    <div class="result" id="result-q40"></div>
+</div>
+<div class="question" id="q41">
+    <h3>41. ¿Qué tipo de contaminantes son incoloros e inodoros?</h3>
+    <div class="answers">
+        <label><input type="radio" name="q41" value="Hidrocarburos"> Hidrocarburos</label>
+        <label><input type="radio" name="q41" value="Humos negros"> Humos negros</label>
+        <label><input type="radio" name="q41" value="Monóxido de carbono"> Monóxido de carbono</label>
+    </div>
+    <div class="result" id="result-q41"></div>
+</div>
+<div class="question" id="q42">
+    <h3>42. ¿Qué tipo de contaminantes producen la lluvia ácida?</h3>
+    <div class="answers">
+        <label><input type="radio" name="q42" value="Hidrocarburos"> Hidrocarburos</label>
+        <label><input type="radio" name="q42" value="Dióxido de carbono"> Dióxido de carbono</label>
+        <label><input type="radio" name="q42" value="Óxido de azufre"> Óxido de azufre</label>
+    </div>
+    <div class="result" id="result-q42"></div>
+</div>
+<div class="question" id="q43">
+    <h3>43. Con la mayoría de los contaminantes de los vehículos se produce:</h3>
+    <div class="answers">
+        <label><input type="radio" name="q43" value="Aumento del nivel de ozono"> Aumento del nivel de ozono</label>
+        <label><input type="radio" name="q43" value="Disminución del nivel de ozono"> Disminución del nivel de ozono</label>
+        <label><input type="radio" name="q43" value="Nada, porque son buenos para el medioambiente"> Nada, porque son buenos para el medioambiente</label>
+    </div>
+    <div class="result" id="result-q43"></div>
+</div>
+<div class="question" id="q44">
+    <h3>44. Los EGR (Recirculación de gases de escape) consiguen:</h3>
+    <div class="answers">
+        <label><input type="radio" name="q44" value="Reducir el O2"> Reducir el O2</label>
+        <label><input type="radio" name="q44" value="Reducir el NOx"> Reducir el NOx</label>
+        <label><input type="radio" name="q44" value="Aumentar el O2"> Aumentar el O2</label>
+    </div>
+    <div class="result" id="result-q44"></div>
+</div>
+<div class="question" id="q45">
+    <h3>45. Los filtros de partículas son típicos en motores:</h3>
+    <div class="answers">
+        <label><input type="radio" name="q45" value="GLP"> GLP</label>
+        <label><input type="radio" name="q45" value="Gasolina"> Gasolina</label>
+        <label><input type="radio" name="q45" value="Diesel"> Diesel</label>
+    </div>
+    <div class="result" id="result-q45"></div>
+</div>
+<div class="question" id="q46">
+    <h3>46. El UREA (Adblue) se usa para:</h3>
+    <div class="answers">
+        <label><input type="radio" name="q46" value="Reducir el O2"> Reducir el O2</label>
+        <label><input type="radio" name="q46" value="Aumentar el O2"> Aumentar el O2</label>
+        <label><input type="radio" name="q46" value="Reducir el Nox"> Reducir el Nox</label>
+    </div>
+    <div class="result" id="result-q46"></div>
+</div>
+<div class="question" id="q47">
+    <h3>47. ¿Qué tipo de dispositivo para reducir las emisiones en vehículos ayuda a descomponer las partículas contaminantes en intervalos de tiempo y cuáles continuamente?</h3>
+    <div class="answers">
+        <label><input type="radio" name="q47" value="Catalizador: continuo y filtro de partículas: en intervalos de tiempo"> Catalizador: continuo y filtro de partículas: en intervalos de tiempo</label>
+        <label><input type="radio" name="q47" value="Catalizador: Intervalos de tiempo y filtro de partículas: continuamente"> Catalizador: Intervalos de tiempo y filtro de partículas: continuamente</label>
+        <label><input type="radio" name="q47" value="Catalizador: continuamente y filtro de partículas: continuamente"> Catalizador: continuamente y filtro de partículas: continuamente</label>
+    </div>
+    <div class="result" id="result-q47"></div>
+</div>
+<div class="question" multiple-choice" id="q48">
+    <h3>48. Selecciona LAS características de la disposición del motor delantero:</h3>
+    <div class="answers">
+        <label><input type="checkbox" name="q48" value="Tiene más espacio en el maletero"> Tiene más espacio en el maletero</label>
+        <label><input type="checkbox" name="q48" value="Tiene mejor tracción"> Tiene mejor tracción</label>
+        <label><input type="checkbox" name="q48" value="Mejor refrigeración"> Mejor refrigeración</label>
+        <label><input type="checkbox" name="q48" value="Peor refrigeración"> Peor refrigeración</label>
+        <label><input type="checkbox" name="q48" value="Más inestables"> Más inestables</label>
+        <label><input type="checkbox" name="q48" value="Más ruido en el habitáculo"> Más ruido en el habitáculo</label>
+        <label><input type="checkbox" name="q48" value="Dirección más ligera"> Dirección más ligera</label>
+        <label><input type="checkbox" name="q48" value="Mejor reparto de pesos"> Mejor reparto de pesos</label>
+        <label><input type="checkbox" name="q48" value="Buen comportamiento en tracción y frenado"> Buen comportamiento en tracción y frenado</label>
+    </div>
+    <div class="result" id="result-q48"></div>
+</div>
+<div class="question" multiple-choice" id="q49">
+    <h3>49. Selecciona LAS características de la disposición del motor trasero:</h3>
+    <div class="answers">
+        <label><input type="checkbox" name="q49" value="Tiene más espacio en el maletero"> Tiene más espacio en el maletero</label>
+        <label><input type="checkbox" name="q49" value="Tiene mejor tracción"> Tiene mejor tracción</label>
+        <label><input type="checkbox" name="q49" value="Mejor refrigeración"> Mejor refrigeración</label>
+        <label><input type="checkbox" name="q49" value="Peor refrigeración"> Peor refrigeración</label>
+        <label><input type="checkbox" name="q49" value="Más inestables"> Más inestables</label>
+        <label><input type="checkbox" name="q49" value="Más ruido en el habitáculo"> Más ruido en el habitáculo</label>
+        <label><input type="checkbox" name="q49" value="Dirección más ligera"> Dirección más ligera</label>
+        <label><input type="checkbox" name="q49" value="Mejor reparto de pesos"> Mejor reparto de pesos</label>
+        <label><input type="checkbox" name="q49" value="Buen comportamiento en tracción y frenado"> Buen comportamiento en tracción y frenado</label>
+    </div>
+    <div class="result" id="result-q49"></div>
+</div>
+
+<div class="question" multiple-choice" id="q50">
+    <h3>50. Selecciona LAS características de la disposición del motor central:</h3>
+    <div class="answers">
+        <label><input type="checkbox" name="q50" value="Tiene más espacio en el maletero"> Tiene más espacio en el maletero</label>
+        <label><input type="checkbox" name="q50" value="Tiene mejor tracción"> Tiene mejor tracción</label>
+        <label><input type="checkbox" name="q50" value="Mejor refrigeración"> Mejor refrigeración</label>
+        <label><input type="checkbox" name="q50" value="Peor refrigeración"> Peor refrigeración</label>
+        <label><input type="checkbox" name="q50" value="Más inestables"> Más inestables</label>
+        <label><input type="checkbox" name="q50" value="Más ruido en el habitáculo"> Más ruido en el habitáculo</label>
+        <label><input type="checkbox" name="q50" value="Dirección más ligera"> Dirección más ligera</label>
+        <label><input type="checkbox" name="q50" value="Mejor reparto de pesos"> Mejor reparto de pesos</label>
+        <label><input type="checkbox" name="q50" value="Buen comportamiento en tracción y frenado"> Buen comportamiento en tracción y frenado</label>
+    </div>
+    <div class="result" id="result-q50"></div>
+</div>
+<div class="question" id="q51">
+    <h3>51. El comportamiento de un vehículo en tracción y frenado depende de:</h3>
+    <div class="answers">
+        <label><input type="radio" name="q51" value="Solamente del sistema de frenado y del motor"> Solamente del sistema de frenado y del motor</label>
+        <label><input type="radio" name="q51" value="A) y además de la calzada y otros factores"> A) y además de la calzada y otros factores</label>
+        <label><input type="radio" name="q51" value="Ninguna"> Ninguna</label>
+    </div>
+    <div class="result" id="result-q51"></div>
+</div>
+<div class="question" id="q52">
+    <h3>52. En este tipo de motores la combustión se realiza por autoignición:</h3>
+    <div class="answers">
+        <label><input type="radio" name="q52" value="Motores de gasolina"> Motores de gasolina</label>
+        <label><input type="radio" name="q52" value="Motores diésel"> Motores diésel</label>
+        <label><input type="radio" name="q52" value="Motores eléctricos"> Motores eléctricos</label>
+        <label><input type="radio" name="q52" value="Motores GLP"> Motores GLP</label>
+    </div>
+    <div class="result" id="result-q52"></div>
+</div>
+<div class="question" id="q53">
+    <h3>53. El ciclo que corresponde con un motor de gasolina es:</h3>
+    <div class="answers">
+        <label><input type="radio" name="q53" value="El ciclo Diesel"> El ciclo Diesel</label>
+        <label><input type="radio" name="q53" value="El ciclo Delmbert"> El ciclo Delmbert</label>
+        <label><input type="radio" name="q53" value="El ciclo Otto"> El ciclo Otto</label>
+    </div>
+    <div class="result" id="result-q53"></div>
+</div>
+<div class="question" id="q54">
+    <h3>54. Los motores utilizados normalmente por los vehículos de tracción son:</h3>
+    <div class="answers">
+        <label><input type="radio" name="q54" value="Motores Diesel"> Motores Diesel</label>
+        <label><input type="radio" name="q54" value="Motores eléctricos"> Motores eléctricos</label>
+        <label><input type="radio" name="q54" value="Motores GLP"> Motores GLP</label>
+    </div>
+    <div class="result" id="result-q54"></div>
+</div>
+<div class="question" id="q55">
+    <h3>55. La curva del par respecto de la potencia:</h3>
+    <div class="answers">
+        <label><input type="radio" name="q55" value="Siempre esté por encima"> Siempre esté por encima</label>
+        <label><input type="radio" name="q55" value="Siempre está por debajo"> Siempre está por debajo</label>
+        <label><input type="radio" name="q55" value="Inicialmente está por encima y después por debajo"> Inicialmente está por encima y después por debajo</label>
+        <label><input type="radio" name="q55" value="Inicialmente está por debajo y después por encima"> Inicialmente está por debajo y después por encima</label>
+    </div>
+    <div class="result" id="result-q55"></div>
+</div>
+<div class="question" id="q56">
+    <h3>56. El intervalo donde el motor trabaja a su mayor eficiencia es:</h3>
+    <div class="answers">
+        <label><input type="radio" name="q56" value="La franja en la que la potencia aumenta"> La franja en la que la potencia aumenta</label>
+        <label><input type="radio" name="q56" value="La franja en la que el par aumenta"> La franja en la que el par aumenta</label>
+        <label><input type="radio" name="q56" value="La franja entre el par y potencia máximos"> La franja entre el par y potencia máximos</label>
+        <label><input type="radio" name="q56" value="Ninguna"> Ninguna</label>
+    </div>
+    <div class="result" id="result-q56"></div>
+</div>
+<div class="question" id="q57">
+    <h3>57. El punto de mínimo consumo se encuentra:</h3>
+    <div class="answers">
+        <label><input type="radio" name="q57" value="Cerca del punto de máxima potencia"> Cerca del punto de máxima potencia</label>
+        <label><input type="radio" name="q57" value="Cerca del punto máximo par"> Cerca del punto máximo par</label>
+        <label><input type="radio" name="q57" value="Ninguna"> Ninguna</label>
+    </div>
+    <div class="result" id="result-q57"></div>
+</div>
+<div class="question" id="q58">
+    <h3>58. La gráfica corresponde a:</h3>
+    <img src="C:\Users\maril\Box Sync\MII\2324_1 máster\2_cuatri\04 transporte\refxtest\imagen1.png" alt="Gráfica 1">
+    <div class="answers">
+        <label><input type="radio" name="q58" value="Un motor de gasolina"> Un motor de gasolina</label>
+        <label><input type="radio" name="q58" value="Un motor Diesel"> Un motor Diesel</label>
+        <label><input type="radio" name="q58" value="Un motor eléctrico"> Un motor eléctrico</label>
+    </div>
+    <div class="result" id="result-q58"></div>
+</div>
+<div class="question" id="q59">
+    <h3>59. La gráfica corresponde a:</h3>
+    <img src="C:\Users\maril\Box Sync\MII\2324_1 máster\2_cuatri\04 transporte\refxtest\imagen2.png" alt="Gráfica 2">
+    <div class="answers">
+        <label><input type="radio" name="q59" value="Un motor de gasolina"> Un motor de gasolina</label>
+        <label><input type="radio" name="q59" value="Un motor diesel"> Un motor diesel</label>
+        <label><input type="radio" name="q59" value="Un motor eléctrico"> Un motor eléctrico</label>
+    </div>
+    <div class="result" id="result-q59"></div>
+</div>
+
+<div class="question" id="q60">
+    <h3>60. En los motores elásticos es necesario cambiar de marcha para mantener el motor girando en zona óptima:</h3>
+    <div class="answers">
+        <label><input type="radio" name="q60" value="F"> F</label>
+        <label><input type="radio" name="q60" value="V"> V</label>
+    </div>
+    <div class="result" id="result-q60"></div>
+</div>
+<div class="question" id="q61">
+    <h3>61. En motores elásticos:</h3>
+    <div class="answers">
+        <label><input type="radio" name="q61" value="La franja entre el punto de máximo rendimiento y máxima potencia es mayor que en los motores deportivos"> La franja entre el punto de máximo rendimiento y máxima potencia es mayor que en los motores deportivos</label>
+        <label><input type="radio" name="q61" value="La franja entre el punto de máximo rendimiento y máxima potencia es menor que en los motores deportivos"> La franja entre el punto de máximo rendimiento y máxima potencia es menor que en los motores deportivos</label>
+        <label><input type="radio" name="q61" value="Son iguales"> Son iguales</label>
+    </div>
+    <div class="result" id="result-q61"></div>
+</div>
+<div class="question" id="q62">
+    <h3>62. Un vehículo GPL/gasolina circula:</h3>
+    <div class="answers">
+        <label><input type="radio" name="q62" value="En modo GPL o gasolina cuando yo lo decida"> En modo GPL o gasolina cuando yo lo decida</label>
+        <label><input type="radio" name="q62" value="En modo GPL o gasolina si ha superado la temperatura de 40 grados en el motor"> En modo GPL o gasolina si ha superado la temperatura de 40 grados en el motor</label>
+        <label><input type="radio" name="q62" value="En modo GPL o gasolina siempre que me haya detenido y conmutado el sistema de aporte de energía al motor manualmente"> En modo GPL o gasolina siempre que me haya detenido y conmutado el sistema de aporte de energía al motor manualmente</label>
+    </div>
+    <div class="result" id="result-q62"></div>
+</div>
+<div class="question" id="q63">
+    <h3>63. ¿Qué tipo de tracción permite el fondo de la carrocería completamente plano?</h3>
+    <div class="answers">
+        <label><input type="radio" name="q63" value="La tracción trasera"> La tracción trasera</label>
+        <label><input type="radio" name="q63" value="La tracción delantera"> La tracción delantera</label>
+    </div>
+    <div class="result" id="result-q63"></div>
+</div>
+<div class="question" id="q64">
+    <h3>64. ¿Qué tracción tiene mayor capacidad de tracción?</h3>
+    <div class="answers">
+        <label><input type="radio" name="q64" value="La tracción trasera"> La tracción trasera</label>
+        <label><input type="radio" name="q64" value="La tracción delantera"> La tracción delantera</label>
+    </div>
+    <div class="result" id="result-q64"></div>
+</div>
+<div class="question" id="q65">
+    <h3>65. ¿Qué tipo de tracción tiene mayor maniobrabilidad?</h3>
+    <div class="answers">
+        <label><input type="radio" name="q65" value="La tracción trasera"> La tracción trasera</label>
+        <label><input type="radio" name="q65" value="Tracción delantera"> Tracción delantera</label>
+    </div>
+    <div class="result" id="result-q65"></div>
+</div>
+<div class="question" id="q66">
+    <h3>66. ¿Qué tipo de tracción presenta un desgaste uniforme?</h3>
+    <div class="answers">
+        <label><input type="radio" name="q66" value="Tracción trasera"> Tracción trasera</label>
+        <label><input type="radio" name="q66" value="Tracción delantera"> Tracción delantera</label>
+    </div>
+    <div class="result" id="result-q66"></div>
+</div>
+<div class="question" id="q67">
+    <h3>67. El benceno proviene del combustible:</h3>
+    <div class="answers">
+        <label><input type="radio" name="q67" value="Gasolina"> Gasolina</label>
+        <label><input type="radio" name="q67" value="Diesel"> Diesel</label>
+        <label><input type="radio" name="q67" value="Ninguno"> Ninguno</label>
+    </div>
+    <div class="result" id="result-q67"></div>
+</div>
+<div class="question" id="q68">
+    <h3>68. Los humos negros son característicos de los motores:</h3>
+    <div class="answers">
+        <label><input type="radio" name="q68" value="Diesel"> Diesel</label>
+        <label><input type="radio" name="q68" value="Gasolina"> Gasolina</label>
+        <label><input type="radio" name="q68" value="GLP"> GLP</label>
+    </div>
+    <div class="result" id="result-q68"></div>
+</div>
+<div class="question" id="q69">
+    <h3>69. El óxido de nitrógeno es resultado de:</h3>
+    <div class="answers">
+        <label><input type="radio" name="q69" value="Combustión incompleta"> Combustión incompleta</label>
+        <label><input type="radio" name="q69" value="Reacción a altas presiones y temperaturas"> Reacción a altas presiones y temperaturas</label>
+        <label><input type="radio" name="q69" value="La interacción con el Azufre"> La interacción con el Azufre</label>
+    </div>
+    <div class="result" id="result-q69"></div>
+</div>
+<div class="question" id="q70">
+    <h3>70. El monóxido de carbono es resultado de:</h3>
+    <div class="answers">
+        <label><input type="radio" name="q70" value="Combustión incompleta"> Combustión incompleta</label>
+        <label><input type="radio" name="q70" value="Reacción a altas presiones"> Reacción a altas presiones</label>
+        <label><input type="radio" name="q70" value="La interacción con el Azufre"> La interacción con el Azufre</label>
+    </div>
+    <div class="result" id="result-q70"></div>
+</div>
+<div class="question" id="q71">
+    <h3>71. La inyección directa de combustible:</h3>
+    <div class="answers">
+        <label><input type="radio" name="q71" value="Aumenta el consumo y emisión de CO2"> Aumenta el consumo y emisión de CO2</label>
+        <label><input type="radio" name="q71" value="Disminuye el consumo y emisión del CO2"> Disminuye el consumo y emisión del CO2</label>
+        <label><input type="radio" name="q71" value="Elimina NOx"> Elimina NOx</label>
+    </div>
+    <div class="result" id="result-q71"></div>
+</div>
+<div class="question" id="q72">
+    <h3>72. La UREA:</h3>
+    <div class="answers">
+        <label><input type="radio" name="q72" value="Aumenta el consumo y emisión de CO2"> Aumenta el consumo y emisión de CO2</label>
+        <label><input type="radio" name="q72" value="Disminuye el consumo y emisión del CO2"> Disminuye el consumo y emisión del CO2</label>
+        <label><input type="radio" name="q72" value="Reduce NOx"> Reduce NOx</label>
+    </div>
+    <div class="result" id="result-q72"></div>
+</div>
+
+            <div class="question" id="q73">
+                <h3>73. La finalidad del catalizador es la de reducir los NOx y oxidar los hidrocarburos y el CO a CO2:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q73" value="V"> V</label>
+                    <label><input type="radio" name="q73" value="F"> F</label>
+                </div>
+                <div class="result" id="result-q73"></div>
+            </div>
+            <div class="question" id="q74">
+                <h3>74. Filtro de partículas DPG es para diésel y gasolina:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q74" value="V"> V</label>
+                    <label><input type="radio" name="q74" value="F"> F</label>
+                </div>
+                <div class="result" id="result-q74"></div>
+            </div>
+            <div class="question" id="q75">
+                <h3>75. El antiguo NEDC frente al nuevo WLTP:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q75" value="El antiguo es más exigente"> El antiguo es más exigente</label>
+                    <label><input type="radio" name="q75" value="El nuevo es más exigente"> El nuevo es más exigente</label>
+                    <label><input type="radio" name="q75" value="Tienen los mismos niveles de exigencia"> Tienen los mismos niveles de exigencia</label>
+                </div>
+                <div class="result" id="result-q75"></div>
+            </div>
+            <div class="question" id="q76">
+                <h3>76. En la ITV para motores gasolina se comprueba:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q76" value="CO y relación aire combustible"> CO y relación aire combustible</label>
+                    <label><input type="radio" name="q76" value="La cantidad de partículas en el escape"> La cantidad de partículas en el escape</label>
+                    <label><input type="radio" name="q76" value="Ninguna"> Ninguna</label>
+                </div>
+                <div class="result" id="result-q76"></div>
+            </div>
+            <div class="question" id="q77">
+                <h3>77. En la ITV para motores Diesel se comprueba:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q77" value="CO y relación aire combustible"> CO y relación aire combustible</label>
+                    <label><input type="radio" name="q77" value="La cantidad de partículas en el escape"> La cantidad de partículas en el escape</label>
+                    <label><input type="radio" name="q77" value="Ninguna"> Ninguna</label>
+                </div>
+                <div class="result" id="result-q77"></div>
+            </div>
+            <button type="button" class="submit-button" onclick="checkAnswers()">Enviar</button>
+        </form>
+        <a href="C:\Users\maril\Box Sync\MII\2324_1 máster\2_cuatri\04 transporte\index.html" class="button">Inicio</a>
+        <div id="finalResult" class="result"></div>
+    </div>
+
+    <script>
+        function checkAnswers() {
+            const correctAnswers = {
+                q1: 'Central',
+                q2: 'Trasera',
+                q3: 'Delantera',
+                q4: 'Longitudinal',
+                q5: 'Transversal',
+                q6: 'Caja de cambios',
+                q7: 'Diferencial',
+                q8: 'Transmiten el par desde el diferencial a las ruedas',
+                q9: 'Los dos anteriores',
+                q10: 'Gasolina',
+                q11: 'Diesel',
+                q12: 'Combustión',
+                q13: 'Gasolina',
+                q14: 'Gasolina',
+                q15: 'Diesel',
+                q16: 'Gasolina',
+                q17: 'Diesel',
+                q18: 'Diesel',
+                q19: 'Gasolina',
+                q20: 'Diesel',
+                q21: 'Gasolina',
+                q22: 'Tractores',
+                q23: 'Camiones',
+                q24: 'Eléctricos',
+                q25: 'Eléctricos',
+                q26: 'En gasolina el CO y la lambda (aire/combustible) y en Diesel la opacidad de las partículas (nivel de humos negros)',
+                q27: 'Vehículos GLP',
+                q28: 'Delantera',
+                q29: 'Total',
+                q30: 'Trasera',
+                q31: 'Delantera',
+                q32: 'Trasera',
+                q33: 'Delantera',
+                q34: 'Trasera',
+                q35: 'Total',
+                q36: 'Da igual que otra',
+                q37: 'Humos negros',
+                q38: 'Mayor que 1',
+                q39: 'Mezcla rica (mayor CO y CO2)',
+                q40: 'Mezcla pobre',
+                q41: 'Monóxido de carbono',
+                q42: 'Óxido de azufre',
+                q43: 'Aumento del nivel de ozono',
+                q44: 'Reducir el NOx',
+                q45: 'Diesel',
+                q46: 'Reducir el Nox',
+                q47: 'Catalizador: continuo y filtro de partículas: en intervalos de tiempo',
+                q48: ['Tiene más espacio en el maletero', 'Mejor refrigeración'],
+                q49: ['Tiene mejor tracción', 'Peor refrigeración', 'Más inestables', 'Más ruido en el habitáculo', 'Dirección más ligera'],
+                q50: ['Mejor reparto de pesos', 'Buen comportamiento en tracción y frenado'],
+                q51: 'A) y además de la calzada y otros factores',
+                q52: 'Motores diésel',
+                q53: 'El ciclo Otto',
+                q54: 'Motores Diesel',
+                q55: 'Inicialmente está por encima y después por debajo',
+                q56: 'La franja entre el par y potencia máximos',
+                q57: 'Cerca del punto máximo par',
+                q58: 'Un motor Diesel',
+                q59: 'Un motor de gasolina',
+                q60: 'F',
+                q61: 'La franja entre el punto de máximo rendimiento y máxima potencia es mayor que en los motores deportivos',
+                q62: 'En modo GPL o gasolina si ha superado la temperatura de 40 grados en el motor',
+                q63: 'La tracción trasera',
+                q64: 'La tracción trasera',
+                q65: 'Tracción delantera',
+                q66: 'Tracción trasera',
+                q67: 'Gasolina',
+                q68: 'Diesel',
+                q69: 'Reacción a altas presiones y temperaturas',
+                q70: 'Combustión incompleta',
+                q71: 'Disminuye el consumo y emisión del CO2',
+                q72: 'Reduce NOx',
+                q73: 'V',
+                q74: 'F',
+                q75: 'El nuevo es más exigente',
+                q76: 'CO y relación aire combustible',
+                q77: 'La cantidad de partículas en el escape'
+            };
+    
+            let score = 0;
+            const form = document.getElementById('quizForm');
+            const formData = new FormData(form);
+    
+            for (let question in correctAnswers) {
+                const questionDiv = document.getElementById(question);
+                const resultDiv = document.getElementById(`result-${question}`);
+    
+                if (Array.isArray(correctAnswers[question])) {
+                    // Check if multiple choice answers are correct
+                    const answers = formData.getAll(question);
+                    if (correctAnswers[question].sort().toString() === answers.sort().toString()) {
+                        score++;
+                        questionDiv.classList.add('correct');
+                        questionDiv.classList.remove('incorrect');
+                        resultDiv.innerHTML = `<p class="correct">Correcto</p>`;
+                    } else {
+                        questionDiv.classList.add('incorrect');
+                        questionDiv.classList.remove('correct');
+                        resultDiv.innerHTML = `<p class="incorrect">Incorrecto. Respuesta correcta: ${correctAnswers[question].join(', ')}</p>`;
+                    }
+                } else {
+                    const answer = formData.get(question);
+                    if (answer === correctAnswers[question]) {
+                        score++;
+                        questionDiv.classList.add('correct');
+                        questionDiv.classList.remove('incorrect');
+                        resultDiv.innerHTML = `<p class="correct">Correcto</p>`;
+                    } else {
+                        questionDiv.classList.add('incorrect');
+                        questionDiv.classList.remove('correct');
+                        resultDiv.innerHTML = `<p class="incorrect">Incorrecto. Respuesta correcta: ${correctAnswers[question]}</p>`;
+                    }
+                }
+            }
+    
+            const finalResultDiv = document.getElementById('finalResult');
+            finalResultDiv.innerHTML = `<p>Puntuación: ${score} / ${Object.keys(correctAnswers).length}</p>`;
+        }
+    </script>
+        
+</body>
+</html>

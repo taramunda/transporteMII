@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEST TRANSPORTE - Grúas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 90%;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .question {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .question h3 {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        .answers label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .submit-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .submit-button:hover {
+            background-color: #45a049;
+        }
+        .correct {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .result {
+            margin-top: 10px;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px 0;
+            font-size: 1em;
+            color: white;
+            background-color: #007BFF;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>TEST TRANSPORTE - Grúas</h1>
+        <form id="quizForm">
+            <div class="question" id="q1">
+                <h3>1. Este tipo de grúas abarcan áreas rectangulares:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q1" value="Grúas manuales"> Grúas manuales</label>
+                    <label><input type="radio" name="q1" value="Grúas giratorias"> Grúas giratorias</label>
+                    <label><input type="radio" name="q1" value="Grúas pórtico o puente"> Grúas pórtico o puente</label>
+                </div>
+                <div class="result" id="result-q1"></div>
+            </div>
+            <div class="question" id="q2">
+                <h3>2. Se usan este tipo de grúas cuando el operario no puede controlar la carga durante todo el trayecto:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q2" value="Grúas manuales"> Grúas manuales</label>
+                    <label><input type="radio" name="q2" value="Grúas motorizadas"> Grúas motorizadas</label>
+                    <label><input type="radio" name="q2" value="Grúas giratorias"> Grúas giratorias</label>
+                </div>
+                <div class="result" id="result-q2"></div>
+            </div>
+            <div class="question" id="q3">
+                <h3>3. Para su construcción necesitan una edificación especial:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q3" value="Grúas manuales"> Grúas manuales</label>
+                    <label><input type="radio" name="q3" value="Grúas sobre una estructura"> Grúas sobre una estructura</label>
+                    <label><input type="radio" name="q3" value="Grúas sobre el suelo"> Grúas sobre el suelo</label>
+                </div>
+                <div class="result" id="result-q3"></div>
+            </div>
+            <div class="question" id="q4">
+                <h3>4. En general, las grúas cuando son de menor tamaño permiten:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q4" value="Ciclos más altos de producción"> Ciclos más altos de producción</label>
+                    <label><input type="radio" name="q4" value="Control y posicionamiento fácil de la carga"> Control y posicionamiento fácil de la carga</label>
+                    <label><input type="radio" name="q4" value="Las dos anteriores son correctas"> Las dos anteriores son correctas</label>
+                </div>
+                <div class="result" id="result-q4"></div>
+            </div>
+            <div class="question" id="q5">
+                <h3>5. El elemento de suspensión para cargas a granel es:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q5" value="Gancho"> Gancho</label>
+                    <label><input type="radio" name="q5" value="Spreaders"> Spreaders</label>
+                    <label><input type="radio" name="q5" value="Cucharas"> Cucharas</label>
+                </div>
+                <div class="result" id="result-q5"></div>
+            </div>
+            <div class="question" id="q6">
+                <h3>6. El elemento de suspensión para poder amarrar cables o eslingas es:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q6" value="Gancho"> Gancho</label>
+                    <label><input type="radio" name="q6" value="Spreaders"> Spreaders</label>
+                    <label><input type="radio" name="q6" value="Cucharas"> Cucharas</label>
+                </div>
+                <div class="result" id="result-q6"></div>
+            </div>
+            <div class="question" id="q7">
+                <h3>7. El elemento de suspensión para el manejo de contenedores es:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q7" value="Gancho"> Gancho</label>
+                    <label><input type="radio" name="q7" value="Spreaders"> Spreaders</label>
+                    <label><input type="radio" name="q7" value="Cucharas"> Cucharas</label>
+                </div>
+                <div class="result" id="result-q7"></div>
+            </div>
+            <div class="question" id="q8">
+                <h3>8. ¿Qué tipo de elemento de suspensión tipo gancho es recomendado para cargas altas?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q8" value="Simples"> Simples</label>
+                    <label><input type="radio" name="q8" value="Dobles"> Dobles</label>
+                    <label><input type="radio" name="q8" value="Seguridad"> Seguridad</label>
+                </div>
+                <div class="result" id="result-q8"></div>
+            </div>
+            <div class="question" id="q9">
+                <h3>9. ¿Cuándo se quiere operar con la carga sin interferir en su zona de trabajo qué grúa industrial es la apropiada?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q9" value="Grúa consola"> Grúa consola</label>
+                    <label><input type="radio" name="q9" value="Grúa giratoria de columna"> Grúa giratoria de columna</label>
+                    <label><input type="radio" name="q9" value="Puente grúa"> Puente grúa</label>
+                </div>
+                <div class="result" id="result-q9"></div>
+            </div>
+
+            <div class="question" id="q10">
+                <h3>10. El puente de grúa con carro abierto es apropiado para:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q10" value="Cargas bajas"> Cargas bajas</label>
+                    <label><input type="radio" name="q10" value="Cargas elevadas"> Cargas elevadas</label>
+                    <label><input type="radio" name="q10" value="Altas velocidades"> Altas velocidades</label>
+                </div>
+                <div class="result" id="result-q10"></div>
+            </div>
+            <div class="question" id="q11">
+                <h3>11. El puente grúa de carro polipasto es apropiado para:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q11" value="Cargas elevadas"> Cargas elevadas</label>
+                    <label><input type="radio" name="q11" value="Altas velocidades"> Altas velocidades</label>
+                    <label><input type="radio" name="q11" value="Cargas medias"> Cargas medias</label>
+                </div>
+                <div class="result" id="result-q11"></div>
+            </div>
+            <div class="question" id="q12">
+                <h3>12. El movimiento longitudinal de este tipo de grúas se realiza a través de la traslación de la viga por carriles elevados:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q12" value="Puentes grúa"> Puentes grúa</label>
+                    <label><input type="radio" name="q12" value="Grúa pórtico"> Grúa pórtico</label>
+                    <label><input type="radio" name="q12" value="Grúas giratorias de columna"> Grúas giratorias de columna</label>
+                </div>
+                <div class="result" id="result-q12"></div>
+            </div>
+            <div class="question" id="q13">
+                <h3>13. El movimiento longitudinal de este tipo de grúas se realiza a través de la traslación de railes:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q13" value="Puentes grúa"> Puentes grúa</label>
+                    <label><input type="radio" name="q13" value="Grúa pórtico"> Grúa pórtico</label>
+                    <label><input type="radio" name="q13" value="Grúas giratorias de columna"> Grúas giratorias de columna</label>
+                </div>
+                <div class="result" id="result-q13"></div>
+            </div>
+            <div class="question" id="q14">
+                <h3>14. Su disposición es en voladizo (L invertida):</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q14" value="Puentes grúa"> Puentes grúa</label>
+                    <label><input type="radio" name="q14" value="Grúas Derrick"> Grúas Derrick</label>
+                    <label><input type="radio" name="q14" value="Grúa consola"> Grúa consola</label>
+                </div>
+                <div class="result" id="result-q14"></div>
+            </div>
+            <div class="question" id="q15">
+                <h3>15. Realiza el movimiento longitudinal sobre 3 carriles:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q15" value="Grúas pórtico"> Grúas pórtico</label>
+                    <label><input type="radio" name="q15" value="Grúas Derrick"> Grúas Derrick</label>
+                    <label><input type="radio" name="q15" value="Grúas consola"> Grúas consola</label>
+                </div>
+                <div class="result" id="result-q15"></div>
+            </div>
+            <div class="question" id="q16">
+                <h3>16. Realiza el movimiento transversal sobre 2 carriles:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q16" value="Grúas consola"> Grúas consola</label>
+                    <label><input type="radio" name="q16" value="Grúa pórtico"> Grúa pórtico</label>
+                    <label><input type="radio" name="q16" value="Puentes grúa"> Puentes grúa</label>
+                </div>
+                <div class="result" id="result-q16"></div>
+            </div>
+            <div class="question" id="q17">
+                <h3>17. En las grúas normalmente la elevación de la carga la realiza:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q17" value="El mecanismo de elevación (carro o polipasto)"> El mecanismo de elevación (carro o polipasto)</label>
+                    <label><input type="radio" name="q17" value="Los railes"> Los railes</label>
+                    <label><input type="radio" name="q17" value="La viga testero"> La viga testero</label>
+                </div>
+                <div class="result" id="result-q17"></div>
+            </div>
+            <div class="question" id="q18">
+                <h3>18. Sirven de complemento al puente grúa y tienen elevada velocidad:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q18" value="Grúa pórtico"> Grúa pórtico</label>
+                    <label><input type="radio" name="q18" value="Grúas Derrick"> Grúas Derrick</label>
+                    <label><input type="radio" name="q18" value="Grúas consola"> Grúas consola</label>
+                </div>
+                <div class="result" id="result-q18"></div>
+            </div>
+            <div class="question" id="q19">
+                <h3>19. Este tipo de grúas son fijas:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q19" value="Grúas consola"> Grúas consola</label>
+                    <label><input type="radio" name="q19" value="Puentes grúa"> Puentes grúa</label>
+                    <label><input type="radio" name="q19" value="Grúas Derrick"> Grúas Derrick</label>
+                </div>
+                <div class="result" id="result-q19"></div>
+            </div>
+            <div class="question" id="q20">
+                <h3>20. ¿Qué elementos de las grúas Derrick están arriostrados en la plataforma?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q20" value="Vientos"> Vientos</label>
+                    <label><input type="radio" name="q20" value="Contrapeso"> Contrapeso</label>
+                    <label><input type="radio" name="q20" value="Rótula"> Rótula</label>
+                </div>
+                <div class="result" id="result-q20"></div>
+            </div>
+            <div class="question" id="q21">
+                <h3>21. Son características de las grúas Derrick:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q21" value="Tienen el giro limitado"> Tienen el giro limitado</label>
+                    <label><input type="radio" name="q21" value="Bajo coste, gran alcance y grandes cargas"> Bajo coste, gran alcance y grandes cargas</label>
+                    <label><input type="radio" name="q21" value="Ambas respuestas son correctas"> Ambas respuestas son correctas</label>
+                </div>
+                <div class="result" id="result-q21"></div>
+            </div>
+            <div class="question" id="q22">
+                <h3>22. ¿Qué grúas colocan en el recinto portuario?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q22" value="Grúas puerto"> Grúas puerto</label>
+                    <label><input type="radio" name="q22" value="Grúas de buques"> Grúas de buques</label>
+                    <label><input type="radio" name="q22" value="Grúas de cubierta"> Grúas de cubierta</label>
+                </div>
+                <div class="result" id="result-q22"></div>
+            </div>
+            <div class="question" id="q23">
+                <h3>23. ¿Qué grúas se colocan sobre el barco?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q23" value="Grúas puerto"> Grúas puerto</label>
+                    <label><input type="radio" name="q23" value="Grúas de buques (cubierta)"> Grúas de buques (cubierta)</label>
+                    <label><input type="radio" name="q23" value="Grúas portacontenedores"> Grúas portacontenedores</label>
+                </div>
+                <div class="result" id="result-q23"></div>
+            </div>
+            <div class="question" id="q24">
+                <h3>24. Son las grúas que más movimientos tienen:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q24" value="Grúas puerto (tienen 4 movimientos)"> Grúas puerto (tienen 4 movimientos)</label>
+                    <label><input type="radio" name="q24" value="Grúas de cubierta (tienen 3 movimientos)"> Grúas de cubierta (tienen 3 movimientos)</label>
+                    <label><input type="radio" name="q24" value="Grúas portacontenedores (tienen 5 movimientos)"> Grúas portacontenedores (tienen 5 movimientos)</label>
+                </div>
+                <div class="result" id="result-q24"></div>
+            </div>
+            <div class="question" id="q25">
+                <h3>25. ¿Qué tipo de grúas son las usadas para edificaciones?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q25" value="Puentes grúa"> Puentes grúa</label>
+                    <label><input type="radio" name="q25" value="Grúas consola"> Grúas consola</label>
+                    <label><input type="radio" name="q25" value="Grúas torre"> Grúas torre</label>
+                </div>
+                <div class="result" id="result-q25"></div>
+            </div>
+            <div class="question" id="q26">
+                <h3>26. Se pueden instalar en vehículos para realizar la carga y descarga:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q26" value="Grúas móviles autopropulsadas"> Grúas móviles autopropulsadas</label>
+                    <label><input type="radio" name="q26" value="Grúas torre"> Grúas torre</label>
+                    <label><input type="radio" name="q26" value="Grúa trascabina o parte trasera"> Grúa trascabina o parte trasera</label>
+                </div>
+                <div class="result" id="result-q26"></div>
+            </div>
+            <div class="question" id="q27">
+                <h3>27. Se utilizan para periodos de trabajo cortos:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q27" value="Grúas móviles autopropulsadas"> Grúas móviles autopropulsadas</label>
+                    <label><input type="radio" name="q27" value="Grúas torre"> Grúas torre</label>
+                    <label><input type="radio" name="q27" value="Grúas puente"> Grúas puente</label>
+                </div>
+                <div class="result" id="result-q27"></div>
+            </div>
+            <div class="question" id="q28">
+                <h3>28. El amantillo de las grúas de cubierta que movimiento realiza:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q28" value="Movimiento de elevación de la pluma"> Movimiento de elevación de la pluma</label>
+                    <label><input type="radio" name="q28" value="Movimiento de giro"> Movimiento de giro</label>
+                    <label><input type="radio" name="q28" value="Movimiento de elevación de la carga"> Movimiento de elevación de la carga</label>
+                </div>
+                <div class="result" id="result-q28"></div>
+            </div>
+            <div class="question" id="q29">
+                <h3>29. El polipasto en las grúas de cubierta que movimiento realiza:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q29" value="Movimiento de elevación de la pluma"> Movimiento de elevación de la pluma</label>
+                    <label><input type="radio" name="q29" value="Movimiento de giro"> Movimiento de giro</label>
+                    <label><input type="radio" name="q29" value="Movimiento de elevación de la carga"> Movimiento de elevación de la carga</label>
+                </div>
+                <div class="result" id="result-q29"></div>
+            </div>
+            <div class="question" id="q30">
+                <h3>30. Las grúas pórtico y giratorias que áreas abarcan?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q30" value="Áreas circulares"> Áreas circulares</label>
+                    <label><input type="radio" name="q30" value="Áreas rectangulares"> Áreas rectangulares</label>
+                    <label><input type="radio" name="q30" value="Pórtico rectangulares y giratorias circulares"> Pórtico rectangulares y giratorias circulares</label>
+                </div>
+                <div class="result" id="result-q30"></div>
+            </div>
+            <div class="question" id="q31">
+                <h3>31. ¿Cuántas velocidades de elevación tienen los puentes grúa?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q31" value="1"> 1</label>
+                    <label><input type="radio" name="q31" value="2 o 3"> 2 o 3</label>
+                    <label><input type="radio" name="q31" value="Ninguna es correcta"> Ninguna es correcta</label>
+                </div>
+                <div class="result" id="result-q31"></div>
+            </div>
+            <div class="question" id="q32">
+                <h3>32. Características de los puentes grúa:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q32" value="No interfieren en la zona de trabajo, permiten altas cargas, gran volumen de trabajo"> No interfieren en la zona de trabajo, permiten altas cargas, gran volumen de trabajo</label>
+                    <label><input type="radio" name="q32" value="Interfieren en la zona de trabajo, permiten volúmenes de trabajo y cargas altos"> Interfieren en la zona de trabajo, permiten volúmenes de trabajo y cargas altos</label>
+                    <label><input type="radio" name="q32" value="Ninguna"> Ninguna</label>
+                </div>
+                <div class="result" id="result-q32"></div>
+            </div>
+            <div class="question" id="q33">
+                <h3>33. El mecanismo de elevación para cargas bajas debe ser:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q33" value="Polipasto monorrail"> Polipasto monorrail</label>
+                    <label><input type="radio" name="q33" value="Carro polipasto"> Carro polipasto</label>
+                    <label><input type="radio" name="q33" value="Carro abierto"> Carro abierto</label>
+                </div>
+                <div class="result" id="result-q33"></div>
+            </div>
+            <div class="question" id="q34">
+                <h3>34. El mecanismo de elevación para cargas medias debe ser:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q34" value="Polipasto monorrail"> Polipasto monorrail</label>
+                    <label><input type="radio" name="q34" value="Carro polipasto"> Carro polipasto</label>
+                    <label><input type="radio" name="q34" value="Carro abierto"> Carro abierto</label>
+                </div>
+                <div class="result" id="result-q34"></div>
+            </div>
+            <div class="question" id="q35">
+                <h3>35. El mecanismo de elevación para cargas elevadas debe ser:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q35" value="Polipasto monorrail"> Polipasto monorrail</label>
+                    <label><input type="radio" name="q35" value="Carro polipasto"> Carro polipasto</label>
+                    <label><input type="radio" name="q35" value="Carro abierto"> Carro abierto</label>
+                </div>
+                <div class="result" id="result-q35"></div>
+            </div>
+            <div class="question" id="q36">
+                <h3>36. En las grúas pórticos el movimiento longitudinal de traslación se realiza:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q36" value="Por raíles metálicos siempre"> Por raíles metálicos siempre</label>
+                    <label><input type="radio" name="q36" value="Mediante neumáticos siempre"> Mediante neumáticos siempre</label>
+                    <label><input type="radio" name="q36" value="Raíles o neumáticos"> Raíles o neumáticos</label>
+                </div>
+                <div class="result" id="result-q36"></div>
+            </div>
+            <div class="question" id="q37">
+                <h3>37. La grúa consola está destinada para cargas:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q37" value="Bajas"> Bajas</label>
+                    <label><input type="radio" name="q37" value="Bajas y muy bajas"> Bajas y muy bajas</label>
+                    <label><input type="radio" name="q37" value="Medias y bajas"> Medias y bajas</label>
+                </div>
+                <div class="result" id="result-q37"></div>
+            </div>
+            <div class="question" id="q38">
+                <h3>38. Las grúas de columna:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q38" value="Pueden girar"> Pueden girar</label>
+                    <label><input type="radio" name="q38" value="No pueden girar"> No pueden girar</label>
+                    <label><input type="radio" name="q38" value="Son más grandes que las grúas pórtico"> Son más grandes que las grúas pórtico</label>
+                </div>
+                <div class="result" id="result-q38"></div>
+            </div>
+            <div class="question" id="q39">
+                <h3>39. ¿Cuántos tambores de cable incorporan las grúas Derrick?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q39" value="1"> 1</label>
+                    <label><input type="radio" name="q39" value="2"> 2</label>
+                    <label><input type="radio" name="q39" value="3 o más"> 3 o más</label>
+                </div>
+                <div class="result" id="result-q39"></div>
+            </div>
+            <div class="question" id="q40">
+                <h3>40. Características grúas Derrick:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q40" value="Sencillas, baratas, grandes cargas"> Sencillas, baratas, grandes cargas</label>
+                    <label><input type="radio" name="q40" value="Sencillas, caras, grandes cargas"> Sencillas, caras, grandes cargas</label>
+                    <label><input type="radio" name="q40" value="Ninguna"> Ninguna</label>
+                </div>
+                <div class="result" id="result-q40"></div>
+            </div>
+            <div class="question" id="q41">
+                <h3>41. Las grúas giratorias pueden encontrarse en:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q41" value="Solo en puertos por motivos de normativa"> Solo en puertos por motivos de normativa</label>
+                    <label><input type="radio" name="q41" value="Solo en buques por motivos de normativa"> Solo en buques por motivos de normativa</label>
+                    <label><input type="radio" name="q41" value="En ambos"> En ambos</label>
+                </div>
+                <div class="result" id="result-q41"></div>
+            </div>
+            <div class="question" id="q42">
+                <h3>42. Las grúas de puerto cuántos tipos de movimiento presentan?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q42" value="Giro, traslación, elevación y alcance"> Giro, traslación, elevación y alcance</label>
+                    <label><input type="radio" name="q42" value="Giro, traslación y elevación"> Giro, traslación y elevación</label>
+                    <label><input type="radio" name="q42" value="Tiene más de 6 movimientos"> Tiene más de 6 movimientos</label>
+                </div>
+                <div class="result" id="result-q42"></div>
+            </div>
+            <div class="question" id="q43">
+                <h3>43. El cambio de alcance de la pluma se realiza:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q43" value="Compensado cable"> Compensado cable</label>
+                    <label><input type="radio" name="q43" value="Balancín de compensación"> Balancín de compensación</label>
+                    <label><input type="radio" name="q43" value="Mediante grúas pato"> Mediante grúas pato</label>
+                    <label><input type="radio" name="q43" value="Todas correctas"> Todas correctas</label>
+                </div>
+                <div class="result" id="result-q43"></div>
+            </div>
+            <div class="question" id="q44">
+                <h3>44. Las grúas de cubierta tienen los siguientes movimientos:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q44" value="Elevación pluma, elevación carga y giro"> Elevación pluma, elevación carga y giro</label>
+                    <label><input type="radio" name="q44" value="Elevación carga y giro"> Elevación carga y giro</label>
+                    <label><input type="radio" name="q44" value="Elevación pluma, elevación carga, giro y desplazamiento de la grúa"> Elevación pluma, elevación carga, giro y desplazamiento de la grúa</label>
+                </div>
+                <div class="result" id="result-q44"></div>
+            </div>
+            <div class="question" id="q45">
+                <h3>45. Número de movimientos en portacontenedores:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q45" value="5"> 5</label>
+                    <label><input type="radio" name="q45" value="4"> 4</label>
+                    <label><input type="radio" name="q45" value="3"> 3</label>
+                </div>
+                <div class="result" id="result-q45"></div>
+            </div>
+            <div class="question" id="q46">
+                <h3>46. ¿Puede circular una grúa móvil autopropulsada por carretera?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q46" value="La normativa específica que solo de día"> La normativa específica que solo de día</label>
+                    <label><input type="radio" name="q46" value="La normativa específica que solo de noche"> La normativa específica que solo de noche</label>
+                    <label><input type="radio" name="q46" value="Sí"> Sí</label>
+                </div>
+                <div class="result" id="result-q46"></div>
+            </div> 
+
+            <button type="button" class="submit-button" onclick="checkAnswers()">Enviar</button>
+        </form>
+        <a href="C:\Users\maril\Box Sync\MII\2324_1 máster\2_cuatri\04 transporte\index.html" class="button">Inicio</a>
+        <div id="finalResult" class="result"></div>
+    </div>
+    
+       
+    
+
+    <script>
+        function checkAnswers() {
+            const correctAnswers = {
+                q1: 'Grúas pórtico o puente',
+                q2: 'Grúas motorizadas',
+                q3: 'Grúas sobre una estructura',
+                q4: 'Las dos anteriores son correctas',
+                q5: 'Cucharas',
+                q6: 'Gancho',
+                q7: 'Spreaders',
+                q8: 'Dobles',
+                q9: 'Grúa giratoria de columna',
+                q10: 'Cargas elevadas',
+                q11: 'Cargas medias',
+                q12: 'Puentes grúa',
+                q13: 'Grúa pórtico',
+                q14: 'Grúa consola',
+                q15: 'Grúas consola',
+                q16: 'Puentes grúa',
+                q17: 'El mecanismo de elevación (carro o polipasto)',
+                q18: 'Grúas consola',
+                q19: 'Grúas Derrick',
+                q20: 'Vientos',
+                q21: 'Ambas respuestas son correctas',
+                q22: 'Grúas puerto',
+                q23: 'Grúas de buques (cubierta)',
+                q24: 'Grúas portacontenedores (tienen 5 movimientos)',
+                q25: 'Grúas torre',
+                q26: 'Grúas móviles autopropulsadas',
+                q27: 'Grúas móviles autopropulsadas',
+                q28: 'Movimiento de elevación de la pluma',
+                q29: 'Movimiento de giro',
+                q30: 'Pórtico rectangulares y giratorias circulares',
+                q31: '2 o 3',
+                q32: 'No interfieren en la zona de trabajo, permiten altas cargas, gran volumen de trabajo',
+                q33: 'Polipasto monorrail',
+                q34: 'Carro polipasto',
+                q35: 'Carro abierto',
+                q36: 'Raíles o neumáticos',
+                q37: 'Medias y bajas',
+                q38: 'Pueden girar',
+                q39: '3 o más',
+                q40: 'Sencillas, baratas, grandes cargas',
+                q41: 'En ambos',
+                q42: 'Giro, traslación, elevación y alcance',
+                q43: 'Todas correctas',
+                q44: 'Elevación pluma, elevación carga y giro',
+                q45: '5',
+                q46: 'Sí',
+            };
+
+            let score = 0;
+            const form = document.getElementById('quizForm');
+            const formData = new FormData(form);
+
+            for (let question in correctAnswers) {
+                const questionDiv = document.getElementById(question);
+                const resultDiv = document.getElementById(`result-${question}`);
+                const answer = formData.get(question);
+
+                if (answer === correctAnswers[question]) {
+                    score++;
+                    questionDiv.classList.add('correct');
+                    questionDiv.classList.remove('incorrect');
+                    resultDiv.innerHTML = `<p class="correct">Correcto</p>`;
+                } else {
+                    questionDiv.classList.add('incorrect');
+                    questionDiv.classList.remove('correct');
+                    resultDiv.innerHTML = `<p class="incorrect">Incorrecto. Respuesta correcta: ${correctAnswers[question]}</p>`;
+                }
+            }
+
+            const finalResultDiv = document.getElementById('finalResult');
+            finalResultDiv.innerHTML = `<p>Puntuación: ${score} / ${Object.keys(correctAnswers).length}</p>`;
+        }
+    </script>
+</body>
+</html>

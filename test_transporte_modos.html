@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEST TRANSPORTE - Modos de transporte</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 90%;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .question {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .question h3 {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        .answers label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .submit-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .submit-button:hover {
+            background-color: #45a049;
+        }
+        .correct {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .result {
+            margin-top: 10px;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px 0;
+            font-size: 1em;
+            color: white;
+            background-color: #007BFF;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>TEST TRANSPORTE - Modos de transporte</h1>
+        <form id="quizForm">
+
+            <!-- Aquí van todas las preguntas, desde q1 hasta q60 -->
+            
+            <div class="question" id="q1">
+                <h3>1. Es el medio de transporte más barato:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q1" value="Carretera"> Carretera</label>
+                    <label><input type="radio" name="q1" value="Aéreo"> Aéreo</label>
+                    <label><input type="radio" name="q1" value="Marítimo"> Marítimo</label>
+                </div>
+                <div class="result" id="result-q1"></div>
+            </div>
+            <div class="question" id="q2">
+                <h3>2. Es el medio de transporte más rápido:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q2" value="Carretera"> Carretera</label>
+                    <label><input type="radio" name="q2" value="Aéreo"> Aéreo</label>
+                    <label><input type="radio" name="q2" value="Ferrocarril"> Ferrocarril</label>
+                </div>
+                <div class="result" id="result-q2"></div>
+            </div>
+            <div class="question" id="q3">
+                <h3>3. Es el medio de transporte con mayor accesibilidad:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q3" value="Carretera"> Carretera</label>
+                    <label><input type="radio" name="q3" value="Aéreo"> Aéreo</label>
+                    <label><input type="radio" name="q3" value="Marítimo"> Marítimo</label>
+                </div>
+                <div class="result" id="result-q3"></div>
+            </div>
+            <div class="question" id="q4">
+                <h3>4. Es el medio de transporte con la accesibilidad más restringida:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q4" value="Ferrocarril"> Ferrocarril</label>
+                    <label><input type="radio" name="q4" value="Aéreo"> Aéreo</label>
+                    <label><input type="radio" name="q4" value="Marítimo"> Marítimo</label>
+                </div>
+                <div class="result" id="result-q4"></div>
+            </div>
+            <div class="question" id="q5">
+                <h3>5. Es el medio de transporte con menos siniestralidad:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q5" value="Carretera"> Carretera</label>
+                    <label><input type="radio" name="q5" value="Aéreo"> Aéreo</label>
+                    <label><input type="radio" name="q5" value="Marítimo"> Marítimo</label>
+                </div>
+                <div class="result" id="result-q5"></div>
+            </div>
+            <div class="question" id="q6">
+                <h3>6. ¿Qué es un flete?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q6" value="El precio del servicio de transporte marítimo"> El precio del servicio de transporte marítimo</label>
+                    <label><input type="radio" name="q6" value="Las rutas de un transporte marítimo"> Las rutas de un transporte marítimo</label>
+                    <label><input type="radio" name="q6" value="Una medida de la capacidad de carga del transporte marítimo"> Una medida de la capacidad de carga del transporte marítimo</label>
+                </div>
+                <div class="result" id="result-q6"></div>
+            </div>
+            <div class="question" id="q7">
+                <h3>7. ¿Qué tipo de mercado en el transporte marítimo se usa para precios de bajo valor unitario y cargas a granel?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q7" value="Mercado de tráficos TRAMP"> Mercado de tráficos TRAMP</label>
+                    <label><input type="radio" name="q7" value="Mercado de tráficos de línea regular (liner)"> Mercado de tráficos de línea regular (liner)</label>
+                    <label><input type="radio" name="q7" value="Las dos respuestas anteriores son correctas"> Las dos respuestas anteriores son correctas</label>
+                </div>
+                <div class="result" id="result-q7"></div>
+            </div>
+            <div class="question" id="q8">
+                <h3>8. ¿Qué tipo de mercado en el transporte marítimo se usa para precios de valor unitario elevado y productos manufacturados?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q8" value="Mercado de tráficos TRAMP"> Mercado de tráficos TRAMP</label>
+                    <label><input type="radio" name="q8" value="Mercado de tráficos de línea regular (liner)"> Mercado de tráficos de línea regular (liner)</label>
+                    <label><input type="radio" name="q8" value="Las dos respuestas anteriores son correctas"> Las dos respuestas anteriores son correctas</label>
+                </div>
+                <div class="result" id="result-q8"></div>
+            </div>
+            <div class="question" id="q9">
+                <h3>9. ¿En qué tipo de mercado de transporte marítimo los puntos de salida, llegada y escalas ya están predeterminados?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q9" value="Mercado de tráficos TRAMP"> Mercado de tráficos TRAMP</label>
+                    <label><input type="radio" name="q9" value="Mercado de tráficos de línea regular (liner)"> Mercado de tráficos de línea regular (liner)</label>
+                    <label><input type="radio" name="q9" value="Las dos respuestas anteriores son correctas"> Las dos respuestas anteriores son correctas</label>
+                </div>
+                <div class="result" id="result-q9"></div>
+            </div>
+            <div class="question" id="q10">
+                <h3>10. Equivalen a los transportes discrecionales por carretera, en el que se realizan pocos viajes y el transporte queda libre para contratar otro cargamento:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q10" value="Mercados de tráficos TRAMP"> Mercados de tráficos TRAMP</label>
+                    <label><input type="radio" name="q10" value="Mercados de tráficos de línea regular (liner)"> Mercados de tráficos de línea regular (liner)</label>
+                    <label><input type="radio" name="q10" value="Las dos respuestas anteriores son correctas"> Las dos respuestas anteriores son correctas</label>
+                </div>
+                <div class="result" id="result-q10"></div>
+            </div>
+            <div class="question" id="q11">
+                <h3>11. En la póliza de fletamento se dispone:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q11" value="A las personas, cosas"> A las personas, cosas</label>
+                    <label><input type="radio" name="q11" value="A las personas, cosas y circunstancias de ejecución del contrato"> A las personas, cosas y circunstancias de ejecución del contrato</label>
+                    <label><input type="radio" name="q11" value="A las personas, cosas, circunstancias de ejecución del contrato y el conocimiento de embarque (Bill of landing)"> A las personas, cosas, circunstancias de ejecución del contrato y el conocimiento de embarque (Bill of landing)</label>
+                </div>
+                <div class="result" id="result-q11"></div>
+            </div>
+            <div class="question" id="q12">
+                <h3>12. En la póliza de fletamento el fletador es la persona que:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q12" value="Dispone de los buques navieros"> Dispone de los buques navieros</label>
+                    <label><input type="radio" name="q12" value="Recibe el cargamento"> Recibe el cargamento</label>
+                    <label><input type="radio" name="q12" value="Cargador que posee la mercancía"> Cargador que posee la mercancía</label>
+                </div>
+                <div class="result" id="result-q12"></div>
+            </div>
+            <div class="question" id="q13">
+                <h3>13. En la póliza de fletamento el armador fletante es la persona que:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q13" value="Dispone de los buques navieros"> Dispone de los buques navieros</label>
+                    <label><input type="radio" name="q13" value="Recibe el cargamento"> Recibe el cargamento</label>
+                    <label><input type="radio" name="q13" value="Cargador que posee la mercancía"> Cargador que posee la mercancía</label>
+                </div>
+                <div class="result" id="result-q13"></div>
+            </div>
+            <div class="question" id="q14">
+                <h3>14. Los agentes que intervienen en el mercado de tráficos TRAMP son:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q14" value="Bróker, compañía estibadora, consignatario"> Bróker, compañía estibadora, consignatario</label>
+                    <label><input type="radio" name="q14" value="Compañía naviera, transitario, el consignatario y la compañía estibadora"> Compañía naviera, transitario, el consignatario y la compañía estibadora</label>
+                    <label><input type="radio" name="q14" value="El bróker, compañía estibadora, el naviero y el consignatario"> El bróker, compañía estibadora, el naviero y el consignatario</label>
+                </div>
+                <div class="result" id="result-q14"></div>
+            </div>
+            <div class="question" id="q15">
+                <h3>15. Los agentes que intervienen en el mercado de tráficos de línea regular (liner) son:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q15" value="La compañía naviera, el transitario, el consignatario y la compañía estibadora"> La compañía naviera, el transitario, el consignatario y la compañía estibadora</label>
+                    <label><input type="radio" name="q15" value="El bróker, compañía estibadora, el naviero y el consignatario"> El bróker, compañía estibadora, el naviero y el consignatario</label>
+                    <label><input type="radio" name="q15" value="Compañía naviera, transitario, consignatario y el naviero"> Compañía naviera, transitario, consignatario y el naviero</label>
+                </div>
+                <div class="result" id="result-q15"></div>
+            </div>
+            <div class="question" id="q16">
+                <h3>16. ¿Cuál es la persona encargada de defender los intereses del naviero y aportarle todas las necesidades en el puerto?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q16" value="El bróker o agente marítimo"> El bróker o agente marítimo</label>
+                    <label><input type="radio" name="q16" value="La compañía estibadora"> La compañía estibadora</label>
+                    <label><input type="radio" name="q16" value="El consignatario"> El consignatario</label>
+                </div>
+                <div class="result" id="result-q16"></div>
+            </div>
+            <div class="question" id="q17">
+                <h3>17. ¿Cuál es la persona encargada de mediar entre el cargador y el naviero para conseguir cerrar el trato?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q17" value="El bróker o agente marítimo"> El bróker o agente marítimo</label>
+                    <label><input type="radio" name="q17" value="La compañía estibadora"> La compañía estibadora</label>
+                    <label><input type="radio" name="q17" value="El consignatario"> El consignatario</label>
+                </div>
+                <div class="result" id="result-q17"></div>
+            </div>
+            <div class="question" id="q18">
+                <h3>18. ¿Quién es la persona encargada de las operaciones de estiba y desestiba, embarque y desembarque?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q18" value="El bróker o agente marítimo"> El bróker o agente marítimo</label>
+                    <label><input type="radio" name="q18" value="La compañía estibadora"> La compañía estibadora</label>
+                    <label><input type="radio" name="q18" value="El consignatario"> El consignatario</label>
+                </div>
+                <div class="result" id="result-q18"></div>
+            </div>
+            <div class="question" id="q19">
+                <h3>19. Con este tipo de mercado de tráficos se asegura una duración del servicio a largo plazo:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q19" value="Mercados de tráficos TRAMP"> Mercados de tráficos TRAMP</label>
+                    <label><input type="radio" name="q19" value="Mercado de tráficos de línea regular (liner)"> Mercado de tráficos de línea regular (liner)</label>
+                    <label><input type="radio" name="q19" value="Las dos respuestas son correctas"> Las dos respuestas son correctas</label>
+                </div>
+                <div class="result" id="result-q19"></div>
+            </div>
+            <div class="question" id="q20">
+                <h3>20. ¿Qué tipo de buque se usa para transportar vehículos de transporte?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q20" value="Buques ro-ro"> Buques ro-ro</label>
+                    <label><input type="radio" name="q20" value="Buques de carga general"> Buques de carga general</label>
+                    <label><input type="radio" name="q20" value="Buques químicos"> Buques químicos</label>
+                </div>
+                <div class="result" id="result-q20"></div>
+            </div>
+            <div class="question" id="q21">
+                <h3>21. Son los buques de mayor tamaño:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q21" value="Buques ro-ro"> Buques ro-ro</label>
+                    <label><input type="radio" name="q21" value="Petroleros"> Petroleros</label>
+                    <label><input type="radio" name="q21" value="Buques gaseros"> Buques gaseros</label>
+                </div>
+                <div class="result" id="result-q21"></div>
+            </div>
+            <div class="question" id="q22">
+                <h3>22. ¿Qué tipo de transporte por tierra es el más adecuado para largos trayectos?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q22" value="Vehículos"> Vehículos</label>
+                    <label><input type="radio" name="q22" value="Buques"> Buques</label>
+                    <label><input type="radio" name="q22" value="Ferrocarril"> Ferrocarril</label>
+                </div>
+                <div class="result" id="result-q22"></div>
+            </div>
+            <div class="question" id="q23">
+                <h3>23. Es el mejor medio para el servicio puerta a puerta:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q23" value="Ferrocarril"> Ferrocarril</label>
+                    <label><input type="radio" name="q23" value="Avión"> Avión</label>
+                    <label><input type="radio" name="q23" value="Vehículos"> Vehículos</label>
+                </div>
+                <div class="result" id="result-q23"></div>
+            </div>
+            <div class="question" id="q24">
+                <h3>24. ¿Qué agente en el transporte por ferrocarril se encarga de ofrecer el servicio puerta a puerta además de hacerse responsable de todo el transporte?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q24" value="El operador intermodal"> El operador intermodal</label>
+                    <label><input type="radio" name="q24" value="La compañía ferroviaria"> La compañía ferroviaria</label>
+                    <label><input type="radio" name="q24" value="El bróker"> El bróker</label>
+                </div>
+                <div class="result" id="result-q24"></div>
+            </div>
+            <div class="question" id="q25">
+                <h3>25. El agente de handling, el Courier y el transitario son agentes tipos del transporte:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q25" value="Por ferrocarril"> Por ferrocarril</label>
+                    <label><input type="radio" name="q25" value="Marítimo"> Marítimo</label>
+                    <label><input type="radio" name="q25" value="Aéreo"> Aéreo</label>
+                </div>
+                <div class="result" id="result-q25"></div>
+            </div>
+            <div class="question" id="q26">
+                <h3>26. El transporte urgente puerta a puerta de documentos importantes nacionales e internacionales quien lo realiza:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q26" value="El agente handling"> El agente handling</label>
+                    <label><input type="radio" name="q26" value="Courier"> Courier</label>
+                    <label><input type="radio" name="q26" value="El bróker"> El bróker</label>
+                </div>
+                <div class="result" id="result-q26"></div>
+            </div>
+            <div class="question" id="q27">
+                <h3>27. ¿Quién es el encargado de organizar el transporte internacional incluyendo todas las operaciones?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q27" value="El Courier"> El Courier</label>
+                    <label><input type="radio" name="q27" value="La empresa de transporte o transportista"> La empresa de transporte o transportista</label>
+                    <label><input type="radio" name="q27" value="El transitario"> El transitario</label>
+                </div>
+                <div class="result" id="result-q27"></div>
+            </div>
+            <div class="question" id="q28">
+                <h3>28. Es el transporte con más siniestralidad:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q28" value="El aéreo"> El aéreo</label>
+                    <label><input type="radio" name="q28" value="Por carretera"> Por carretera</label>
+                    <label><input type="radio" name="q28" value="El marítimo"> El marítimo</label>
+                </div>
+                <div class="result" id="result-q28"></div>
+            </div>
+            <div class="question" id="q29">
+                <h3>29. Es propenso a requerir transbordos:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q29" value="Ferrocarril"> Ferrocarril</label>
+                    <label><input type="radio" name="q29" value="Por carretera"> Por carretera</label>
+                    <label><input type="radio" name="q29" value="Los dos por igual"> Los dos por igual</label>
+                </div>
+                <div class="result" id="result-q29"></div>
+            </div>
+            <div class="question" id="q30">
+                <h3>30. Es el transporte más conveniente para envíos de grandes masas y poco valor:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q30" value="Aéreo"> Aéreo</label>
+                    <label><input type="radio" name="q30" value="Marítimo"> Marítimo</label>
+                    <label><input type="radio" name="q30" value="Por carretera"> Por carretera</label>
+                </div>
+                <div class="result" id="result-q30"></div>
+            </div>
+            <div class="question" id="q31">
+                <h3>31. Este tipo de clasificación se usa para transportar mercancías:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q31" value="Tipo M"> Tipo M</label>
+                    <label><input type="radio" name="q31" value="Tipo N"> Tipo N</label>
+                    <label><input type="radio" name="q31" value="Tipo O"> Tipo O</label>
+                </div>
+                <div class="result" id="result-q31"></div>
+            </div>
+            <div class="question" id="q32">
+                <h3>32. Este tipo de clasificación se usa para transportar personas:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q32" value="Tipo M"> Tipo M</label>
+                    <label><input type="radio" name="q32" value="Tipo N"> Tipo N</label>
+                    <label><input type="radio" name="q32" value="Tipo O"> Tipo O</label>
+                </div>
+                <div class="result" id="result-q32"></div>
+            </div>
+            <div class="question" id="q33">
+                <h3>33. Este tipo de clasificación se usa para transportar remolques o semirremolques:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q33" value="Tipo M"> Tipo M</label>
+                    <label><input type="radio" name="q33" value="Tipo N"> Tipo N</label>
+                    <label><input type="radio" name="q33" value="Tipo O"> Tipo O</label>
+                </div>
+                <div class="result" id="result-q33"></div>
+            </div>
+            <div class="question" id="q34">
+                <h3>34. Dentro del tipo N de vehículos cuál es el usado para trayectos largos interurbanos:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q34" value="Tipo N1"> Tipo N1</label>
+                    <label><input type="radio" name="q34" value="Tipo N2"> Tipo N2</label>
+                    <label><input type="radio" name="q34" value="Tipo N3"> Tipo N3</label>
+                </div>
+                <div class="result" id="result-q34"></div>
+            </div>
+            <div class="question" id="q35">
+                <h3>35. Dentro del tipo N de vehículos cuál es el usado para pequeños paquetes</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q35" value="Tipo N1"> Tipo N1</label>
+                    <label><input type="radio" name="q35" value="Tipo N2"> Tipo N2</label>
+                    <label><input type="radio" name="q35" value="Tipo N3"> Tipo N3</label>
+                </div>
+                <div class="result" id="result-q35"></div>
+            </div>
+            <div class="question" id="q36">
+                <h3>36. Para mercancías peligrosas que siglas son las utilizadas por normativa:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q36" value="ADR"> ADR</label>
+                    <label><input type="radio" name="q36" value="ATP"> ATP</label>
+                    <label><input type="radio" name="q36" value="AHR"> AHR</label>
+                </div>
+                <div class="result" id="result-q36"></div>
+            </div>
+            <div class="question" id="q37">
+                <h3>37. Para mercancías perecederas que siglas son las utilizadas por normativas:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q37" value="ADR"> ADR</label>
+                    <label><input type="radio" name="q37" value="ATP"> ATP</label>
+                    <label><input type="radio" name="q37" value="AHP"> AHP</label>
+                </div>
+                <div class="result" id="result-q37"></div>
+            </div>
+            <div class="question" id="q38">
+                <h3>38. Los proyectos técnicos para la reforma de los vehículos son siempre de obligado cumplimiento:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q38" value="Depende de lo que digan en un taller"> Depende de lo que digan en un taller</label>
+                    <label><input type="radio" name="q38" value="Sí"> Sí</label>
+                    <label><input type="radio" name="q38" value="No"> No</label>
+                </div>
+                <div class="result" id="result-q38"></div>
+            </div>
+            <div class="question" id="q39">
+                <h3>39. ¿Qué documentos son necesarios para la reforma de un vehículo?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q39" value="Proyecto técnico siempre, informe de conformidad y certificado de taller"> Proyecto técnico siempre, informe de conformidad y certificado de taller</label>
+                    <label><input type="radio" name="q39" value="Informe de conformidad y el proyecto técnico"> Informe de conformidad y el proyecto técnico</label>
+                    <label><input type="radio" name="q39" value="Proyecto técnico en algunas ocasiones, informe de conformidad y certificado de taller"> Proyecto técnico en algunas ocasiones, informe de conformidad y certificado de taller</label>
+                </div>
+                <div class="result" id="result-q39"></div>
+            </div>
+            <div class="question" id="q40">
+                <h3>40. ¿Qué regula el ADR de un vehículo de mercancías peligrosas?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q40" value="Solo que tipo de mercancía lleva"> Solo que tipo de mercancía lleva</label>
+                    <label><input type="radio" name="q40" value="Todo tipo de características de la mercancía, vehículo, etiquetados, envases, normas y como debe realizarse la carga y descarga"> Todo tipo de características de la mercancía, vehículo, etiquetados, envases, normas y como debe realizarse la carga y descarga</label>
+                    <label><input type="radio" name="q40" value="Solo las características del vehículo"> Solo las características del vehículo</label>
+                </div>
+                <div class="result" id="result-q40"></div>
+            </div>
+            <div class="question" id="q41">
+                <h3>41. ¿Qué tipo de vehículo de mercancías perecederas (ATP) es isotermo y usa una fuente de frío NO mecánica?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q41" value="Vehículo calorífico"> Vehículo calorífico</label>
+                    <label><input type="radio" name="q41" value="Vehículo frigorífico"> Vehículo frigorífico</label>
+                    <label><input type="radio" name="q41" value="Vehículo refrigerante o refrigerado"> Vehículo refrigerante o refrigerado</label>
+                </div>
+                <div class="result" id="result-q41"></div>
+            </div>
+            <div class="question" id="q42">
+                <h3>42. ¿Qué tipo de vehículo isotermo de mercancías perecederas (ATP) es apropiado para trayectos cortos?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q42" value="Vehículo isotermo"> Vehículo isotermo</label>
+                    <label><input type="radio" name="q42" value="Vehículo refrigerante"> Vehículo refrigerante</label>
+                    <label><input type="radio" name="q42" value="Vehículo frigorífico"> Vehículo frigorífico</label>
+                    <label><input type="radio" name="q42" value="Vehículo calorífico"> Vehículo calorífico</label>
+                </div>
+                <div class="result" id="result-q42"></div>
+            </div>
+            <div class="question" id="q43">
+                <h3>43. ¿Los incoterms cuando son de obligado cumplimiento?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q43" value="Siempre"> Siempre</label>
+                    <label><input type="radio" name="q43" value="Nunca"> Nunca</label>
+                    <label><input type="radio" name="q43" value="Solo si aparecen en el contrato"> Solo si aparecen en el contrato</label>
+                </div>
+                <div class="result" id="result-q43"></div>
+            </div>
+            <div class="question" id="q44">
+                <h3>44. ¿Qué indican los incoterms?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q44" value="El precio y el modo de transporte de la mercancía"> El precio y el modo de transporte de la mercancía</label>
+                    <label><input type="radio" name="q44" value="Hasta qué punto el vendedor es responsable de la mercancía y cuáles son los gastos a su carga"> Hasta qué punto el vendedor es responsable de la mercancía y cuáles son los gastos a su carga</label>
+                    <label><input type="radio" name="q44" value="Define todos los modos de transportes que se usan en el transporte de la mercancía"> Define todos los modos de transportes que se usan en el transporte de la mercancía</label>
+                </div>
+                <div class="result" id="result-q44"></div>
+            </div>
+            <div class="question" id="q45">
+                <h3>45. ¿El incoterm EXW es más beneficioso para?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q45" value="Vendedor"> Vendedor</label>
+                    <label><input type="radio" name="q45" value="Comprador"> Comprador</label>
+                    <label><input type="radio" name="q45" value="Los dos por igual"> Los dos por igual</label>
+                </div>
+                <div class="result" id="result-q45"></div>
+            </div>
+            <div class="question" id="q46">
+                <h3>46. ¿El incoterm DDP es más beneficioso para?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q46" value="Vendedor"> Vendedor</label>
+                    <label><input type="radio" name="q46" value="Comprador"> Comprador</label>
+                    <label><input type="radio" name="q46" value="Los dos por igual"> Los dos por igual</label>
+                </div>
+                <div class="result" id="result-q46"></div>
+            </div>
+            <div class="question" id="q47">
+                <h3>47. El aparato que recoge las velocidades a las que ha circulado un vehículo y los tiempos de descanso del conductor es:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q47" value="El tacógrafo"> El tacógrafo</label>
+                    <label><input type="radio" name="q47" value="El limitador de velocidad"> El limitador de velocidad</label>
+                    <label><input type="radio" name="q47" value="El incoterm"> El incoterm</label>
+                </div>
+                <div class="result" id="result-q47"></div>
+            </div>
+            <div class="question" id="q48">
+                <h3>48. La elección del modo de transporte depende de:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q48" value="Velocidad"> Velocidad</label>
+                    <label><input type="radio" name="q48" value="Fiabilidad"> Fiabilidad</label>
+                    <label><input type="radio" name="q48" value="Coste"> Coste</label>
+                    <label><input type="radio" name="q48" value="Todas ciertas"> Todas ciertas</label>
+                </div>
+                <div class="result" id="result-q48"></div>
+            </div>
+            <div class="question" id="q49">
+                <h3>49. El modo de transporte más económico es:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q49" value="Carretera"> Carretera</label>
+                    <label><input type="radio" name="q49" value="Ferrocarril"> Ferrocarril</label>
+                    <label><input type="radio" name="q49" value="Aéreo"> Aéreo</label>
+                    <label><input type="radio" name="q49" value="Marítimo"> Marítimo</label>
+                </div>
+                <div class="result" id="result-q49"></div>
+            </div>
+            <div class="question" id="q50">
+                <h3>50. El modo de transporte con más frecuencia es:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q50" value="Carretera"> Carretera</label>
+                    <label><input type="radio" name="q50" value="Ferrocarril"> Ferrocarril</label>
+                    <label><input type="radio" name="q50" value="Aéreo"> Aéreo</label>
+                    <label><input type="radio" name="q50" value="Marítimo"> Marítimo</label>
+                </div>
+                <div class="result" id="result-q50"></div>
+            </div>
+            <div class="question" id="q51">
+                <h3>51. El modo de transporte con mayor accesibilidad es:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q51" value="Carretera"> Carretera</label>
+                    <label><input type="radio" name="q51" value="Ferrocarril"> Ferrocarril</label>
+                    <label><input type="radio" name="q51" value="Aéreo"> Aéreo</label>
+                    <label><input type="radio" name="q51" value="Marítimo"> Marítimo</label>
+                </div>
+                <div class="result" id="result-q51"></div>
+            </div>
+            <div class="question" id="q52">
+                <h3>52. El modo de transporte con mayor fiabilidad es:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q52" value="Carretera"> Carretera</label>
+                    <label><input type="radio" name="q52" value="Ferrocarril"> Ferrocarril</label>
+                    <label><input type="radio" name="q52" value="Aéreo"> Aéreo</label>
+                    <label><input type="radio" name="q52" value="Marítimo"> Marítimo</label>
+                    <label><input type="radio" name="q52" value="Carretera y aéreo"> Carretera y aéreo</label>
+                </div>
+                <div class="result" id="result-q52"></div>
+            </div>
+            <div class="question" id="q53">
+                <h3>53. Para el transporte de carbón que medio de transporte usaríamos como preferencia:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q53" value="Carretera"> Carretera</label>
+                    <label><input type="radio" name="q53" value="Ferrocarril"> Ferrocarril</label>
+                    <label><input type="radio" name="q53" value="Aéreo"> Aéreo</label>
+                    <label><input type="radio" name="q53" value="Marítimo"> Marítimo</label>
+                </div>
+                <div class="result" id="result-q53"></div>
+            </div>
+            <div class="question" id="q54">
+                <h3>54. Un flete es:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q54" value="El precio de un barco"> El precio de un barco</label>
+                    <label><input type="radio" name="q54" value="El precio de una mercancía"> El precio de una mercancía</label>
+                    <label><input type="radio" name="q54" value="El precio del servicio de transporte"> El precio del servicio de transporte</label>
+                </div>
+                <div class="result" id="result-q54"></div>
+            </div>
+            <div class="question" id="q55">
+                <h3>55. La póliza de fletamento se realiza entre:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q55" value="El fletador y el cargado de la mercancía"> El fletador y el cargado de la mercancía</label>
+                    <label><input type="radio" name="q55" value="El armador fletante y el naviero que dispone de buques"> El armador fletante y el naviero que dispone de buques</label>
+                    <label><input type="radio" name="q55" value="Entre el fletador y el armador fletante"> Entre el fletador y el armador fletante</label>
+                    <label><input type="radio" name="q55" value="Ninguna es correcta"> Ninguna es correcta</label>
+                </div>
+                <div class="result" id="result-q55"></div>
+            </div>
+            <div class="question" id="q56">
+                <h3>56. La póliza de fletamento incluye a las personas, las cosas y las circunstancias de ejecución:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q56" value="V"> V</label>
+                    <label><input type="radio" name="q56" value="F"> F</label>
+                </div>
+                <div class="result" id="result-q56"></div>
+            </div>
+            <div class="question" id="q57">
+                <h3>57. ¿Quién opera entre el cargador y el naviero?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q57" value="La compañía estibadora"> La compañía estibadora</label>
+                    <label><input type="radio" name="q57" value="El bróker"> El bróker</label>
+                    <label><input type="radio" name="q57" value="El consignatario"> El consignatario</label>
+                </div>
+                <div class="result" id="result-q57"></div>
+            </div>
+            <div class="question" id="q58">
+                <h3>58. La compañía estibadora:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q58" value="Puede ser contratada por el fletador"> Puede ser contratada por el fletador</label>
+                    <label><input type="radio" name="q58" value="Puede ser contratada por el naviero"> Puede ser contratada por el naviero</label>
+                    <label><input type="radio" name="q58" value="Por cualquiera de los dos anteriores"> Por cualquiera de los dos anteriores</label>
+                </div>
+                <div class="result" id="result-q58"></div>
+            </div>
+            <div class="question" id="q59">
+                <h3>59. El consignatario es:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q59" value="El representado de la compañía estibadora"> El representado de la compañía estibadora</label>
+                    <label><input type="radio" name="q59" value="El representado del broker"> El representado del broker</label>
+                    <label><input type="radio" name="q59" value="El representado del fletador"> El representado del fletador</label>
+                    <label><input type="radio" name="q59" value="El representado del naviero en el puerto"> El representado del naviero en el puerto</label>
+                    <label><input type="radio" name="q59" value="Ninguna"> Ninguna</label>
+                </div>
+                <div class="result" id="result-q59"></div>
+            </div>
+            <div class="question" id="q60">
+                <h3>60. Entre un modo de transporta tramp y Liner qué diferencia hay:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q60" value="El tramp es más barato que el Liner"> El tramp es más barato que el Liner</label>
+                    <label><input type="radio" name="q60" value="El liner es más barato que el tramp"> El liner es más barato que el tramp</label>
+                    <label><input type="radio" name="q60" value="Ninguna"> Ninguna</label>
+                </div>
+                <div class="result" id="result-q60"></div>
+            </div>
+            
+            <button type="button" class="submit-button" onclick="checkAnswers()">Enviar</button>
+        </form>
+        <a href="C:\Users\maril\Box Sync\MII\2324_1 máster\2_cuatri\04 transporte\index.html" class="button">Inicio</a>
+        <div id="finalResult" class="result"></div>
+    </div>
+
+            <!-- Añadir todas las demás preguntas aquí siguiendo el mismo formato -->
+
+            <button type="button" class="submit-button" onclick="checkAnswers()">Enviar</button>
+        </form>
+        <div id="finalResult" class="result"></div>
+    </div>
+
+    <script>
+        function checkAnswers() {
+            const correctAnswers = {
+                q1: 'Marítimo',
+                q2: 'Aéreo',
+                q3: 'Carretera',
+                q4: 'Marítimo',
+                q5: 'Aéreo',
+                q6: 'El precio del servicio de transporte marítimo',
+                q7: 'Mercado de tráficos TRAMP',
+                q8: 'Mercado de tráficos de línea regular (liner)',
+                q9: 'Mercado de tráficos de línea regular (liner)',
+                q10: 'Mercados de tráficos TRAMP',
+                q11: 'A las personas, cosas, circunstancias de ejecución del contrato y el conocimiento de embarque (Bill of landing)',
+                q12: 'Cargador que posee la mercancía',
+                q13: 'Dispone de los buques navieros',
+                q14: 'El bróker, compañía estibadora, el naviero y el consignatario',
+                q15: 'La compañía naviera, el transitario, el consignatario y la compañía estibadora',
+                q16: 'El consignatario',
+                q17: 'El bróker o agente marítimo',
+                q18: 'La compañía estibadora',
+                q19: 'Mercado de tráficos de línea regular (liner)',
+                q20: 'Buques ro-ro',
+                q21: 'Petroleros',
+                q22: 'Ferrocarril',
+                q23: 'Vehículos',
+                q24: 'El operador intermodal',
+                q25: 'Aéreo',
+                q26: 'Courier',
+                q27: 'El transitario',
+                q28: 'Por carretera',
+                q29: 'Ferrocarril',
+                q30: 'Marítimo',
+                q31: 'Tipo N',
+                q32: 'Tipo M',
+                q33: 'Tipo O',
+                q34: 'Tipo N2',
+                q35: 'Tipo N1',
+                q36: 'ADR',
+                q37: 'ATP',
+                q38: 'Sí',
+                q39: 'Proyecto técnico siempre, informe de conformidad y certificado de taller',
+                q40: 'Todo tipo de características de la mercancía, vehículo, etiquetados, envases, normas y como debe realizarse la carga y descarga',
+                q41: 'Vehículo refrigerante o refrigerado',
+                q42: 'Vehículo isotermo',
+                q43: 'Solo si aparecen en el contrato',
+                q44: 'Hasta qué punto el vendedor es responsable de la mercancía y cuáles son los gastos a su carga',
+                q45: 'Vendedor',
+                q46: 'Comprador',
+                q47: 'El tacógrafo',
+                q48: 'Todas ciertas',
+                q49: 'Marítimo',
+                q50: 'Carretera',
+                q51: 'Carretera',
+                q52: 'Carretera y aéreo',
+                q53: 'Marítimo',
+                q54: 'El precio del servicio de transporte',
+                q55: 'Entre el fletador y el armador fletante',
+                q56: 'V',
+                q57: 'El bróker',
+                q58: 'Por cualquiera de los dos anteriores',
+                q59: 'El representado del naviero en el puerto',
+                q60: 'El liner es más barato que el tramp'
+            };
+
+            let score = 0;
+            const form = document.getElementById('quizForm');
+            const formData = new FormData(form);
+
+            for (let question in correctAnswers) {
+                const questionDiv = document.getElementById(question);
+                const resultDiv = document.getElementById(`result-${question}`);
+                const answer = formData.get(question);
+
+                if (answer === correctAnswers[question]) {
+                    score++;
+                    questionDiv.classList.add('correct');
+                    questionDiv.classList.remove('incorrect');
+                    resultDiv.innerHTML = `<p class="correct">Correcto</p>`;
+                } else {
+                    questionDiv.classList.add('incorrect');
+                    questionDiv.classList.remove('correct');
+                    resultDiv.innerHTML = `<p class="incorrect">Incorrecto. Respuesta correcta: ${correctAnswers[question]}</p>`;
+                }
+            }
+
+            const finalResultDiv = document.getElementById('finalResult');
+            finalResultDiv.innerHTML = `<p>Puntuación: ${score} / ${Object.keys(correctAnswers).length}</p>`;
+        }
+    </script>
+</body>
+</html>

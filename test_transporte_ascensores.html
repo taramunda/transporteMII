@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEST TRANSPORTE - Ascensores</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 90%;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .question {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .question h3 {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        .answers label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .submit-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .submit-button:hover {
+            background-color: #45a049;
+        }
+        .correct {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .result {
+            margin-top: 10px;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px 0;
+            font-size: 1em;
+            color: white;
+            background-color: #007BFF;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>TEST TRANSPORTE - Ascensores</h1>
+        <form id="quizForm">
+
+            <div class="question" id="q1">
+                <h3>1. Su uso se recomienda para edificios de más de 5 plantas:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q1" value="Ascensores hidráulicos"> Ascensores hidráulicos</label>
+                    <label><input type="radio" name="q1" value="Ascensores neumáticos"> Ascensores neumáticos</label>
+                    <label><input type="radio" name="q1" value="Ascensores eléctricos"> Ascensores eléctricos</label>
+                </div>
+                <div class="result" id="result-q1"></div>
+            </div>
+
+            <div class="question" id="q2">
+                <h3>2. Los ascensores GEARLESS tienen:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q2" value="Menos velocidad que los ascensores con reductor"> Menos velocidad que los ascensores con reductor</label>
+                    <label><input type="radio" name="q2" value="Menos rendimiento y más velocidad que los ascensores con reductor"> Menos rendimiento y más velocidad que los ascensores con reductor</label>
+                    <label><input type="radio" name="q2" value="Más velocidad y más rendimiento que los ascensores con reductor"> Más velocidad y más rendimiento que los ascensores con reductor</label>
+                </div>
+                <div class="result" id="result-q2"></div>
+            </div>
+
+            <div class="question" id="q3">
+                <h3>3. Este tipo de ascensor necesita unas operaciones de mantenimiento más dificultosas y produce ruidos y vibraciones excesivas:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q3" value="Ascensores sin cuarto de máquinas"> Ascensores sin cuarto de máquinas</label>
+                    <label><input type="radio" name="q3" value="Ascensores con máquina lateral"> Ascensores con máquina lateral</label>
+                    <label><input type="radio" name="q3" value="Ascensores hidráulicos"> Ascensores hidráulicos</label>
+                </div>
+                <div class="result" id="result-q3"></div>
+            </div>
+
+            <div class="question" id="q4">
+                <h3>4. Este tipo de ascensores necesita una longitud de cable más elevada:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q4" value="Ascensores eléctricos con reductora"> Ascensores eléctricos con reductora</label>
+                    <label><input type="radio" name="q4" value="Ascensores eléctricos sin cuarto de máquinas"> Ascensores eléctricos sin cuarto de máquinas</label>
+                    <label><input type="radio" name="q4" value="Ascensores hidráulicos"> Ascensores hidráulicos</label>
+                </div>
+                <div class="result" id="result-q4"></div>
+            </div>
+
+            <div class="question" id="q5">
+                <h3>5. Son ventajas de este tipo de ascensores: no ocupa espacios adicionales y no emplea polea superior:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q5" value="Ascensores sin cuarto de máquinas"> Ascensores sin cuarto de máquinas</label>
+                    <label><input type="radio" name="q5" value="Ascensores eléctricos con máquina lateral"> Ascensores eléctricos con máquina lateral</label>
+                    <label><input type="radio" name="q5" value="Ascensores hidráulicos"> Ascensores hidráulicos</label>
+                </div>
+                <div class="result" id="result-q5"></div>
+            </div>
+
+            <div class="question" id="q6">
+                <h3>6. Son inconvenientes de los ascensores eléctricos:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q6" value="Necesitan mayor hueco para su instalación (contrapeso) y menor capacidad de carga"> Necesitan mayor hueco para su instalación (contrapeso) y menor capacidad de carga</label>
+                    <label><input type="radio" name="q6" value="Son silenciosos y permiten mayores alturas de elevación"> Son silenciosos y permiten mayores alturas de elevación</label>
+                    <label><input type="radio" name="q6" value="Tardan mucho y tienen peor rendimiento que los hidráulicos"> Tardan mucho y tienen peor rendimiento que los hidráulicos</label>
+                </div>
+                <div class="result" id="result-q6"></div>
+            </div>
+
+            <div class="question" id="q7">
+                <h3>7. Son ventajas de los ascensores eléctricos:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q7" value="Necesita poco hueco para su instalación y tienen esperas más cortas"> Necesita poco hueco para su instalación y tienen esperas más cortas</label>
+                    <label><input type="radio" name="q7" value="Son silenciosos y precisan menor potencia para elevar la misma carga"> Son silenciosos y precisan menor potencia para elevar la misma carga</label>
+                    <label><input type="radio" name="q7" value="Permiten mayores velocidades y precisan menor potencia para elevar la misma carga"> Permiten mayores velocidades y precisan menor potencia para elevar la misma carga</label>
+                </div>
+                <div class="result" id="result-q7"></div>
+            </div>
+
+            <div class="question" id="q8">
+                <h3>8. Características de los ascensores eléctricos:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q8" value="Necesitan mayor espacio para su instalación y tienen un mal rendimiento"> Necesitan mayor espacio para su instalación y tienen un mal rendimiento</label>
+                    <label><input type="radio" name="q8" value="Son silenciosos y precisan menor potencia para elevar la misma carga"> Son silenciosos y precisan menor potencia para elevar la misma carga</label>
+                    <label><input type="radio" name="q8" value="Necesitan mayor espacio para su instalación y tienen más capacidad de carga"> Necesitan mayor espacio para su instalación y tienen más capacidad de carga</label>
+                </div>
+                <div class="result" id="result-q8"></div>
+            </div>
+
+            <div class="question" id="q9">
+                <h3>9. Necesitan un regulador de velocidad:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q9" value="Ascensores sin cuarto de máquinas"> Ascensores sin cuarto de máquinas</label>
+                    <label><input type="radio" name="q9" value="Ascensores con reductor"> Ascensores con reductor</label>
+                    <label><input type="radio" name="q9" value="Ascensores gearless"> Ascensores gearless</label>
+                </div>
+                <div class="result" id="result-q9"></div>
+            </div>
+            
+            <div class="question" id="q10">
+                <h3>10. Características de los ascensores gearless:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q10" value="Necesitan menos espacio de instalación que los ascensores con reductor"> Necesitan menos espacio de instalación que los ascensores con reductor</label>
+                    <label><input type="radio" name="q10" value="Son más baratos que los ascensores con reductor"> Son más baratos que los ascensores con reductor</label>
+                    <label><input type="radio" name="q10" value="Son más voluminosos y caros que los ascensores con reductor"> Son más voluminosos y caros que los ascensores con reductor</label>
+                </div>
+                <div class="result" id="result-q10"></div>
+            </div>
+            
+            <div class="question" id="q11">
+                <h3>11. Ventajas de los ascensores gearless:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q11" value="Menores ruidos, más baratos, mayor confort en el viaje, mayor seguridad y menos consumo"> Menores ruidos, más baratos, mayor confort en el viaje, mayor seguridad y menos consumo</label>
+                    <label><input type="radio" name="q11" value="Menores ruidos, más caros, mayor confort en el viaje, mayor seguridad y menos consumo"> Menores ruidos, más caros, mayor confort en el viaje, mayor seguridad y menos consumo</label>
+                    <label><input type="radio" name="q11" value="Menores ruidos, mayor seguridad, menos espacios y menos consumo"> Menores ruidos, mayor seguridad, menos espacios y menos consumo</label>
+                </div>
+                <div class="result" id="result-q11"></div>
+            </div>
+            
+            <div class="question" id="q12">
+                <h3>12. Para espacios reducidos y edificios de pocas plantas se usan:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q12" value="Ascensores gearless"> Ascensores gearless</label>
+                    <label><input type="radio" name="q12" value="Ascensores eléctricos sin cuarto de máquinas"> Ascensores eléctricos sin cuarto de máquinas</label>
+                    <label><input type="radio" name="q12" value="Ascensores hidráulicos"> Ascensores hidráulicos</label>
+                </div>
+                <div class="result" id="result-q12"></div>
+            </div>
+            
+            <div class="question" id="q13">
+                <h3>13. Con estos ascensores se evita la instalación de cuartos de máquinas en la parte superior:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q13" value="Ascensores hidráulicos"> Ascensores hidráulicos</label>
+                    <label><input type="radio" name="q13" value="Ascensores eléctricos de máquina lateral"> Ascensores eléctricos de máquina lateral</label>
+                    <label><input type="radio" name="q13" value="Ambas son correctas"> Ambas son correctas</label>
+                </div>
+                <div class="result" id="result-q13"></div>
+            </div>
+            
+            <div class="question" id="q14">
+                <h3>14. Ventajas ascensores hidráulicos:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q14" value="Se elimina el contrapeso, menos vibraciones, suavidad, menor mantenimiento, grandes alturas"> Se elimina el contrapeso, menos vibraciones, suavidad, menor mantenimiento, grandes alturas</label>
+                    <label><input type="radio" name="q14" value="Se elimina el contrapeso, menos vibraciones, suavidad, menos mantenimiento, poco espacio"> Se elimina el contrapeso, menos vibraciones, suavidad, menos mantenimiento, poco espacio</label>
+                    <label><input type="radio" name="q14" value="Se elimina el contrapeso, menos vibraciones, suavidad, menos mantenimiento, alta velocidad"> Se elimina el contrapeso, menos vibraciones, suavidad, menos mantenimiento, alta velocidad</label>
+                </div>
+                <div class="result" id="result-q14"></div>
+            </div>
+            
+            <div class="question" id="q15">
+                <h3>15. Inconvenientes ascensores hidráulicos:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q15" value="Baja velocidad, más caros, requieren mayor potencia y consumo para la misma capacidad"> Baja velocidad, más caros, requieren mayor potencia y consumo para la misma capacidad</label>
+                    <label><input type="radio" name="q15" value="Baja velocidad, más caros, requieren mayor potencia requerida para la misma capacidad y mayor mantenimiento"> Baja velocidad, más caros, requieren mayor potencia requerida para la misma capacidad y mayor mantenimiento</label>
+                    <label><input type="radio" name="q15" value="Baja velocidad, más caros, bajas alturas, mayores vibraciones"> Baja velocidad, más caros, bajas alturas, mayores vibraciones</label>
+                </div>
+                <div class="result" id="result-q15"></div>
+            </div>
+            
+            <div class="question" id="q16">
+                <h3>16. Características de los ascensores hidráulicos:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q16" value="Baja sonoridad, se elimina el contrapeso, menos vibraciones, bajas alturas, posibilidad de vertidos de aceite, más caros"> Baja sonoridad, se elimina el contrapeso, menos vibraciones, bajas alturas, posibilidad de vertidos de aceite, más caros</label>
+                    <label><input type="radio" name="q16" value="Velocidades altas, mayores alturas, mejor rendimiento, esperas más cortas, menor potencia para igual carga"> Velocidades altas, mayores alturas, mejor rendimiento, esperas más cortas, menor potencia para igual carga</label>
+                    <label><input type="radio" name="q16" value="Mayor seguridad, voluminosos, mayor coste, necesidad de regulador de velocidad"> Mayor seguridad, voluminosos, mayor coste, necesidad de regulador de velocidad</label>
+                </div>
+                <div class="result" id="result-q16"></div>
+            </div>
+            
+            <div class="question" id="q17">
+                <h3>17. En caso de altas temperaturas se ven muy afectados:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q17" value="Ascensores gearless"> Ascensores gearless</label>
+                    <label><input type="radio" name="q17" value="Ascensores sin cuarto de máquinas"> Ascensores sin cuarto de máquinas</label>
+                    <label><input type="radio" name="q17" value="Ascensores hidráulicos"> Ascensores hidráulicos</label>
+                </div>
+                <div class="result" id="result-q17"></div>
+            </div>
+            
+            <div class="question" id="q18">
+                <h3>18. En caso de utilizar los ascensores hidráulicos a grandes alturas que problema principal surge:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q18" value="Aumento de vibraciones en la cabina"> Aumento de vibraciones en la cabina</label>
+                    <label><input type="radio" name="q18" value="Concentración en los pistones"> Concentración en los pistones</label>
+                    <label><input type="radio" name="q18" value="Posibilidad de rotura del cable del contrapeso"> Posibilidad de rotura del cable del contrapeso</label>
+                </div>
+                <div class="result" id="result-q18"></div>
+            </div>
+            
+            <div class="question" id="q19">
+                <h3>19. El bajo mantenimiento de los ascensores hidráulicos es debido principalmente a:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q19" value="Los pistones se encuentran enterrados en el suelo"> Los pistones se encuentran enterrados en el suelo</label>
+                    <label><input type="radio" name="q19" value="Los esfuerzos verticales no se cargan en los muros verticales sino sobre la base"> Los esfuerzos verticales no se cargan en los muros verticales sino sobre la base</label>
+                    <label><input type="radio" name="q19" value="Los órganos sometidos a desgastes están lubricados"> Los órganos sometidos a desgastes están lubricados</label>
+                </div>
+                <div class="result" id="result-q19"></div>
+            </div>
+            
+            <div class="question" id="q20">
+                <h3>20. La velocidad de los ascensores viene condicionada principalmente por:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q20" value="Potencia del motor y tipo de reductor"> Potencia del motor y tipo de reductor</label>
+                    <label><input type="radio" name="q20" value="Coste de la instalación"> Coste de la instalación</label>
+                    <label><input type="radio" name="q20" value="Las dos anteriores son correctas"> Las dos anteriores son correctas</label>
+                </div>
+                <div class="result" id="result-q20"></div>
+            </div>
+            
+            <div class="question" id="q21">
+                <h3>21. El convertidor de frecuencias en ascensores se consigue:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q21" value="Motores de 1 velocidad"> Motores de 1 velocidad</label>
+                    <label><input type="radio" name="q21" value="Motores de 2 velocidades"> Motores de 2 velocidades</label>
+                    <label><input type="radio" name="q21" value="Ascensores gearless"> Ascensores gearless</label>
+                </div>
+                <div class="result" id="result-q21"></div>
+            </div>
+            
+            <div class="question" id="q22">
+                <h3>22. Con el convertidor de frecuencias en ascensores se consigue</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q22" value="Suavidad y menor consumo"> Suavidad y menor consumo</label>
+                    <label><input type="radio" name="q22" value="Mejor nivelación y mayor coste de la instalación"> Mejor nivelación y mayor coste de la instalación</label>
+                    <label><input type="radio" name="q22" value="Las dos anteriores son correctas"> Las dos anteriores son correctas</label>
+                </div>
+                <div class="result" id="result-q22"></div>
+            </div>
+            
+            <div class="question" id="q23">
+                <h3>23. Los motores asincronos con reductor de velocidad son motores de:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q23" value="2 velocidades"> 2 velocidades</label>
+                    <label><input type="radio" name="q23" value="1 velocidad"> 1 velocidad</label>
+                    <label><input type="radio" name="q23" value="Las dos anteriores son correctas"> Las dos anteriores son correctas</label>
+                </div>
+                <div class="result" id="result-q23"></div>
+            </div>
+            
+            <div class="question" id="q24">
+                <h3>24. Los motores asincronos con polos conmutables son motores de:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q24" value="2 velocidades"> 2 velocidades</label>
+                    <label><input type="radio" name="q24" value="1 velocidad"> 1 velocidad</label>
+                    <label><input type="radio" name="q24" value="Las dos anteriores son correctas"> Las dos anteriores son correctas</label>
+                </div>
+                <div class="result" id="result-q24"></div>
+            </div>
+            
+            <div class="question" id="q25">
+                <h3>25. Los motores asincronos con polos conmutables se usan en:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q25" value="Viviendas pequeñas"> Viviendas pequeñas</label>
+                    <label><input type="radio" name="q25" value="Bajas cargas"> Bajas cargas</label>
+                    <label><input type="radio" name="q25" value="Las dos anteriores son correctas"> Las dos anteriores son correctas</label>
+                </div>
+                <div class="result" id="result-q25"></div>
+            </div>
+            
+            <div class="question" id="q26">
+                <h3>26. Con qué elemento conseguimos controlar la velocidad del motor:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q26" value="Diferenciales"> Diferenciales</label>
+                    <label><input type="radio" name="q26" value="Suspensión directa"> Suspensión directa</label>
+                    <label><input type="radio" name="q26" value="Convertidor de frecuencias"> Convertidor de frecuencias</label>
+                </div>
+                <div class="result" id="result-q26"></div>
+            </div>
+            
+            <div class="question" id="q27">
+                <h3>27. Los motores de corriente continua con convertidor alterna-continua se usan debido:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q27" value="Poco mantenimiento"> Poco mantenimiento</label>
+                    <label><input type="radio" name="q27" value="Suaves y silenciosos además de servir para edificios altos"> Suaves y silenciosos además de servir para edificios altos</label>
+                    <label><input type="radio" name="q27" value="Velocidades bajas"> Velocidades bajas</label>
+                </div>
+                <div class="result" id="result-q27"></div>
+            </div>
+            
+            <div class="question" id="q28">
+                <h3>28. ¿Qué tipo de suspensión es mejor?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q28" value="Directa"> Directa</label>
+                    <label><input type="radio" name="q28" value="Diferencial"> Diferencial</label>
+                    <label><input type="radio" name="q28" value="Ninguna de las anteriores"> Ninguna de las anteriores</label>
+                </div>
+                <div class="result" id="result-q28"></div>
+            </div>
+            
+            <div class="question" id="q29">
+                <h3>29. La maniobra universal se suele utilizar en aplicaciones como:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q29" value="Ascensores industriales"> Ascensores industriales</label>
+                    <label><input type="radio" name="q29" value="Edificios grandes"> Edificios grandes</label>
+                    <label><input type="radio" name="q29" value="En hoteles"> En hoteles</label>
+                </div>
+                <div class="result" id="result-q29"></div>
+            </div>
+            
+            <div class="question" id="q30">
+                <h3>30. La maniobra colectiva en bajada se suele usar en:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q30" value="Edificios industriales"> Edificios industriales</label>
+                    <label><input type="radio" name="q30" value="Hoteles"> Hoteles</label>
+                    <label><input type="radio" name="q30" value="En las dos anteriores"> En las dos anteriores</label>
+                </div>
+                <div class="result" id="result-q30"></div>
+            </div>
+            
+            <div class="question" id="q31">
+                <h3>31. La maniobra colectiva selectiva se suele usar en:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q31" value="Edificios con mucho tráfico"> Edificios con mucho tráfico</label>
+                    <label><input type="radio" name="q31" value="Grandes almacenes"> Grandes almacenes</label>
+                    <label><input type="radio" name="q31" value="Los dos anteriores"> Los dos anteriores</label>
+                </div>
+                <div class="result" id="result-q31"></div>
+            </div>
+            
+            <div class="question" id="q32">
+                <h3>32. ¿En qué maniobra se atiende a los pasajeros en el sentido de desplazamiento deseado y distribuidos ordenadamente alcanzando el piso de destino con rapidez?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q32" value="Maniobra universal"> Maniobra universal</label>
+                    <label><input type="radio" name="q32" value="Maniobra colectiva en bajada"> Maniobra colectiva en bajada</label>
+                    <label><input type="radio" name="q32" value="Maniobra selectiva"> Maniobra selectiva</label>
+                </div>
+                <div class="result" id="result-q32"></div>
+            </div>
+            
+            <div class="question" id="q33">
+                <h3>33. ¿En qué maniobra se registran y se guardan las llamadas atendiéndolas en el orden que se han almacenado?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q33" value="Maniobra universal"> Maniobra universal</label>
+                    <label><input type="radio" name="q33" value="Maniobra colectiva en bajada"> Maniobra colectiva en bajada</label>
+                    <label><input type="radio" name="q33" value="Maniobra colectiva en bajada y subida (selectiva)"> Maniobra colectiva en bajada y subida (selectiva)</label>
+                </div>
+                <div class="result" id="result-q33"></div>
+            </div>
+
+            <div class="question" id="q34">
+                <h3>34. ¿En qué maniobra se atiende las órdenes en sentido lógico?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q34" value="Maniobra universal"> Maniobra universal</label>
+                    <label><input type="radio" name="q34" value="Maniobra colectiva en bajada"> Maniobra colectiva en bajada</label>
+                    <label><input type="radio" name="q34" value="Maniobra colectiva en bajada y subida (selectiva)"> Maniobra colectiva en bajada y subida (selectiva)</label>
+                </div>
+                <div class="result" id="result-q34"></div>
+            </div>
+            
+            <div class="question" id="q35">
+                <h3>35. ¿Qué maniobra es típica en hospitales?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q35" value="Maniobra colectiva en bajada"> Maniobra colectiva en bajada</label>
+                    <label><input type="radio" name="q35" value="Maniobra selectiva"> Maniobra selectiva</label>
+                    <label><input type="radio" name="q35" value="Las dos anteriores"> Las dos anteriores</label>
+                </div>
+                <div class="result" id="result-q35"></div>
+            </div>
+            
+            <div class="question" id="q36">
+                <h3>36. ¿Qué maniobra es la que consume más energía?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q36" value="Maniobra universal"> Maniobra universal</label>
+                    <label><input type="radio" name="q36" value="Maniobra colectiva en bajada"> Maniobra colectiva en bajada</label>
+                    <label><input type="radio" name="q36" value="Maniobra selectiva"> Maniobra selectiva</label>
+                </div>
+                <div class="result" id="result-q36"></div>
+            </div>
+            
+            <div class="question" id="q37">
+                <h3>37. ¿Qué tipo de motor eléctrico es de inducción de jaula de ardilla con reductor?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q37" value="Motores geared"> Motores geared</label>
+                    <label><input type="radio" name="q37" value="Motores gearless"> Motores gearless</label>
+                    <label><input type="radio" name="q37" value="Motores de corriente continua"> Motores de corriente continua</label>
+                </div>
+                <div class="result" id="result-q37"></div>
+            </div>
+            
+            <div class="question" id="q38">
+                <h3>38. ¿Qué tipo de motor eléctrico usa imanes permanentes con muchos polos?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q38" value="Motores geared"> Motores geared</label>
+                    <label><input type="radio" name="q38" value="Motores gearless"> Motores gearless</label>
+                    <label><input type="radio" name="q38" value="Motores de corriente continua"> Motores de corriente continua</label>
+                </div>
+                <div class="result" id="result-q38"></div>
+            </div>
+            
+            <div class="question" id="q39">
+                <h3>39. ¿Qué elemento mecánico se usa para reducir la velocidad en los motores geared?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q39" value="Jaula de ardilla"> Jaula de ardilla</label>
+                    <label><input type="radio" name="q39" value="Tornillo sin fin o helicoidales"> Tornillo sin fin o helicoidales</label>
+                    <label><input type="radio" name="q39" value="Rodamientos de baja precisión"> Rodamientos de baja precisión</label>
+                </div>
+                <div class="result" id="result-q39"></div>
+            </div>
+            
+            <div class="question" id="q40">
+                <h3>40. Son motores eléctricos caracterizados por su bajo coste y variedad de velocidades</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q40" value="Motores geared"> Motores geared</label>
+                    <label><input type="radio" name="q40" value="Motores gearless"> Motores gearless</label>
+                    <label><input type="radio" name="q40" value="Motores de corriente continua"> Motores de corriente continua</label>
+                </div>
+                <div class="result" id="result-q40"></div>
+            </div>
+            
+            <div class="question" id="q41">
+                <h3>41. Son motores eléctricos caracterizados por su bajo consumo, alto rendimiento, suavidad, no precisar aceite y ser silenciosos:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q41" value="Motores geared"> Motores geared</label>
+                    <label><input type="radio" name="q41" value="Motores gearless"> Motores gearless</label>
+                    <label><input type="radio" name="q41" value="Motores de corriente continua"> Motores de corriente continua</label>
+                </div>
+                <div class="result" id="result-q41"></div>
+            </div>
+            
+            <div class="question" id="q42">
+                <h3>42. Son motores eléctricos caracterizados por su alto consumo, bajo rendimiento, ruidosos y necesidad de lubricación:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q42" value="Motores geared"> Motores geared</label>
+                    <label><input type="radio" name="q42" value="Motores gearless"> Motores gearless</label>
+                    <label><input type="radio" name="q42" value="Motores de corriente continua"> Motores de corriente continua</label>
+                </div>
+                <div class="result" id="result-q42"></div>
+            </div>
+
+            <div class="question" id="q43">
+                <h3>43. Para conseguir una buena adherencia, pero teniendo un mayor desgaste del cable que tipo de garganta es recomendable?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q43" value="Garganta trapezoidal"> Garganta trapezoidal</label>
+                    <label><input type="radio" name="q43" value="Garganta semicircular"> Garganta semicircular</label>
+                    <label><input type="radio" name="q43" value="Garganta semicircular con ranura o entalla"> Garganta semicircular con ranura o entalla</label>
+                </div>
+                <div class="result" id="result-q43"></div>
+            </div>
+            
+            <div class="question" id="q44">
+                <h3>44. ¿Qué tipo de garganta es la mejor?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q44" value="Garganta trapezoidal"> Garganta trapezoidal</label>
+                    <label><input type="radio" name="q44" value="Garganta semicircular"> Garganta semicircular</label>
+                    <label><input type="radio" name="q44" value="Garganta semicircular con ranura o entalla"> Garganta semicircular con ranura o entalla</label>
+                </div>
+                <div class="result" id="result-q44"></div>
+            </div>
+            
+            <div class="question" id="q45">
+                <h3>45. ¿Con qué garganta se consigue una duración mayor del cable, pero obteniendo menor adherencia?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q45" value="Garganta trapezoidal"> Garganta trapezoidal</label>
+                    <label><input type="radio" name="q45" value="Garganta semicircular"> Garganta semicircular</label>
+                    <label><input type="radio" name="q45" value="Garganta semicircular con ranura o entalla"> Garganta semicircular con ranura o entalla</label>
+                </div>
+                <div class="result" id="result-q45"></div>
+            </div>
+            
+            <div class="question" id="q46">
+                <h3>46. ¿Para qué sirve el gráfico de Wornle?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q46" value="Para medir la velocidad de un motor eléctrico"> Para medir la velocidad de un motor eléctrico</label>
+                    <label><input type="radio" name="q46" value="Para medir la velocidad de un ascensor hidráulico"> Para medir la velocidad de un ascensor hidráulico</label>
+                    <label><input type="radio" name="q46" value="Para relacionar la duración de los cables con el perfil de la polea de arrastre"> Para relacionar la duración de los cables con el perfil de la polea de arrastre</label>
+                </div>
+                <div class="result" id="result-q46"></div>
+            </div>
+            
+            <div class="question" id="q47">
+                <h3>47. Con perfiles de gargantas anchos se consigue:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q47" value="Aplastar el cable"> Aplastar el cable</label>
+                    <label><input type="radio" name="q47" value="Alargar la vida del cable"> Alargar la vida del cable</label>
+                    <label><input type="radio" name="q47" value="Las dos son falsas"> Las dos son falsas</label>
+                </div>
+                <div class="result" id="result-q47"></div>
+            </div>
+            
+            <div class="question" id="q48">
+                <h3>48. Con perfiles de garganta estrechos se consigue:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q48" value="Enclavar el cable en la garganta"> Enclavar el cable en la garganta</label>
+                    <label><input type="radio" name="q48" value="Alargar la vida de cable"> Alargar la vida de cable</label>
+                    <label><input type="radio" name="q48" value="Las dos son falsas"> Las dos son falsas</label>
+                </div>
+                <div class="result" id="result-q48"></div>
+            </div>
+            
+            <div class="question" id="q49">
+                <h3>49. El perfil de las gargantas tiene influencia sobre:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q49" value="Velocidad del ascensor"> Velocidad del ascensor</label>
+                    <label><input type="radio" name="q49" value="Duración de la vida de los cables"> Duración de la vida de los cables</label>
+                    <label><input type="radio" name="q49" value="Capacidad de carga"> Capacidad de carga</label>
+                </div>
+                <div class="result" id="result-q49"></div>
+            </div>
+            
+            <div class="question" id="q50">
+                <h3>50. Si se instala un convertidor de frecuencia que elemento no sería necesario instalar para controlar la velocidad:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q50" value="Polea de desvío"> Polea de desvío</label>
+                    <label><input type="radio" name="q50" value="Reductor"> Reductor</label>
+                    <label><input type="radio" name="q50" value="Volante de inercia"> Volante de inercia</label>
+                </div>
+                <div class="result" id="result-q50"></div>
+            </div>
+            
+            <div class="question" id="q51">
+                <h3>51. ¿Qué elemento le proporciona la adherencia necesaria creando tracción entre los cables de la cabina y el contrapeso?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q51" value="Volante de inercia"> Volante de inercia</label>
+                    <label><input type="radio" name="q51" value="Polea de desvío"> Polea de desvío</label>
+                    <label><input type="radio" name="q51" value="Polea de tracción"> Polea de tracción</label>
+                </div>
+                <div class="result" id="result-q51"></div>
+            </div>
+            
+            <div class="question" id="q52">
+                <h3>52. ¿Qué tipo de accionamiento hidráulico es indirecto?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q52" value="Pistón embutido en el suelo"> Pistón embutido en el suelo</label>
+                    <label><input type="radio" name="q52" value="Pistón simple o doble telescópico"> Pistón simple o doble telescópico</label>
+                    <label><input type="radio" name="q52" value="Pistón + cable"> Pistón + cable</label>
+                </div>
+                <div class="result" id="result-q52"></div>
+            </div>
+            
+            <div class="question" id="q53">
+                <h3>53. ¿Qué tipo de accionamiento hidráulico es directo lateral?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q53" value="Pistón embutido en el suelo"> Pistón embutido en el suelo</label>
+                    <label><input type="radio" name="q53" value="Pistón simple o doble telescópico"> Pistón simple o doble telescópico</label>
+                    <label><input type="radio" name="q53" value="Pistón + cable"> Pistón + cable</label>
+                </div>
+                <div class="result" id="result-q53"></div>
+            </div>
+            
+            <div class="question" id="q54">
+                <h3>54. ¿Qué tipo de accionamiento hidráulico es directo central?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q54" value="Pistón embutido en el suelo"> Pistón embutido en el suelo</label>
+                    <label><input type="radio" name="q54" value="Pistón simple o doble telescópico"> Pistón simple o doble telescópico</label>
+                    <label><input type="radio" name="q54" value="Pistón + cable"> Pistón + cable</label>
+                </div>
+                <div class="result" id="result-q54"></div>
+            </div>
+            
+            <div class="question" id="q55">
+                <h3>55. Si un ascensor usa cables para su funcionamiento, obligatoriamente debe instalar también:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q55" value="Motor reductor"> Motor reductor</label>
+                    <label><input type="radio" name="q55" value="Convertidor de frecuencias"> Convertidor de frecuencias</label>
+                    <label><input type="radio" name="q55" value="Limitador de velocidad"> Limitador de velocidad</label>
+                </div>
+                <div class="result" id="result-q55"></div>
+            </div>
+            
+            <div class="question" id="q56">
+                <h3>56. Las válvulas paracaídas son sistemas de seguridad usados por:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q56" value="Ascensores eléctricos con gearless"> Ascensores eléctricos con gearless</label>
+                    <label><input type="radio" name="q56" value="Ascensores eléctricos con reductores"> Ascensores eléctricos con reductores</label>
+                    <label><input type="radio" name="q56" value="Ascensores hidráulicos"> Ascensores hidráulicos</label>
+                </div>
+                <div class="result" id="result-q56"></div>
+            </div>
+            
+            <div class="question" id="q57">
+                <h3>57. Las características principales de las válvulas paracaídas son:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q57" value="Se usan en ascensores eléctricos con motores gearless y funcionan de manera independiente a las demás válvulas"> Se usan en ascensores eléctricos con motores gearless y funcionan de manera independiente a las demás válvulas</label>
+                    <label><input type="radio" name="q57" value="Se usan en ascensores hidráulicos, son automáticas y funcionan de manera independiente a las demás válvulas"> Se usan en ascensores hidráulicos, son automáticas y funcionan de manera independiente a las demás válvulas</label>
+                    <label><input type="radio" name="q57" value="Se usan en ascensores hidráulicos, son manuales y funcionan de manera independiente a las demás válvulas"> Se usan en ascensores hidráulicos, son manuales y funcionan de manera independiente a las demás válvulas</label>
+                </div>
+                <div class="result" id="result-q57"></div>
+            </div>
+            
+            <div class="question" id="q58">
+                <h3>58. En caso de que la cabina adquiera una velocidad superior a la nominal y se produzca una parada de forma brusca que tipo de sistema de seguridad lleva instalado:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q58" value="Paracaídas de acción instantánea"> Paracaídas de acción instantánea</label>
+                    <label><input type="radio" name="q58" value="Paracaídas de acción progresiva"> Paracaídas de acción progresiva</label>
+                    <label><input type="radio" name="q58" value="Paracaídas de caudal"> Paracaídas de caudal</label>
+                </div>
+                <div class="result" id="result-q58"></div>
+            </div>
+            
+            <div class="question" id="q59">
+                <h3>59. ¿Qué tipo de zapatas para un paracaídas de acción instantánea son las más usadas?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q59" value="Husillo"> Husillo</label>
+                    <label><input type="radio" name="q59" value="Resorte"> Resorte</label>
+                    <label><input type="radio" name="q59" value="Cuña"> Cuña</label>
+                </div>
+                <div class="result" id="result-q59"></div>
+            </div>
+            <div class="question" id="q60">
+                <h3>60. ¿Qué tipo de sistema de seguridad se instala entre el motor y el reductor?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q60" value="Válvula paracaídas"> Válvula paracaídas</label>
+                    <label><input type="radio" name="q60" value="Volante de inercia"> Volante de inercia</label>
+                    <label><input type="radio" name="q60" value="Freno electromagnético"> Freno electromagnético</label>
+                </div>
+                <div class="result" id="result-q60"></div>
+            </div>
+            
+            <div class="question" id="q61">
+                <h3>61. Además de servir para detener el ascensor, ¿qué otra función tiene el freno electromagnético como sistema de seguridad?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q61" value="Cerrar las compuertas en caso de caída de la cabina"> Cerrar las compuertas en caso de caída de la cabina</label>
+                    <label><input type="radio" name="q61" value="Nivelar el ascensor en cada planta"> Nivelar el ascensor en cada planta</label>
+                    <label><input type="radio" name="q61" value="Activar las zapatas para una mayor detención"> Activar las zapatas para una mayor detención</label>
+                </div>
+                <div class="result" id="result-q61"></div>
+            </div>
+            
+            <div class="question" id="q62">
+                <h3>62. ¿En qué momento se deben activar los finales de carrera?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q62" value="Antes de tener contacto la cabina con los amortiguadores"> Antes de tener contacto la cabina con los amortiguadores</label>
+                    <label><input type="radio" name="q62" value="Después de tener contacto la cabina con los amortiguadores"> Después de tener contacto la cabina con los amortiguadores</label>
+                    <label><input type="radio" name="q62" value="Justo en el momento que la cabina alcanza una velocidad mayor a su nominal"> Justo en el momento que la cabina alcanza una velocidad mayor a su nominal</label>
+                </div>
+                <div class="result" id="result-q62"></div>
+            </div>
+            
+            <div class="question" id="q63">
+                <h3>63. ¿Qué dispositivo de seguridad corta los circuitos que alimentan al motor y al freno?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q63" value="Volante de inercia"> Volante de inercia</label>
+                    <label><input type="radio" name="q63" value="Freno electromagnético"> Freno electromagnético</label>
+                    <label><input type="radio" name="q63" value="Finales de carrera"> Finales de carrera</label>
+                </div>
+                <div class="result" id="result-q63"></div>
+            </div>
+            
+            <div class="question" id="q64">
+                <h3>64. ¿Qué tipo de amortiguadores tienen más versatilidad en cuanto a velocidades de uso?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q64" value="Amortiguadores de acumulación de energía de caucho"> Amortiguadores de acumulación de energía de caucho</label>
+                    <label><input type="radio" name="q64" value="Amortiguadores con amortiguación del movimiento de retorno (resorte)"> Amortiguadores con amortiguación del movimiento de retorno (resorte)</label>
+                    <label><input type="radio" name="q64" value="Amortiguadores de disipación de energía (hidráulico)"> Amortiguadores de disipación de energía (hidráulico)</label>
+                </div>
+                <div class="result" id="result-q64"></div>
+            </div>
+            
+            <div class="question" id="q65">
+                <h3>65. El número de contactos de seguridad y equilibradores de tensión debe ser proporcional a:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q65" value="El tipo de motor del ascensor"> El tipo de motor del ascensor</label>
+                    <label><input type="radio" name="q65" value="El número de cables"> El número de cables</label>
+                    <label><input type="radio" name="q65" value="Los tipos de amortiguadores instalados"> Los tipos de amortiguadores instalados</label>
+                </div>
+                <div class="result" id="result-q65"></div>
+            </div>
+            
+            <div class="question" id="q66">
+                <h3>66. Los cables utilizados para ascensores deben ser:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q66" value="Alta resistencia y bajo peso"> Alta resistencia y bajo peso</label>
+                    <label><input type="radio" name="q66" value="Baja elongación y larga vida útil"> Baja elongación y larga vida útil</label>
+                    <label><input type="radio" name="q66" value="Las dos anteriores son correctas"> Las dos anteriores son correctas</label>
+                </div>
+                <div class="result" id="result-q66"></div>
+            </div>
+            
+            <div class="question" id="q67">
+                <h3>67. ¿Qué tipo de cables de ascensores disminuyen el desgaste y alarga la vida de las poleas?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q67" value="Cables warrington-seale"> Cables warrington-seale</label>
+                    <label><input type="radio" name="q67" value="Cables seale"> Cables seale</label>
+                    <label><input type="radio" name="q67" value="Cables duales"> Cables duales</label>
+                </div>
+                <div class="result" id="result-q67"></div>
+            </div>
+
+            <div class="question" id="q68">
+                <h3>68. Los sistemas de compensación (cables o cadenas) se usan para:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q68" value="Instalaciones de baja altura para garantizar adherencia"> Instalaciones de baja altura para garantizar adherencia</label>
+                    <label><input type="radio" name="q68" value="Instalaciones de grandes alturas para garantizar adherencia"> Instalaciones de grandes alturas para garantizar adherencia</label>
+                    <label><input type="radio" name="q68" value="En ascensores con motores eléctricos y altas alturas"> En ascensores con motores eléctricos y altas alturas</label>
+                </div>
+                <div class="result" id="result-q68"></div>
+            </div>
+            
+            <div class="question" id="q69">
+                <h3>69. Las balaustradas son elementos utilizados en:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q69" value="Ascensores hidráulicos"> Ascensores hidráulicos</label>
+                    <label><input type="radio" name="q69" value="Rampas móviles"> Rampas móviles</label>
+                    <label><input type="radio" name="q69" value="Escaleras mecánicas"> Escaleras mecánicas</label>
+                </div>
+                <div class="result" id="result-q69"></div>
+            </div>
+            
+            <div class="question" id="q70">
+                <h3>70. Los Switch de las escaleras mecánicas son elementos que sirven para:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q70" value="Detener la escalera por algún fallo"> Detener la escalera por algún fallo</label>
+                    <label><input type="radio" name="q70" value="Evitar doblar las balaustradas"> Evitar doblar las balaustradas</label>
+                    <label><input type="radio" name="q70" value="Cambiar el sentido de giro de las escaleras mecánicas"> Cambiar el sentido de giro de las escaleras mecánicas</label>
+                </div>
+                <div class="result" id="result-q70"></div>
+            </div>
+            
+            <div class="question" id="q71">
+                <h3>71. Para conseguir un mejor aprovechamiento del espacio que tipo de disposición es la mejor</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q71" value="Paralela"> Paralela</label>
+                    <label><input type="radio" name="q71" value="Cruzada"> Cruzada</label>
+                    <label><input type="radio" name="q71" value="Primer tramo paralela y segundo tramo cruzada"> Primer tramo paralela y segundo tramo cruzada</label>
+                </div>
+                <div class="result" id="result-q71"></div>
+            </div>
+            
+            <div class="question" id="q72">
+                <h3>72. ¿Qué tipo de disposición de las escaleras es la más ventajosa para el propietario?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q72" value="Paralela"> Paralela</label>
+                    <label><input type="radio" name="q72" value="Cruzada"> Cruzada</label>
+                    <label><input type="radio" name="q72" value="Primer tramo paralela y segundo tramo cruzada"> Primer tramo paralela y segundo tramo cruzada</label>
+                </div>
+                <div class="result" id="result-q72"></div>
+            </div>
+            
+            <div class="question" id="q73">
+                <h3>73. ¿Qué tipo de disposición de escaleras es la más segura y rápida?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q73" value="Paralela"> Paralela</label>
+                    <label><input type="radio" name="q73" value="Cruzada"> Cruzada</label>
+                    <label><input type="radio" name="q73" value="Primer tramo paralela y segundo tramo cruzada"> Primer tramo paralela y segundo tramo cruzada</label>
+                </div>
+                <div class="result" id="result-q73"></div>
+            </div>
+            
+            <div class="question" id="q74">
+                <h3>74. Para salvar desniveles más amplios que tipo de mecanismo de elevación es mejor:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q74" value="Rampas"> Rampas</label>
+                    <label><input type="radio" name="q74" value="Ascensores"> Ascensores</label>
+                    <label><input type="radio" name="q74" value="Elevador de cangilones"> Elevador de cangilones</label>
+                </div>
+                <div class="result" id="result-q74"></div>
+            </div>
+            
+            <div class="question" id="q75">
+                <h3>75. ¿Qué mecanismo de elevación permite mayor capacidad de carga?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q75" value="Escaleras mecánicas y rampas"> Escaleras mecánicas y rampas</label>
+                    <label><input type="radio" name="q75" value="Ascensores"> Ascensores</label>
+                    <label><input type="radio" name="q75" value="Elevador de cangilones"> Elevador de cangilones</label>
+                </div>
+                <div class="result" id="result-q75"></div>
+            </div>
+            
+            <div class="question" id="q76">
+                <h3>76. ¿En caso de averías que tipo de mecanismo de elevación es mejor?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q76" value="Ascensor"> Ascensor</label>
+                    <label><input type="radio" name="q76" value="Rampas y ascensores"> Rampas y ascensores</label>
+                    <label><input type="radio" name="q76" value="Escaleras mecánicas y rampas"> Escaleras mecánicas y rampas</label>
+                </div>
+                <div class="result" id="result-q76"></div>
+            </div>
+            <div class="question" id="q77">
+                <h3>77. ¿Puede una escalera mecánica detenida considerarse como una escalera fija?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q77" value="Sí"> Sí</label>
+                    <label><input type="radio" name="q77" value="No"> No</label>
+                    <label><input type="radio" name="q77" value="Depende de la longitud de la escalera"> Depende de la longitud de la escalera</label>
+                </div>
+                <div class="result" id="result-q77"></div>
+            </div>
+            
+            <div class="question" id="q78">
+                <h3>78. En un ascensor sin cuarto de máquinas:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q78" value="Se requiere de más cable"> Se requiere de más cable</label>
+                    <label><input type="radio" name="q78" value="Emplea polea en la parte superior"> Emplea polea en la parte superior</label>
+                    <label><input type="radio" name="q78" value="Mantenimiento más sencillo"> Mantenimiento más sencillo</label>
+                    <label><input type="radio" name="q78" value="Menos ruido y vibraciones"> Menos ruido y vibraciones</label>
+                    <label><input type="radio" name="q78" value="Ninguna"> Ninguna</label>
+                </div>
+                <div class="result" id="result-q78"></div>
+            </div>
+            
+            <div class="question" id="q79">
+                <h3>79. En un ascensor con máquina lateral el cuarto de máquinas:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q79" value="Puede ir en cualquier planta"> Puede ir en cualquier planta</label>
+                    <label><input type="radio" name="q79" value="Solo puede ir en la planta baja"> Solo puede ir en la planta baja</label>
+                    <label><input type="radio" name="q79" value="Solo puede ir en la planta alta"> Solo puede ir en la planta alta</label>
+                    <label><input type="radio" name="q79" value="Ninguna es verdadera"> Ninguna es verdadera</label>
+                </div>
+                <div class="result" id="result-q79"></div>
+            </div>
+            
+            <div class="question" id="q80">
+                <h3>80. ¿Se puede mejorar la nivelación de los ascensores eléctricos?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q80" value="Sí, mediante mayor contrapeso"> Sí, mediante mayor contrapeso</label>
+                    <label><input type="radio" name="q80" value="Sí, mediante convertidores"> Sí, mediante convertidores</label>
+                    <label><input type="radio" name="q80" value="Sí, mediante poleas"> Sí, mediante poleas</label>
+                    <label><input type="radio" name="q80" value="No, viene determinada por el fabricante"> No, viene determinada por el fabricante</label>
+                </div>
+                <div class="result" id="result-q80"></div>
+            </div>
+            
+            <div class="question" id="q81">
+                <h3>81. ¿En un edificio de patrimonio histórico que ascensor instalarías?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q81" value="Eléctrico"> Eléctrico</label>
+                    <label><input type="radio" name="q81" value="Eléctrico Gearless"> Eléctrico Gearless</label>
+                    <label><input type="radio" name="q81" value="Hidráulico"> Hidráulico</label>
+                    <label><input type="radio" name="q81" value="Ninguno de los anteriores"> Ninguno de los anteriores</label>
+                </div>
+                <div class="result" id="result-q81"></div>
+            </div>
+            
+            <div class="question" id="q82">
+                <h3>82. En un ascensor hidráulico el cuarto de máquinas debe estar:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q82" value="En la planta superior o inferior"> En la planta superior o inferior</label>
+                    <label><input type="radio" name="q82" value="En cualquier planta a la distancia que decidamos del ascensor"> En cualquier planta a la distancia que decidamos del ascensor</label>
+                    <label><input type="radio" name="q82" value="En cualquier planta, junto al ascensor"> En cualquier planta, junto al ascensor</label>
+                    <label><input type="radio" name="q82" value="Ninguna"> Ninguna</label>
+                </div>
+                <div class="result" id="result-q82"></div>
+            </div>
+            
+            <div class="question" id="q83">
+                <h3>83. Un cliente quiere instalar un ascensor con velocidad entre 1m/s y 2m/s y que ascensor es adecuado, sabiendo que tiene la intención de gastar poco:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q83" value="Eléctrico"> Eléctrico</label>
+                    <label><input type="radio" name="q83" value="Hidráulico"> Hidráulico</label>
+                    <label><input type="radio" name="q83" value="El más económico"> El más económico</label>
+                    <label><input type="radio" name="q83" value="Cualquiera"> Cualquiera</label>
+                </div>
+                <div class="result" id="result-q83"></div>
+            </div>
+            
+            <div class="question" id="q84">
+                <h3>84. ¿Qué características tienen los ascensores eléctricos con convertidor de alterna a continua?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q84" value="Buena velocidad, posibilidad de alta altura, silenciosos, precisos"> Buena velocidad, posibilidad de alta altura, silenciosos, precisos</label>
+                    <label><input type="radio" name="q84" value="Lentos, posibilidad de alta altura, silenciosos y precisos"> Lentos, posibilidad de alta altura, silenciosos y precisos</label>
+                    <label><input type="radio" name="q84" value="Menor consumo, ruidosos, buena velocidad"> Menor consumo, ruidosos, buena velocidad</label>
+                </div>
+                <div class="result" id="result-q84"></div>
+            </div>
+            <div class="question" id="q85">
+                <h3>85. Los motores geared:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q85" value="Incorporan reductor de velocidad">Incorporan reductor de velocidad</label>
+                    <label><input type="radio" name="q85" value="No incorporan reductor de velocidad">No incorporan reductor de velocidad</label>
+                    <label><input type="radio" name="q85" value="Ninguna de las anteriores">Ninguna de las anteriores</label>
+                </div>
+                <div class="result" id="result-q85"></div>
+            </div>
+            
+            <div class="question" id="q86">
+                <h3>86. Los frenos electromecánicos:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q86" value="Deben soportar una frenada de la carga nominal aumentada en un 25%">Deben soportar una frenada de la carga nominal aumentada en un 25%</label>
+                    <label><input type="radio" name="q86" value="Deben soportar una frenada de la carga nominal aumentada en un 15%">Deben soportar una frenada de la carga nominal aumentada en un 15%</label>
+                    <label><input type="radio" name="q86" value="Ninguna">Ninguna</label>
+                </div>
+                <div class="result" id="result-q86"></div>
+            </div>
+            
+            <div class="question" id="q87">
+                <h3>87. Indique para cuál de los usos usaría un motor eléctrico con reductor en vez de un gearless:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q87" value="Uso industrial">Uso industrial</label>
+                    <label><input type="radio" name="q87" value="Centro comercial">Centro comercial</label>
+                    <label><input type="radio" name="q87" value="Ninguno">Ninguno</label>
+                </div>
+                <div class="result" id="result-q87"></div>
+            </div>
+            
+            <div class="question" id="q88">
+                <h3>88. ¿En ascensores hidráulicos el pistón tiene que ser siempre unido al chasis directamente?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q88" value="No">No</label>
+                    <label><input type="radio" name="q88" value="Sí">Sí</label>
+                </div>
+                <div class="result" id="result-q88"></div>
+            </div>
+            
+            <div class="question" id="q89">
+                <h3>89. El limitador de velocidad actúa como:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q89" value="La velocidad se excede en un 50%">La velocidad se excede en un 50%</label>
+                    <label><input type="radio" name="q89" value="La velocidad se excede en un 25%">La velocidad se excede en un 25%</label>
+                    <label><input type="radio" name="q89" value="La velocidad se excede en un 15%">La velocidad se excede en un 15%</label>
+                    <label><input type="radio" name="q89" value="Cuando pulso el botón">Cuando pulso el botón</label>
+                </div>
+                <div class="result" id="result-q89"></div>
+            </div>
+            
+            <div class="question" id="q90">
+                <h3>90. ¿Qué tipo de ascensores debe incorporar un limitador de velocidad + paracaídas mediante poleas?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q90" value="Todos">Todos</label>
+                    <label><input type="radio" name="q90" value="Solo los hidráulicos">Solo los hidráulicos</label>
+                    <label><input type="radio" name="q90" value="Los ascensores que usen cables">Los ascensores que usen cables</label>
+                </div>
+                <div class="result" id="result-q90"></div>
+            </div>
+            
+            <div class="question" id="q91">
+                <h3>91. ¿Qué paracaídas se instalaría en un ascensor con velocidad de 0.64 m/s?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q91" value="Instantáneo">Instantáneo</label>
+                    <label><input type="radio" name="q91" value="Progresivos">Progresivos</label>
+                    <label><input type="radio" name="q91" value="Ninguno">Ninguno</label>
+                </div>
+                <div class="result" id="result-q91"></div>
+            </div>
+            
+            <div class="question" id="q92">
+                <h3>92. El limitador de velocidad y paracaídas son elementos instalables en:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q92" value="Ascensores">Ascensores</label>
+                    <label><input type="radio" name="q92" value="Ascensores y contrapesos">Ascensores y contrapesos</label>
+                    <label><input type="radio" name="q92" value="Contrapesos">Contrapesos</label>
+                </div>
+                <div class="result" id="result-q92"></div>
+            </div>
+            <div class="question" id="q93">
+                <h3>93. En ascensores de dos velocidades quien es el encargado de detener el ascensor para nivelarlo en cada planta:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q93" value="Freno eléctrico">Freno eléctrico</label>
+                    <label><input type="radio" name="q93" value="Freno electromecánico">Freno electromecánico</label>
+                    <label><input type="radio" name="q93" value="Ninguno">Ninguno</label>
+                </div>
+                <div class="result" id="result-q93"></div>
+            </div>
+            
+            <div class="question" id="q94">
+                <h3>94. Los finales de carrera de un ascensor deben ser:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q94" value="Hidráulicos">Hidráulicos</label>
+                    <label><input type="radio" name="q94" value="Neumático">Neumático</label>
+                    <label><input type="radio" name="q94" value="Eléctricos">Eléctricos</label>
+                    <label><input type="radio" name="q94" value="Ninguna">Ninguna</label>
+                </div>
+                <div class="result" id="result-q94"></div>
+            </div>
+            
+            <div class="question" id="q95">
+                <h3>95. Para amortiguadores de un ascensor que se mueve a 0.64 se podrán usar amortiguadores:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q95" value="Elásticos, de resorte e hidráulicos">Elásticos, de resorte e hidráulicos</label>
+                    <label><input type="radio" name="q95" value="De resorte e hidráulicos">De resorte e hidráulicos</label>
+                    <label><input type="radio" name="q95" value="Sólo hidráulicos">Sólo hidráulicos</label>
+                </div>
+                <div class="result" id="result-q95"></div>
+            </div>
+            
+            <div class="question" id="q96">
+                <h3>96. El coeficiente de seguridad para cables en ascensores es:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q96" value="16 para dos cables y 10 para 3 o más">16 para dos cables y 10 para 3 o más</label>
+                    <label><input type="radio" name="q96" value="16 para dos cables y 12 para 3 o más">16 para dos cables y 12 para 3 o más</label>
+                    <label><input type="radio" name="q96" value="Ninguna">Ninguna</label>
+                </div>
+                <div class="result" id="result-q96"></div>
+            </div>
+            
+            <div class="question" id="q97">
+                <h3>97. ¿Tienen las escaleras mecánicas alguna limitación de altura total?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q97" value="Sí 18 metros">Sí 18 metros</label>
+                    <label><input type="radio" name="q97" value="Sí 8 metros">Sí 8 metros</label>
+                    <label><input type="radio" name="q97" value="No, solo una altura máxima de 3.5 entre plantas">No, solo una altura máxima de 3.5 entre plantas</label>
+                </div>
+                <div class="result" id="result-q97"></div>
+            </div>
+            
+            <div class="question" id="q98">
+                <h3>98. Para un centro comercial por donde se quiere guiar al público por todas las secciones, ¿Qué escaleras usaría?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q98" value="Cruzada">Cruzada</label>
+                    <label><input type="radio" name="q98" value="Paralelo">Paralelo</label>
+                    <label><input type="radio" name="q98" value="Cualquiera">Cualquiera</label>
+                </div>
+                <div class="result" id="result-q98"></div>
+            </div>
+            
+                    
+            
+                      
+            
+            
+
+            <!-- Insertar más preguntas aquí -->
+
+            <button type="button" class="submit-button" onclick="checkAnswers()">Enviar</button>
+        </form>
+        <a href="C:\Users\maril\Box Sync\MII\2324_1 máster\2_cuatri\04 transporte\index.html" class="button">Inicio</a>
+        <div id="finalResult" class="result"></div>
+    </div>
+
+    <script>
+        function checkAnswers() {
+            const correctAnswers = {
+            q1: 'Ascensores eléctricos',
+            q2: 'Más velocidad y más rendimiento que los ascensores con reductor',
+            q3: 'Ascensores sin cuarto de máquinas',
+            q4: 'Ascensores eléctricos sin cuarto de máquinas',
+            q5: 'Ascensores sin cuarto de máquinas',
+            q6: 'Necesitan mayor hueco para su instalación (contrapeso) y menor capacidad de carga',
+            q7: 'Permiten mayores velocidades y precisan menor potencia para elevar la misma carga',
+            q8: 'Son silenciosos y precisan menor potencia para elevar la misma carga',
+            q9: 'Ascensores gearless',
+            q10: 'Son más voluminosos y caros que los ascensores con reductor',
+            q11: 'Menores ruidos, más caros, mayor confort en el viaje, mayor seguridad y menos consumo',
+            q12: 'Ascensores hidráulicos',
+            q13: 'Ambas son correctas',
+            q14: 'Se elimina el contrapeso, menos vibraciones, suavidad, menos mantenimiento, poco espacio',
+            q15: 'Baja velocidad, más caros, requieren mayor potencia y consumo para la misma capacidad',
+            q16: 'Baja sonoridad, se elimina el contrapeso, menos vibraciones, bajas alturas, posibilidad de vertidos de aceite, más caros',
+            q17: 'Ascensores hidráulicos',
+            q18: 'Concentración en los pistones',
+            q19: 'Los órganos sometidos a desgastes están lubricados',
+            q20: 'Las dos anteriores son correctas',
+            q21: 'Motores de 1 velocidad',
+            q22: 'Las dos anteriores son correctas',
+            q23: '1 velocidad',
+            q24: '2 velocidades',
+            q25: 'Las dos anteriores son correctas',
+            q26: 'Convertidor de frecuencias',
+            q27: 'Suaves y silenciosos además de servir para edificios altos',
+            q28: 'Diferencial',
+            q29: 'Ascensores industriales',
+            q30: 'Hoteles',
+            q31: 'Los dos anteriores',
+            q32: 'Maniobra selectiva',
+            q33: 'Maniobra universal',
+            q34: 'Maniobra colectiva en bajada y subida (selectiva)',
+            q35: 'Las dos anteriores',
+            q36: 'Maniobra universal',
+            q37: 'Motores geared',
+            q38: 'Motores gearless',
+            q39: 'Tornillo sin fin o helicoidales',
+            q40: 'Motores de corriente continua',
+            q41: 'Motores gearless',
+            q42: 'Motores geared',
+            q43: 'Garganta semicircular con ranura o entalla',
+            q44: 'Garganta semicircular con ranura o entalla',
+            q45: 'Garganta semicircular',
+            q46: 'Para relacionar la duración de los cables con el perfil de la polea de arrastre',
+            q47: 'Aplastar el cable',
+            q48: 'Enclavar el cable en la garganta',
+            q49: 'Duración de la vida de los cables',
+            q50: 'Volante de inercia',
+            q51: 'Polea de tracción',
+            q52: 'Pistón + cable',
+            q53: 'Pistón simple o doble telescópico',
+            q54: 'Pistón embutido en el suelo',
+            q55: 'Limitador de velocidad',
+            q56: 'Ascensores hidráulicos',
+            q57: 'Se usan en ascensores hidráulicos, son automáticas y funcionan de manera independiente a las demás válvulas',
+            q58: 'Paracaídas de acción instantánea',
+            q59: 'Cuña',
+            q60: 'Freno electromagnético',
+            q61: 'Nivelar el ascensor en cada planta',
+            q62: 'Antes de tener contacto la cabina con los amortiguadores',
+            q63: 'Finales de carrera',
+            q64: 'Amortiguadores de disipación de energía (hidráulico)',
+            q65: 'El número de cables',
+            q66: 'Las dos anteriores son correctas',
+            q67: 'Cables duales',
+            q68: 'Instalaciones de grandes alturas para garantizar adherencia',
+            q69: 'Escaleras mecánicas',
+            q70: 'Detener la escalera por algún fallo',
+            q71: 'Cruzada',
+            q72: 'Cruzada',
+            q73: 'Cruzada',
+            q74: 'Ascensores',
+            q75: 'Escaleras mecánicas y rampas',
+            q76: 'Escaleras mecánicas y rampas',
+            q77: 'No',
+            q78: 'Ninguna',
+            q79: 'Puede ir en cualquier planta',
+            q80: 'Sí, mediante convertidores',
+            q81: 'Hidráulico',
+            q82: 'En cualquier planta a la distancia que decidamos del ascensor',
+            q83: 'Eléctrico',
+            q84: 'Buena velocidad, posibilidad de alta altura, silenciosos, precisos',
+            q85: 'Incorporan reductor de velocidad',
+            q86: 'Deben soportar una frenada de la carga nominal aumentada en un 25%',
+            q87: 'Uso industrial',
+            q88: 'No',
+            q89: 'La velocidad se excede en un 15%',
+            q90: 'Los ascensores que usen cables',
+            q91: 'Progresivos',
+            q92: 'Ascensores y contrapesos',
+            q93: 'Freno electromecánico',
+            q94: 'Eléctricos',
+            q95: 'De resorte e hidráulicos',
+            q96: '16 para dos cables y 12 para 3 o más',
+            q97: 'Sí 18 metros',
+            q98: 'Cruzada'
+            
+    // Añadir más respuestas correctas aquí si es necesario
+            };
+
+
+            let score = 0;
+            const form = document.getElementById('quizForm');
+            const formData = new FormData(form);
+
+            for (let question in correctAnswers) {
+                const questionDiv = document.getElementById(question);
+                const resultDiv = document.getElementById(`result-${question}`);
+
+                if (Array.isArray(correctAnswers[question])) {
+                    // Check if multiple choice answers are correct
+                    const answers = formData.getAll(question);
+                    if (correctAnswers[question].sort().toString() === answers.sort().toString()) {
+                        score++;
+                        questionDiv.classList.add('correct');
+                        questionDiv.classList.remove('incorrect');
+                        resultDiv.innerHTML = `<p class="correct">Correcto</p>`;
+                    } else {
+                        questionDiv.classList.add('incorrect');
+                        questionDiv.classList.remove('correct');
+                        resultDiv.innerHTML = `<p class="incorrect">Incorrecto. Respuesta correcta: ${correctAnswers[question].join(', ')}</p>`;
+                    }
+                } else {
+                    const answer = formData.get(question);
+                    if (answer === correctAnswers[question]) {
+                        score++;
+                        questionDiv.classList.add('correct');
+                        questionDiv.classList.remove('incorrect');
+                        resultDiv.innerHTML = `<p class="correct">Correcto</p>`;
+                    } else {
+                        questionDiv.classList.add('incorrect');
+                        questionDiv.classList.remove('correct');
+                        resultDiv.innerHTML = `<p class="incorrect">Incorrecto. Respuesta correcta: ${correctAnswers[question]}</p>`;
+                    }
+                }
+            }
+
+            const finalResultDiv = document.getElementById('finalResult');
+            finalResultDiv.innerHTML = `<p>Puntuación: ${score} / ${Object.keys(correctAnswers).length}</p>`;
+        }
+    </script>
+</body>
+</html>

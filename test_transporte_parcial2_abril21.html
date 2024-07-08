@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEST TRANSPORTE - Parcial 2 (Examen 30/04/2021)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 90%;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .question {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .question h3 {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        .answers label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .submit-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .submit-button:hover {
+            background-color: #45a049;
+        }
+        .correct {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .result {
+            margin-top: 10px;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px 0;
+            font-size: 1em;
+            color: white;
+            background-color: #007BFF;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Transporte Parcial 2</h1>
+        <form id="quizForm">
+            <div class="question" id="q1">
+                <h3>1. La válvula limitadora de presión:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q1" value="Protege al sistema frente a sobrepresiones"> Protege al sistema frente a sobrepresiones</label>
+                    <label><input type="radio" name="q1" value="Consigue una presión prácticamente uniforme"> Consigue una presión prácticamente uniforme</label>
+                    <label><input type="radio" name="q1" value="Regula la dirección de control"> Regula la dirección de control</label>
+                </div>
+                <div class="result" id="result-q1"></div>
+            </div>
+            <div class="question" id="q2">
+                <h3>2. La fabricación elastohidrodinámica es aquella en la que:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q2" value="Se presenta cuando las dos superficies metálicas están completamente separadas y la película límite no ya no desempeña ninguna labor, generándose grandes presiones que elevan las viscosidades"> Se presenta cuando las dos superficies metálicas están completamente separadas y la película límite no ya no desempeña ninguna labor, generándose grandes presiones que elevan las viscosidades</label>
+                    <label><input type="radio" name="q2" value="Se presentan reordenamientos lubricados con agua que dejan en presión deforman las superficies elastoplásticas, recuperando su forma de sostén las piezas"> Se presentan reordenamientos lubricados con agua que dejan en presión deforman las superficies elastoplásticas, recuperando su forma de sostén las piezas</label>
+                    <label><input type="radio" name="q2" value="Condición de lubricación límite en la que altas unidades de carga y/o altas velocidades hace que los elementos en contacto se deformen elásticamente debido a la incomprensibilidad de la capa de lubricante bajo una presión muy alta"> Condición de lubricación límite en la que altas unidades de carga y/o altas velocidades hace que los elementos en contacto se deformen elásticamente debido a la incomprensibilidad de la capa de lubricante bajo una presión muy alta</label>
+                </div>
+                <div class="result" id="result-q2"></div>
+            </div>
+            <div class="question" id="q3">
+                <h3>3. ¿Cuál de los siguientes aceites tiene un menor índice de viscosidad?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q3" value="SAE 10w-40"> SAE 10w-40</label>
+                    <label><input type="radio" name="q3" value="SAE 5w50"> SAE 5w50</label>
+                    <label><input type="radio" name="q3" value="SAE 10w"> SAE 10w</label>
+                </div>
+                <div class="result" id="result-q3"></div>
+            </div>
+            <div class="question" id="q4">
+                <h3>4. Para la solicitación de servicio de encuervamiento en un cable, la estructura más idónea es:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q4" value="Ninguna es correcta"> Ninguna es correcta</label>
+                    <label><input type="radio" name="q4" value="Muchos alambres, muchos cordones, alma textil, preformado, cable Lang y acero de baja resistencia específica"> Muchos alambres, muchos cordones, alma textil, preformado, cable Lang y acero de baja resistencia específica</label>
+                    <label><input type="radio" name="q4" value="Alambres gruesos, menos cordones, alma metálica y cordenado de igual paso (Seale, Warrington)"> Alambres gruesos, menos cordones, alma metálica y cordenado de igual paso (Seale, Warrington)</label>
+                </div>
+                <div class="result" id="result-q4"></div>
+            </div>
+            <div class="question" id="q5">
+                <h3>5. Los aceites nafténicos se caracterizan por:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q5" value="Una alta estabilidad, punto de derrame e índice de viscosidad"> Una alta estabilidad, punto de derrame e índice de viscosidad</label>
+                    <label><input type="radio" name="q5" value="Bajo punto de derrame y bajo índice de viscosidad, media volatilidad, bajo punto de ignición y alto índice de viscosidad"> Bajo punto de derrame y bajo índice de viscosidad, media volatilidad, bajo punto de ignición y alto índice de viscosidad</label>
+                    <label><input type="radio" name="q5" value="Bajo punto de derrame, alto punto de ignición y alto índice de viscosidad"> Bajo punto de derrame, alto punto de ignición y alto índice de viscosidad</label>
+                </div>
+                <div class="result" id="result-q5"></div>
+            </div>
+            <div class="question" id="q6">
+                <h3>6. ¿Cuál de las siguientes afirmaciones referidas al desgaste por fretting es correcta?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q6" value="La cantidad de material de desgaste es pequeña, pero se da en zonas donde no era esperable la existencia de desgaste"> La cantidad de material de desgaste es pequeña, pero se da en zonas donde no era esperable la existencia de desgaste</label>
+                    <label><input type="radio" name="q6" value="La cantidad de material de desgaste es elevada y depende de la velocidad"> La cantidad de material de desgaste es elevada y depende de la velocidad</label>
+                    <label><input type="radio" name="q6" value="El material de desgaste es brillante y de gran tamaño"> El material de desgaste es brillante y de gran tamaño</label>
+                    <label><input type="radio" name="q6" value="Se da cuando el movimiento relativo entre los cuerpos es elevado, > 1mm"> Se da cuando el movimiento relativo entre los cuerpos es elevado, > 1mm</label>
+                </div>
+                <div class="result" id="result-q6"></div>
+            </div>
+            <div class="question" id="q7">
+                <h3>7. En un sistema controlado mediante servohidráulica la válvula utilizada:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q7" value="Ofrecen una presión de salida con pulsos al nivel de corriente de entrada"> Ofrecen una presión de salida con pulsos al nivel de corriente de entrada</label>
+                    <label><input type="radio" name="q7" value="Ofrecen un caudal de salida discreto al nivel de voltaje de entrada"> Ofrecen un caudal de salida discreto al nivel de voltaje de entrada</label>
+                    <label><input type="radio" name="q7" value="Ofrecen una banda muerta de paso por cero de menos del 3% del recorrido del carrete"> Ofrecen una banda muerta de paso por cero de menos del 3% del recorrido del carrete</label>
+                </div>
+                <div class="result" id="result-q7"></div>
+            </div>
+            <div class="question" id="q8">
+                <h3>8. Indicar que cables es el representado en la figura:</h3>
+                <img src="C:\Users\maril\Box Sync\MII\2324_1 máster\2_cuatri\04 transporte\refxtest\imagen6.png" alt="Cable 1">
+                <div class="answers">
+                    <label><input type="radio" name="q8" value="6X36+1 S"> 6X36+1 S</label>
+                    <label><input type="radio" name="q8" value="6X36+1 F"> 6X36+1 F</label>
+                    <label><input type="radio" name="q8" value="6X36+1WS"> 6X36+1WS</label>
+                    <label><input type="radio" name="q8" value="6X36+1W"> 6X36+1W</label>
+                </div>
+                <div class="result" id="result-q8"></div>
+            </div>
+            <div class="question" id="q9">
+                <h3>9. En la lubricación por capa límite es fundamental:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q9" value="Utilizar lubricantes con gran fuerza de adherencia"> Utilizar lubricantes con gran fuerza de adherencia</label>
+                    <label><input type="radio" name="q9" value="Utilizar lubricantes con baja viscosidad que penetren entre las asperezas"> Utilizar lubricantes con baja viscosidad que penetren entre las asperezas</label>
+                    <label><input type="radio" name="q9" value="El uso de grasas de gran consistencia"> El uso de grasas de gran consistencia</label>
+                    <label><input type="radio" name="q9" value="A y C son correctas"> A y C son correctas</label>
+                </div>
+                <div class="result" id="result-q9"></div>
+            </div>
+            <div class="question" id="q10">
+                <h3>10. Los aceites de origen animal o vegetal:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q10" value="Soportan mal las altas temperaturas"> Soportan mal las altas temperaturas</label>
+                    <label><input type="radio" name="q10" value="Tienen un índice de viscosidad elevado"> Tienen un índice de viscosidad elevado</label>
+                    <label><input type="radio" name="q10" value="Son los más utilizados en la industria de producción de alimentos"> Son los más utilizados en la industria de producción de alimentos</label>
+                    <label><input type="radio" name="q10" value="A y C son correctas"> A y C son correctas</label>
+                </div>
+                <div class="result" id="result-q10"></div>
+            </div>
+            <div class="question" id="q11">
+                <h3>11. ¿Cuál es la principal función del tratamiento del aire comprimido?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q11" value="Retirar el aceite fugado del compresor"> Retirar el aceite fugado del compresor</label>
+                    <label><input type="radio" name="q11" value="Filtrar las partículas de polvo, polen y gases"> Filtrar las partículas de polvo, polen y gases</label>
+                    <label><input type="radio" name="q11" value="Todas son correctas"> Todas son correctas</label>
+                    <label><input type="radio" name="q11" value="Ninguna es correcta"> Ninguna es correcta</label>
+                </div>
+                <div class="result" id="result-q11"></div>
+            </div>
+            <div class="question" id="q12">
+                <h3>12. Dentro de los distintos tipos de válvulas de control, cuál es la que se utiliza para controlar la fuerza aplicada por los actuadores:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q12" value="Válvula de presión"> Válvula de presión</label>
+                    <label><input type="radio" name="q12" value="Válvula distribuida"> Válvula distribuida</label>
+                    <label><input type="radio" name="q12" value="Ninguna es correcta"> Ninguna es correcta</label>
+                    <label><input type="radio" name="q12" value="Válvula de caudal (válvula de control de caudal)"> Válvula de caudal (válvula de control de caudal)</label>
+                </div>
+                <div class="result" id="result-q12"></div>
+            </div>
+            <div class="question" id="q13">
+                <h3>13. Los lubricantes sólidos más comúnmente utilizados son:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q13" value="Grafito y azufre"> Grafito y azufre</label>
+                    <label><input type="radio" name="q13" value="Grafito, bisulfuro de molibdeno y bronce"> Grafito, bisulfuro de molibdeno y bronce</label>
+                    <label><input type="radio" name="q13" value="Grafito, bronce y titanio"> Grafito, bronce y titanio</label>
+                    <label><input type="radio" name="q13" value="Jabón y bisulfuro de molibdeno"> Jabón y bisulfuro de molibdeno</label>
+                </div>
+                <div class="result" id="result-q13"></div>
+            </div>
+            <div class="question" id="q14">
+                <h3>14. ¿Qué elementos se usan para disminuir las velocidades de avance de un cilindro?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q14" value="Válvula reductora de presión"> Válvula reductora de presión</label>
+                    <label><input type="radio" name="q14" value="Válvula limitadora de presión"> Válvula limitadora de presión</label>
+                    <label><input type="radio" name="q14" value="Válvula reguladora de presión"> Válvula reguladora de presión</label>
+                    <label><input type="radio" name="q14" value="Válvula reguladora de caudal"> Válvula reguladora de caudal</label>
+                </div>
+                <div class="result" id="result-q14"></div>
+            </div>
+            <div class="question" id="q15">
+                <h3>15. ¿Cuál es la función de un acumulador?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q15" value="Frenar y amortiguar los actuadores"> Frenar y amortiguar los actuadores</label>
+                    <label><input type="radio" name="q15" value="Maximizar las pérdidas en el circuito hidráulico"> Maximizar las pérdidas en el circuito hidráulico</label>
+                    <label><input type="radio" name="q15" value="Optimizar el rendimiento de un sistema hidráulico"> Optimizar el rendimiento de un sistema hidráulico</label>
+                    <label><input type="radio" name="q15" value="Absorber picos de presión y variaciones de caudal"> Absorber picos de presión y variaciones de caudal</label>
+                </div>
+                <div class="result" id="result-q15"></div>
+            </div>
+            <div class="question" id="q16">
+                <h3>16. ¿Cuál es la función de un acumulador?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q16" value="Frenar y amortiguar los actuadores"> Frenar y amortiguar los actuadores</label>
+                    <label><input type="radio" name="q16" value="Maximizar las pérdidas en el circuito hidráulico"> Maximizar las pérdidas en el circuito hidráulico</label>
+                    <label><input type="radio" name="q16" value="Sumistrar un caudal adicional frente a transitorios"> Sumistrar un caudal adicional frente a transitorios</label>
+                </div>
+                <div class="result" id="result-q16"></div>
+            </div>
+            <div class="question" id="q17">
+                <h3>17. En la lubricación hidroestática:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q17" value="No es necesario que exista movimiento relativo entre las superficies"> No es necesario que exista movimiento relativo entre las superficies</label>
+                    <label><input type="radio" name="q17" value="Puede emplearse agua como lubricante"> Puede emplearse agua como lubricante</label>
+                    <label><input type="radio" name="q17" value="Es necesario realizar un filtro muy exigente del lubricante"> Es necesario realizar un filtro muy exigente del lubricante</label>
+                    <label><input type="radio" name="q17" value="A y C son correctas"> A y C son correctas</label>
+                </div>
+                <div class="result" id="result-q17"></div>
+            </div>
+            <div class="question" id="q18">
+                <h3>18. Cuando hablamos de vacío en neumática nos referimos a:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q18" value="Presiones menores de 0"> Presiones menores de 0</label>
+                    <label><input type="radio" name="q18" value="Presiones entre 0 y 1"> Presiones entre 0 y 1</label>
+                    <label><input type="radio" name="q18" value="Presiones menores que la presión atmosférica"> Presiones menores que la presión atmosférica</label>
+                </div>
+                <div class="result" id="result-q18"></div>
+            </div>
+            <div class="question" id="q19">
+                <h3>19. La situación en la que la capa de lubricante separa completamente al sólido principal y al opuesto se denomina:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q19" value="Lubricación hidrodinámica"> Lubricación hidrodinámica</label>
+                    <label><input type="radio" name="q19" value="Lubricación Mixta"> Lubricación Mixta</label>
+                    <label><input type="radio" name="q19" value="Lubricación límite"> Lubricación límite</label>
+                </div>
+                <div class="result" id="result-q19"></div>
+            </div>
+            <div class="question" id="q20">
+                <h3>20. ¿Cuál es el rango de presiones y flujos más adecuado para la utilización de compresores tipo axiales?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q20" value="De 5-20 bar y de 5102-5104 l/s"> De 5-20 bar y de 5102-5104 l/s</label>
+                    <label><input type="radio" name="q20" value="De 1-30 bar y de 50-5102 l/s"> De 1-30 bar y de 50-5102 l/s</label>
+                    <label><input type="radio" name="q20" value="De 10-50 bar y de 5103-5105 l/s"> De 10-50 bar y de 5103-5105 l/s</label>
+                </div>
+                <div class="result" id="result-q20"></div>
+            </div>
+            <div class="question" id="q21">
+                <h3>21. La consistencia de una grasa es:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q21" value="La influencia de la temperatura de su grado de solidez"> La influencia de la temperatura de su grado de solidez</label>
+                    <label><input type="radio" name="q21" value="La resistencia a la deformación cuando se aplica una fuerza"> La resistencia a la deformación cuando se aplica una fuerza</label>
+                    <label><input type="radio" name="q21" value="La variación de su viscosidad con la temperatura"> La variación de su viscosidad con la temperatura</label>
+                </div>
+                <div class="result" id="result-q21"></div>
+            </div>
+            <div class="question" id="q22">
+                <h3>22. ¿A la medida del cambio de viscosidad de un aceite con la temperatura se le denomina?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q22" value="Índice de viscosidad"> Índice de viscosidad</label>
+                    <label><input type="radio" name="q22" value="Termoviscosidad"> Termoviscosidad</label>
+                    <label><input type="radio" name="q22" value="Viscosidad dinámica"> Viscosidad dinámica</label>
+                    <label><input type="radio" name="q22" value="Viscosidad cinemática"> Viscosidad cinemática</label>
+                </div>
+                <div class="result" id="result-q22"></div>
+            </div>
+            <div class="question" id="q23">
+                <h3>23. Para que sea efectivo un acumulador cargado con gas, la presión inicial del gas:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q23" value="Tiene que ser superior a la del circuito del sistema"> Tiene que ser superior a la del circuito del sistema</label>
+                    <label><input type="radio" name="q23" value="Tiene que ser igual a la del circuito del sistema"> Tiene que ser igual a la del circuito del sistema</label>
+                    <label><input type="radio" name="q23" value="Tiene que ser menor a la del circuito del sistema"> Tiene que ser menor a la del circuito del sistema</label>
+                </div>
+                <div class="result" id="result-q23"></div>
+            </div>
+            <div class="question" id="q24">
+                <h3>24. Un cable Lang es aquel que:</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q24" value="Los alambres en el cordón y los cordones en el cable se enrollan en el mismo sentido, consiguiendo una mayor resistencia"> Los alambres en el cordón y los cordones en el cable se enrollan en el mismo sentido, consiguiendo una mayor resistencia</label>
+                    <label><input type="radio" name="q24" value="Los alambres en el cordón y los cordones en el cable se enrollan en distintos sentidos, consiguiendo mayor flexibilidad"> Los alambres en el cordón y los cordones en el cable se enrollan en distintos sentidos, consiguiendo mayor flexibilidad</label>
+                    <label><input type="radio" name="q24" value="Los alambres en el cordón y los cordones en el cable se enrollan en el mismo sentido, consiguiendo una mayor superficie de apoyo"> Los alambres en el cordón y los cordones en el cable se enrollan en el mismo sentido, consiguiendo una mayor superficie de apoyo</label>
+                </div>
+                <div class="result" id="result-q24"></div>
+            </div>
+            <div class="question" id="q25">
+                <h3>25. La válvula distribuidora representada en la siguiente figura corresponde a un:</h3>
+                <img src="C:\Users\maril\Box Sync\MII\2324_1 máster\2_cuatri\04 transporte\refxtest\imagen7.png" alt="Válvula 1">
+                <div class="answers">
+                    <label><input type="radio" name="q25" value="Válvula a centro presurizado"> Válvula a centro presurizado</label>
+                    <label><input type="radio" name="q25" value="Válvula a centro cerrado"> Válvula a centro cerrado</label>
+                    <label><input type="radio" name="q25" value="Ninguna es correcta"> Ninguna es correcta</label>
+                    <label><input type="radio" name="q25" value="Válvulas a centro escape"> Válvulas a centro escape</label>
+                </div>
+                <div class="result" id="result-q25"></div>
+            </div>
+            <button type="button" class="submit-button" onclick="checkAnswers()">Enviar</button>
+        </form>
+        <a href="C:\Users\maril\Box Sync\MII\2324_1 máster\2_cuatri\04 transporte\index.html" class="button">Inicio</a>
+        <div id="finalResult" class="result"></div>
+    </div>
+
+    <script>
+        function checkAnswers() {
+            const correctAnswers = {
+                q1: 'Protege al sistema frente a sobrepresiones',
+                q2: 'Condición de lubricación límite en la que altas unidades de carga y/o altas velocidades hace que los elementos en contacto se deformen elásticamente debido a la incomprensibilidad de la capa de lubricante bajo una presión muy alta',
+                q3: 'SAE 5w50',
+                q4: 'Muchos alambres, muchos cordones, alma textil, preformado, cable Lang y acero de baja resistencia específica',
+                q5: 'Bajo punto de derrame y bajo índice de viscosidad, media volatilidad, bajo punto de ignición y alto índice de viscosidad',
+                q6: 'La cantidad de material de desgaste es pequeña, pero se da en zonas donde no era esperable la existencia de desgaste',
+                q7: 'Ofrecen una banda muerta de paso por cero de menos del 3% del recorrido del carrete',
+                q8: '6X36+1WS',
+                q9: 'Utilizar lubricantes con gran fuerza de adherencia',
+                q10: 'A y C son correctas',
+                q11: 'Todas son correctas',
+                q12: 'Válvula de caudal (válvula de control de caudal)',
+                q13: 'Grafito, bisulfuro de molibdeno y bronce',
+                q14: 'Válvula reguladora de caudal',
+                q15: 'Absorber picos de presión y variaciones de caudal',
+                q16: 'Sumistrar un caudal adicional frente a transitorios',
+                q17: 'A y C son correctas',
+                q18: 'Presiones menores que la presión atmosférica',
+                q19: 'Lubricación hidrodinámica',
+                q20: 'De 5-20 bar y de 5102-5104 l/s',
+                q21: 'La resistencia a la deformación cuando se aplica una fuerza',
+                q22: 'Índice de viscosidad',
+                q23: 'Tiene que ser menor a la del circuito del sistema',
+                q24: 'Los alambres en el cordón y los cordones en el cable se enrollan en el mismo sentido, consiguiendo una mayor superficie de apoyo',
+                q25: 'Válvula a centro presurizado',
+            };
+
+            let score = 0;
+            const form = document.getElementById('quizForm');
+            const formData = new FormData(form);
+
+            for (let question in correctAnswers) {
+                const questionDiv = document.getElementById(question);
+                const resultDiv = document.getElementById(`result-${question}`);
+                const answer = formData.get(question);
+
+                if (answer === correctAnswers[question]) {
+                    score++;
+                    questionDiv.classList.add('correct');
+                    questionDiv.classList.remove('incorrect');
+                    resultDiv.innerHTML = `<p class="correct">Correcto</p>`;
+                } else {
+                    questionDiv.classList.add('incorrect');
+                    questionDiv.classList.remove('correct');
+                    resultDiv.innerHTML = `<p class="incorrect">Incorrecto. Respuesta correcta: ${correctAnswers[question]}</p>`;
+                }
+            }
+
+            const finalResultDiv = document.getElementById('finalResult');
+            finalResultDiv.innerHTML = `<p>Puntuación: ${score} / ${Object.keys(correctAnswers).length}</p>`;
+        }
+    </script>
+</body>
+</html>
